@@ -1,0 +1,20 @@
+<div id="micrositiocontainer">
+
+    <div class="imagenmicrositio">
+      <aside>
+        <%= image_tag @micrositio.photo.url(:medium) %>
+      </aside>
+    </div>
+
+
+    <div class="micrositioarticulo">
+            <div class="micrositionombre">
+                <h1><%=	@micrositio.name  %> </h1>
+            </div>
+            <div class="micrositiodescripcion">
+                 <p><%=	@micrositio.descripcion  %></p>
+            </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,48 @@
+<h1>New EVENTO</h1>
+
+<div class="row">
+  <div id="formrow">
+    <%= form_for(@evento, :html => { :multipart => true }) do |f| %>
+
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <div id="eventosfomrleft">
+        <%= f.label :nombre %>
+        <%= f.text_field :nombre %>
+
+        <%= f.label :descripcion %>
+        <%= f.text_area :descripcion %>
+
+        <%= f.label :imagen %>
+        <%= f.file_field :photo %>
+        <hr>
+        <%= f.label :artista %>
+        <%= f.text_field :artista %>
+
+        <%= f.label :precio %>
+        <%= f.text_field :precio %>
+
+        <%= f.label :"Página Web Oficial" %>
+        <%= f.text_field :urloficial %>
+        </div>
+
+
+        <div id="eventosformright">
+        <%= f.label :fecha %>
+        <%= f.date_select :fecha %>
+        </div>
+        <div id="eventosformsubmit">
+        <%= f.submit "Sube tu evento", class: "btn btn-large btn-primary" %>
+        </div>
+    <% end %>
+
+
+  </div>
+</div>
+
+<div class="footereventos">
+  <%= link_to 'Back', eventos_path %>
+</div>
+
+
+

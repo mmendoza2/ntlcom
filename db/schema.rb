@@ -46,4 +46,52 @@ ActiveRecord::Schema.define(version: 20130315230445) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
+  create_table "eventos", force: true do |t|
+    t.string   "nombre"
+    t.string   "descripcion"
+    t.datetime "fecha",              limit: 255
+    t.string   "photo"
+    t.string   "urloficial"
+    t.string   "artista"
+    t.string   "entradatipo"
+    t.string   "precio"
+    t.string   "votos"
+    t.string   "ranking"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.string   "slug"
+  end
+
+  add_index "eventos", ["slug"], name: "index_eventos_on_slug"
+
+  create_table "locations", force: true do |t|
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "city"
+    t.string   "state"
+    t.string   "state_code"
+    t.string   "postal_code"
+    t.string   "country"
+    t.string   "country_code"
+    t.string   "distance"
+  end
+  create_table "micrositios", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.string   "descripcion"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.string   "photo"
+  end
+
 end

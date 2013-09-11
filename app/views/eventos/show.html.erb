@@ -1,0 +1,78 @@
+<div class="contenedor">
+  <div id="eventostitulocontendedor">
+    <div id="eventostitulovotos">
+      100 votos
+    </div>
+    <div id="eventostitulo">
+      <h1><%=	@evento.nombre %> </h1>
+    </div>
+    <div id="eventostitulocomparteredes">
+      compartelo en las redes ya
+    </div>
+  </div>
+
+
+
+  <div id="eventosfotoprincipalcontenedor">
+  <button id="eventosbotonfotoizq"></button>
+  <div id="eventosfotoprincipal"> <%= image_tag @evento.photo.url(:big) %>  </div>
+  <button id="eventosbotonfotoder"></button>
+  </div>
+
+  <article>
+  <div id="eventosdescripcioncontenedor">
+      <div id="eventosfecha">
+      <p> Fecha del evento: </p>
+      <%=	@evento.fecha %>
+      </div>
+      <div id="eventosartista">
+      <p> Artistas: </p>
+      <%= 	 @evento.artista %>
+      </div>
+      <p> Descripción: </p>
+      <div id="eventosdescripcion">
+      <%=	@evento.descripcion  %>
+      </div>
+      <div id="eventosprecio">
+        <p>Precio del Evento:</p>
+        <p> $ <%=@evento.precio %> </p>
+      </div>
+      <div id="eventosurloficial">
+        <%=@evento.urloficial %>
+      </div>
+      <div id="eventosmicrositio">
+        <%= @micrositioevento %>
+      </div>
+  </div>
+  </article>
+  <div id="eventosotroseventoscontendeor">
+  <div id="eventosotroseventostitulo">
+    // Otros eventos //
+  </div>
+  <div id="eventosotroseventos">
+      <div>
+        <% @eventos.each do |evento|%>
+          <ul>
+            <div id="eventoimagenesnombre">
+            <h2> <%= link_to evento.nombre, evento.nombre %> </h2>
+            </div>
+            <div id="eventosimagenes">
+            <%=	link_to image_tag evento.photo.url(:small) %>
+            </div>
+            <hr>
+          </ul>
+         <% end %>
+      </div>
+  </div>
+  <div id="eventosmostrartodos" class="centrado">
+    <%=	 link_to "Todos los Eventos", controller:"eventos", action:"index" %>
+  </div>
+</div>
+
+
+  <div id="footereventos">
+    <div id="eventosmostrartodos">
+    <%=	 link_to "Todos los Eventos", controller:"eventos", action:"index" %>
+    </div>
+  </div>
+</div>

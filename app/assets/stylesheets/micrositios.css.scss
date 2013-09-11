@@ -1,0 +1,48 @@
+// Place all the styles related to the micrositios controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#micrositiocontainer{
+  height: 900px;
+
+}
+
+.imagenmicrositio {
+  float: left;
+  width: 420px;
+  height: 500px;
+}
+
+.micrositioarticulo{
+  width: 420px;
+  height: 500px;
+  padding-left: 30px;
+  float: left;
+}
+
+.micrositionombre {
+}
+.micrositiodescripcion {
+  word-wrap: break-word;
+}
+.micrositiodescripcionlista {
+  word-wrap: break-word;
+  overflow: hidden;
+}
+.micrositiodescripcionlistatitulo{
+  width: 500px;
+}
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+.micrositiodescripcionlistaaltura{
+  height: 50px;
+
+  position: static;
+}
+
+
+
+
+

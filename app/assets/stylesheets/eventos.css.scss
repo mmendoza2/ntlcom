@@ -1,0 +1,196 @@
+// Place all the styles related to the eventos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.centrado{
+  text-align: center;
+  color: #000000;
+}
+
+.contenedor{
+   width: 100%;
+   height: 2000px;
+   background-color: #c8d88a;
+ }
+
+//PAGINA PRINCIPAL DE EVENTOS
+
+//CONTENDEDOR TITUILO
+
+#eventostitulocontendedor{
+  width: 100%;
+  background-color: green;
+}
+#eventostitulovotos{
+  width: 30%;
+  float: left;
+  background-color: darkorange;
+}
+#eventostitulocomparteredes{
+  width: 30%;
+  float: right;
+  background-color: darkolivegreen;
+}
+#eventostitulo{
+  width: 35%;
+  text-align: center;
+  background-color: cadetblue;
+  color: #122dff;
+  float: left;
+}
+
+// EVENTOS IMAGEN PRINCIPAL
+
+#eventosfotoprincipalcontenedor{
+  width: 100%;
+  height: auto;
+  background-color: moccasin;
+  float: left;
+}
+
+#eventosfotoprincipal{
+  text-align: center;
+  background-color: #0d0000;
+  width: 750px;
+  float: left;
+  margin-left: 4px;
+}
+
+#eventosbotonfotoizq{
+  height: 300px;
+  width: 90px;
+  float: left;
+  vertical-align: middle;
+}
+
+#eventosbotonfotoder{
+  height: 300px;
+  width: 90px;
+  float: right;
+}
+
+//EVENTOS DESCRIPCION
+
+#eventosdescripcioncontenedor{
+  width: 65%;
+  float: left;
+  margin: 10px;
+  height: auto;
+  background-color: yellow;
+}
+
+#eventosfecha{
+  text-align: left;
+  font-size: 1.5em;
+  font-weight: bold;
+  background-color: greenyellow;
+  margin-bottom: 5px;
+}
+
+#eventosdescripcion{
+  border: #000000;
+  background-color: grey;
+  word-wrap: break-word;
+  padding-top: 15px;
+  height: 350px;
+  overflow: scroll;
+}
+
+#eventosartista{
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 15px;
+  background-color: cornflowerblue;
+  margin-bottom: 10px;
+}
+
+#eventosprecio{
+  font-size: 15px;
+  font-weight: bold;
+  padding-top: 20px;
+  background-color: aliceblue;
+}
+
+#eventosurloficial{
+  font-size: 20px;
+  padding-top: 20px;
+  background-color: dodgerblue;
+}
+
+#eventosmicrositio{
+  width: 50%;
+  height: 200px;
+}
+// OTROS EVENTOS
+
+#eventosotroseventoscontendeor{
+  float: left;
+  width: 30%;
+  margin-top: 10px;
+}
+
+#eventosotroseventos{
+  width: 100%;
+  height: 700px;
+  float: left;
+  margin-top: 15px;
+  text-align: left;
+  overflow: hidden;
+  overflow: scroll;
+  background-color: grey;
+  text-align: center;
+  padding-right: 20px;
+  margin-bottom: 10px;
+}
+
+#eventosotroseventostitulo{
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: hotpink;
+  text-align: center;
+
+}
+
+#eventoimagenesnombre{
+  font-weight: bold;
+}
+#eventosimagenes{
+
+}
+
+// FOOTER EVENTOS
+#footereventos{
+  margin-top: 10px;
+  background-color: cadetblue;
+  float: left;
+  border-top: 2px #000000;
+  vertical-align: text-bottom;
+}
+#eventosmostrartodos{
+  padding-left: 30px;
+  font-weight: bold;
+  font-size: 15px;
+
+}
+
+//FORMA PARA SUBIR EVENTOS
+#eventosformrow{
+  width: 100%;
+}
+
+#eventosfomrleft{
+  float: left;
+  width: 45%;
+}
+
+#eventosformright{
+  float: right;
+  width: 45%;
+}
+#eventosformsubmit   {
+  float: right;
+  width: 20%;
+  margin-top: 300px;
+}
+
