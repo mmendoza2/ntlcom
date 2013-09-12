@@ -25,14 +25,4 @@ SampleApp::Application.configure do
   # Debug mode disables concatenation and preprocessing of assets.
   config.assets.debug = true
 
-  config.paperclip_defaults = {
-      :storage => :s3,
-      :s3_credentials => {
-          :bucket => ENV['imagenes.notelimites'],
-          :access_key_id => ENV['AKIAIGT6FKDTHJU3WMDQ'],
-          :secret_access_key => ENV['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']
-      }
-  }
-
-
 end

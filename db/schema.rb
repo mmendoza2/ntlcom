@@ -11,7 +11,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130315230445) do
+ActiveRecord::Schema.define(version: 20130912204237) do
+
+  create_table "eventos", force: true do |t|
+    t.string   "nombre"
+    t.string   "descripcion"
+    t.datetime "fecha",              limit: 255
+    t.string   "photo"
+    t.string   "urloficial"
+    t.string   "artista"
+    t.string   "entradatipo"
+    t.string   "precio"
+    t.string   "votos"
+    t.string   "ranking"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.string   "slug"
+    t.string   "diaevento"
+    t.string   "d1"
+    t.string   "d2"
+    t.string   "d3"
+    t.string   "d4"
+    t.string   "d5"
+    t.string   "d6"
+  end
+
+  add_index "eventos", ["slug"], name: "index_eventos_on_slug"
+
+  create_table "locations", force: true do |t|
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "city"
+    t.string   "state"
+    t.string   "state_code"
+    t.string   "postal_code"
+    t.string   "country"
+    t.string   "country_code"
+    t.string   "distance"
+  end
 
   create_table "microposts", force: true do |t|
     t.string   "content"
@@ -21,6 +65,18 @@ ActiveRecord::Schema.define(version: 20130315230445) do
   end
 
   add_index "microposts", ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
+
+  create_table "micrositios", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.string   "descripcion"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.string   "photo"
+  end
 
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"
@@ -45,53 +101,5 @@ ActiveRecord::Schema.define(version: 20130315230445) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
-
-  create_table "eventos", force: true do |t|
-    t.string   "nombre"
-    t.string   "descripcion"
-    t.datetime "fecha",              limit: 255
-    t.string   "photo"
-    t.string   "urloficial"
-    t.string   "artista"
-    t.string   "entradatipo"
-    t.string   "precio"
-    t.string   "votos"
-    t.string   "ranking"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
-    t.string   "slug"
-  end
-
-  add_index "eventos", ["slug"], name: "index_eventos_on_slug"
-
-  create_table "locations", force: true do |t|
-    t.string   "address"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "city"
-    t.string   "state"
-    t.string   "state_code"
-    t.string   "postal_code"
-    t.string   "country"
-    t.string   "country_code"
-    t.string   "distance"
-  end
-  create_table "micrositios", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "name"
-    t.string   "descripcion"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
-    t.string   "photo"
-  end
 
 end
