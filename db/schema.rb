@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130912204237) do
+ActiveRecord::Schema.define(version: 20130914165248) do
 
   create_table "eventos", force: true do |t|
     t.string   "nombre"
@@ -38,6 +38,10 @@ ActiveRecord::Schema.define(version: 20130912204237) do
     t.string   "d4"
     t.string   "d5"
     t.string   "d6"
+    t.string   "d7"
+    t.string   "d8"
+    t.string   "d9"
+    t.string   "d10"
   end
 
   add_index "eventos", ["slug"], name: "index_eventos_on_slug"
