@@ -1,25 +1,25 @@
-<h1>Listing eventos</h1>
+<h1>Todos los Eventos</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div class="contenedor">
 
-  <tbody>
-    <% @eventos.each do |evento| %>
-      <tr>
-        <td><%= link_to 'Show', evento %></td>
-        <td><%= link_to 'Edit', edit_evento_path(evento) %></td>
-        <td><%= link_to 'Destroy', evento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<ul>
+  <% @eventos.each do |evento| %>
+      <% if evento.nombre.blank?  %>
+          <li id="cadaevento">
+            <%= link_to evento.d1, evento %>
+            <%= link_to image_tag(evento.d10), evento %>
+      <%	 else %>
+          <li id="cadaevento">
+              <%= link_to evento.nombre, evento %>
+              <%= link_to image_tag evento.photo.url(:small) %>
+          </li>
+      <% end %>
+  <% end %>
 
-<br>
+</ul>
+
+
 
 <%= link_to 'New Evento', new_evento_path %>
+
+</div>

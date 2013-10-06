@@ -11,7 +11,19 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+
+
+//<![CDATA[
+$(function(){
+    $('#slider div:gt(0)').hide();
+    setInterval(function(){
+        $('#slider div:first-child').fadeOut(0)
+            .next('div').fadeIn(1000)
+            .end().appendTo('#slider');}, 4000);
+});
+//]]>

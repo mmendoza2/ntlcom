@@ -1,4 +1,8 @@
 SampleApp::Application.routes.draw do
+  resources :search_suggestions
+
+  resources :estados
+
   resources :users do
     member do
       get :following, :followers

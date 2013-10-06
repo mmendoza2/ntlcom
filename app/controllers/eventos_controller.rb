@@ -11,7 +11,8 @@ class EventosController < ApplicationController
   # GET /eventos/1.json
   def show
     @eventos = Evento.all
-    @micrositioevento= Micrositio
+    @micrositioevento= Micrositio.all
+    @thisurl =  request.original_url
   end
 
   # GET /eventos/new
@@ -63,10 +64,15 @@ class EventosController < ApplicationController
     end
   end
 
+
   def has_attached_file
   end
 
   def photo
+  end
+
+  def search
+    @eventos = Evento.search params[:search]
   end
 
 
@@ -79,6 +85,6 @@ class EventosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evento_params
-      params[:evento].permit(:nombre, :descripcion, :photo, :precio, :fecha, :artista, :urloficial)
+      params[:evento].permit(:nombre, :descripcion, :photo, :precio, :fecha, :artista, :urloficial, :estado)
     end
 end

@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130914165248) do
+ActiveRecord::Schema.define(version: 20131003160040) do
+
+  create_table "estados", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "estado"
+    t.string   "slug"
+    t.string   "poblacion"
+  end
+
+  add_index "estados", ["slug"], name: "index_estados_on_slug"
 
   create_table "eventos", force: true do |t|
     t.string   "nombre"
@@ -42,6 +52,16 @@ ActiveRecord::Schema.define(version: 20130914165248) do
     t.string   "d8"
     t.string   "d9"
     t.string   "d10"
+    t.string   "estado"
+    t.string   "poblacion"
+    t.integer  "principal"
+    t.integer  "fechainicio"
+    t.integer  "fechafin"
+    t.integer  "mes"
+    t.integer  "dia"
+    t.integer  "actividad"
+    t.string   "fotografia"
+    t.integer  "institucion"
   end
 
   add_index "eventos", ["slug"], name: "index_eventos_on_slug"
@@ -92,6 +112,13 @@ ActiveRecord::Schema.define(version: 20130914165248) do
   add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
   add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
+
+  create_table "search_suggestions", force: true do |t|
+    t.string   "term"
+    t.integer  "popularity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"

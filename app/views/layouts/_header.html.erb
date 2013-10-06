@@ -1,5 +1,18 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=182819485154177";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
 <header class="navbar navbar-fixed-top navbar-inverse">
+
+
   <div class="navbar-inner">
+
     <div class="container">
       <%= link_to "NoTeLimites", root_path, id: "logo" %>
       <nav>
@@ -26,6 +39,12 @@
           <% end %>
         </ul>
       </nav>
+
     </div>
+
   </div>
+
+  <div class="subelugar" ><%= link_to image_tag("sube_lugar_arriba.png"), 'micrositios/new' %>   </div>
+  <div class="reservaviaje" ><%= link_to  image_tag("reserva_tu_viaje.png"), 'http://viajes.notelimites.com/Hoteles/Lista?af=NOTELIMITES&ds=123'  %>   </div>
+
 </header>

@@ -1,11 +1,15 @@
 
-
 <% if signed_in? %>
     <div class="row">
       <section class="menu">
+        <p>...................................</p>
         <%=  link_to "Micrositios", controller: "micrositios", action:"index"  %>
         <p>...................................</p>
         <%=  link_to "Eventos", controller: "eventos", action:"index"  %>
+        <p>...................................</p>
+        <%=  link_to "Estados", controller: "estados", action:"index"  %>
+        <p>...................................</p>
+
       </section>
       <aside class="span4">
         <section>
@@ -38,5 +42,11 @@
                   class: "btn btn-large btn-primary" %>
     </div>
 
-
 <% end %>
+
+
+
+
+<div class="fb-like" data-href="https://www.facebook.com/NoTeLimites" data-width="The pixel width of the plugin" data-colorscheme="light" data-layout="standard" data-action="like" data-show-faces="true" data-send="false"></div>
+
+<div class="fb-comments" data-href="http://notelimites.com" data-numposts="10"></div>
