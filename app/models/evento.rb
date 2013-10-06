@@ -28,25 +28,6 @@ class Evento < ActiveRecord::Base
 
 
 
-  # Returns the +String+ full path including params of the last URL requested.
-  #
-  #    # get "/articles"
-  #    request.fullpath # => "/articles"
-  #
-  #    # get "/articles?page=2"
-  #    request.fullpath # => "/articles?page=2"
-  def fullpath
-    @fullpath ||= super
-  end
-
-  # Returns the original request URL as a +String+.
-  #
-  #    # get "/articles?page=2"
-  #    request.original_url # => "http://www.example.com/articles?page=2"
-  def original_url
-    base_url + original_fullpath
-  end
-
 
 
 
