@@ -1,0 +1,19 @@
+<div class="contenedor">
+
+<h1> Todos los Estados </h1>
+
+
+  <ul>
+    <% @estadosalf.each do |estado| %>
+        <li class="estados">
+          <%= link_to estado.estado, estado %>
+        </li>
+    <% end %>
+  </ul>
+
+</div>
+
+
+<%= link_to 'New Estado', new_estado_path %>
+
+

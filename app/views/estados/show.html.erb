@@ -1,0 +1,77 @@
+
+
+<% if @estado.estado == 'Baja California' %>
+
+<p id="notice"><%= notice %></p>
+
+<div class="contenedor">
+
+<h1><%=	@estado.estado %> </h1>
+
+
+  <div class="imagenprinc">
+    <div id="slider">
+  <% @eventos.each do |evento| %>
+      <% if evento.principal == 1 %>
+              <div>
+                <%= link_to image_tag(evento.photo.url(:big)), evento %>
+                <p><%=evento.nombre%></p>
+              </div>
+      <% end %>
+  <% end %>
+    </div>
+  </div>
+
+  <div class="searchestados">
+    <%= form_tag(@evento, method: "get") do %>
+        <%= label_tag(:nombre, "Search for:") %>
+        <%= text_field_tag(:nombre) %>
+        <%= submit_tag("Search") %>
+    <% end %>
+  </div>
+
+<div class="contenedoreventoslista">
+
+
+
+<ul>
+  <% @eventos.each do |evento| %>
+      <% if evento.estado == 'Baja California' %>
+        <% if evento.nombre.blank?  %>
+         <li class="listaeventos">
+            <div class="imagenlistaeventos"> <%= link_to image_tag(evento.d10), evento %>  </div>
+           <div class="textolistaeventos">
+            <div class="nombrelistaeventos"> <%= link_to evento.d2, evento %></div>
+            <div class="ubicacionlistaeventos"> <%=  evento.d3 %> </div>
+            <div class="descripcionlistaeventos"> <%=  evento.d4 %> </div>
+            </div>
+         </li>
+              <hr>
+         <%	 else %>
+          <li class="listaeventos">
+            <div class="imagenlistaeventos"> <%= link_to image_tag(evento.photo.url(:small)), evento %>  </div>
+            <div class="textolistaeventos">
+              <div class="nombrelistaeventos"> <%= link_to evento.nombre, evento %></div>
+              <div class="ubicacionlistaeventos"> <%=  evento.artista %> </div>
+              <div class="descripcionlistaeventos"> <%=  evento.descripcion %> </div>
+            </div>
+         </li>
+        <%	end %>
+      <% end %>
+  <% end %>
+</ul>
+
+
+
+
+</div>
+
+
+
+
+
+  <% end %>
+<%= link_to 'Edit', edit_estado_path(@estado) %> |
+<%= link_to 'Back', estados_path %>
+
+</div>

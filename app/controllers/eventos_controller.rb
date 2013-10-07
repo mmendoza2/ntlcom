@@ -12,12 +12,13 @@ class EventosController < ApplicationController
   def show
     @eventos = Evento.all
     @micrositioevento= Micrositio.all
-    @thisurl =  request.original_url
+
   end
 
   # GET /eventos/new
   def new
     @evento = Evento.new
+    @estados = Estado.new
   end
 
   # GET /eventos/1/edit
@@ -28,7 +29,6 @@ class EventosController < ApplicationController
   # POST /eventos.json
   def create
     @evento = Evento.new(evento_params)
-
     respond_to do |format|
       if @evento.save
         format.html { redirect_to @evento, notice: 'Evento was successfully created.' }
@@ -78,7 +78,6 @@ class EventosController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-
   def set_evento
     @evento = Evento.friendly.find(params[:id])
   end
@@ -87,4 +86,11 @@ class EventosController < ApplicationController
     def evento_params
       params[:evento].permit(:nombre, :descripcion, :photo, :precio, :fecha, :artista, :urloficial, :estado)
     end
+
+  def correct_user
+    @evento = current_user.eventos.find_by(id: params[:id])
+    redirect_to root_url if @evento.nil?
+  end
+
+
 end

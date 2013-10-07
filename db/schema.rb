@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131003160040) do
+ActiveRecord::Schema.define(version: 20131007210652) do
 
   create_table "estados", force: true do |t|
     t.datetime "created_at"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20131003160040) do
     t.string   "artista"
     t.string   "entradatipo"
     t.string   "precio"
-    t.string   "votos"
+    t.integer  "votos",              limit: 255
     t.string   "ranking"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 20131003160040) do
     t.integer  "actividad"
     t.string   "fotografia"
     t.integer  "institucion"
+    t.integer  "user_id"
+    t.integer  "estado_id"
   end
 
   add_index "eventos", ["slug"], name: "index_eventos_on_slug"

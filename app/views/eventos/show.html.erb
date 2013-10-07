@@ -1,7 +1,17 @@
 <div class="contenedor">
   <div id="eventostitulocontendedor">
     <div id="eventostitulovotos">
-      100 votos
+      <div id="formrow">
+        <%= form_for(@evento, :html => { :multipart => true }) do |f| %>
+
+            <%= render 'shared/error_messages', object: f.object %>
+
+            <%= f.label :votos %>
+            <%= check_box_tag 'Vota', 1 %>
+
+        <% end %>
+      </div>
+
     </div>
     <div id="eventostitulo">
       <h1><%=	@evento.nombre %> </h1>
@@ -9,6 +19,8 @@
     <div id="eventostitulocomparteredes">
       <div class="fb-like" data-href="<%=request.original_url%>" data-height="The pixel height of the plugin" data-colorscheme="light" data-layout="box_count" data-action="recommend" data-show-faces="true" data-send="false"></div>
       <a href="https://twitter.com/share" class="twitter-share-button" data-via="NTLmx" data-lang="es" data-size="large">Twittear</a>
+      <div class="g-plusone" data-annotation="inline" data-width="120"></div>
+
     </div>
   </div>
 

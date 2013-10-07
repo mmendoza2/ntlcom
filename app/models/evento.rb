@@ -1,11 +1,12 @@
 class Evento < ActiveRecord::Base
+
+  default_scope -> { order('created_at DESC') }
   validates :nombre, presence: true
   validates :descripcion, presence: true
   validates :artista, presence: true
   validates :precio, presence: true
   validates :fecha, presence: true
   validates :urloficial, presence: true
-  validates :estado, presence: true
   has_attached_file :photo, :styles => {:biggest => "900x900>", :big => "600x600>", :medium => "400x400>", :small => "200x200>", :smallest =>"100x100>" },
                     :url  => ":s3_domain_url",
                     :path => "/:class/:attachment/:id_partition/:style/:filename"
