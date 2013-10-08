@@ -27,36 +27,48 @@
 
 
   <div id="eventosfotoprincipalcontenedor">
-  <button id="eventosbotonfotoizq"></button>
-  <div id="eventosfotoprincipal"> <%= image_tag @evento.photo.url(:big) %>  </div>
-  <button id="eventosbotonfotoder"></button>
+
+      <div id="eventosfotoprincipal">
+        <%= image_tag @evento.photo.url(:big) %>
+      </div>
+
+      <div id="eventosdescripcioncontenedorimg">
+        <article>
+              <div id="eventosfecha">
+                <p> Fecha del evento: </p>
+                <%=	@evento.fecha %>
+              </div>
+              <div id="eventosartista">
+                <p> Artistas: </p>
+                <%= 	 @evento.artista %>
+              </div>
+              <div id="eventosprecio">
+                <p>Precio del Evento:</p>
+                <p> $ <%=@evento.precio %> </p>
+              </div>
+              <div id="eventosurloficial">
+                <%=@evento.urloficial %>
+              </div>
+
+        </article>
+      </div>
   </div>
 
   <article>
   <div id="eventosdescripcioncontenedor">
-      <div id="eventosfecha">
-      <p> Fecha del evento: </p>
-      <%=	@evento.fecha %>
-      </div>
-      <div id="eventosartista">
-      <p> Artistas: </p>
-      <%= 	 @evento.artista %>
-      </div>
+
+
       <p> Descripción: </p>
       <div id="eventosdescripcion">
       <%=	@evento.descripcion  %>
       </div>
-      <div id="eventosprecio">
-        <p>Precio del Evento:</p>
-        <p> $ <%=@evento.precio %> </p>
-      </div>
-      <div id="eventosurloficial">
-        <%=@evento.urloficial %>
-      </div>
+
+      <div class="fb-comments" data-href="<%=request.original_url%>" data-numposts="10"></div>
+
       <div id="eventosmicrositio">
         <%= @micrositioevento %>
       </div>
-      <div class="fb-comments" data-href="<%=request.original_url%>" data-numposts="10"></div>
+
   </div>
   </article>
   <div id="eventosotroseventoscontendeor">
