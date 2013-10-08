@@ -1,4 +1,6 @@
 class EventosController < ApplicationController
+  before_action :signed_in_user, only: [:create, :destroy]
+  before_action :correct_user,   only: :destroy
   before_action :set_evento, only: [:show, :edit, :update, :destroy]
 
   # GET /eventos
@@ -28,7 +30,7 @@ class EventosController < ApplicationController
   # POST /eventos
   # POST /eventos.json
   def create
-    @evento = Evento.new(evento_params)
+    @evento = current_user.eventos.build(evento_params)
     respond_to do |format|
       if @evento.save
         format.html { redirect_to @evento, notice: 'Evento was successfully created.' }

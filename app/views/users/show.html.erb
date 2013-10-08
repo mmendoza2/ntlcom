@@ -21,4 +21,16 @@
       <%= will_paginate @microposts %>
     <% end %>
   </div>
+
+  <div class="span8">
+
+    <% if @user.eventos.any? %>
+        <h3>Eventos (<%= @user.eventos.count %>)</h3>
+        <ol class="microposts">
+          <%= render @eventos %>
+        </ol>
+        <%= will_paginate @eventos %>
+    <% end %>
+
+  </div>
 </div>
