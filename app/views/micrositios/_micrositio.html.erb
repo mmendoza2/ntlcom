@@ -1,0 +1,11 @@
+<li>
+  <span class="content"><%= micrositio.name %></span>
+  <span class="timestamp">
+    Creado <%= time_ago_in_words(micrositio.created_at) %> ago.
+  </span>
+  <% if current_user?(micrositio.user) %>
+    <%= link_to "delete", micrositio, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: micrositio.name %>
+  <% end %>
+</li>

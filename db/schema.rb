@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131007210652) do
+ActiveRecord::Schema.define(version: 20131008062311) do
 
   create_table "estados", force: true do |t|
     t.datetime "created_at"
@@ -102,6 +102,7 @@ ActiveRecord::Schema.define(version: 20131007210652) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.string   "photo"
+    t.integer  "user_id"
   end
 
   create_table "relationships", force: true do |t|

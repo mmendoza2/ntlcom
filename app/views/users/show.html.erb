@@ -23,7 +23,6 @@
   </div>
 
   <div class="span8">
-
     <% if @user.eventos.any? %>
         <h3>Eventos (<%= @user.eventos.count %>)</h3>
         <ol class="microposts">
@@ -31,6 +30,15 @@
         </ol>
         <%= will_paginate @eventos %>
     <% end %>
+  </div>
 
+  <div class="span8">
+    <% if @user.micrositios.any? %>
+        <h3>Micrositios (<%= @user.micrositios.count %>)</h3>
+        <ol class="microposts">
+          <%= render @micrositios %>
+        </ol>
+        <%= will_paginate @micrositios %>
+    <% end %>
   </div>
 </div>

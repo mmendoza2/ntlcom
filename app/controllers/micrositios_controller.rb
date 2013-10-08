@@ -1,4 +1,6 @@
 class MicrositiosController < ApplicationController
+  before_action :signed_in_user, only: [:create, :destroy]
+  before_action :correct_user,   only: :destroy
   before_action :set_micrositio, only: [:show, :edit, :update, :destroy]
 
   # GET /micrositios
@@ -24,10 +26,10 @@ class MicrositiosController < ApplicationController
   # POST /micrositios
   # POST /micrositios.json
   def create
-    @micrositio = Micrositio.new(micrositio_params)
+    @micrositio = current_user.micrositios.build(micrositio_params)
     respond_to do |format|
       if @micrositio.save
-        format.html { redirect_to @micrositio, notice: 'Micrositio was successfully created.' }
+        format.html { redirect_to @micrositio, notice: '¡El Micrositio fue creado exitosamente!.' }
         format.json { render action: 'show', status: :created, location: @micrositio }
       else
         format.html { render action: 'new' }
@@ -76,4 +78,11 @@ class MicrositiosController < ApplicationController
     def micrositio_params
       params.require(:micrositio).permit(:name, :descripcion, :photo)
     end
+
+  def correct_user
+    @micrositio = current_user.micrositios.find_by(id: params[:id])
+    redirect_to root_url if @micrositio.nil?
+  end
+
 end
+
