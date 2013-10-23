@@ -2,6 +2,8 @@
   <div id="eventostitulocontendedor">
     <div id="eventostitulovotos">
       <div id="formrow">
+        <%= render 'follow_form' if signed_in? %>
+
         <%= form_for(@evento, :html => { :multipart => true }) do |f| %>
 
             <%= render 'shared/error_messages', object: f.object %>

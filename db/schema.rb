@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131008062311) do
+ActiveRecord::Schema.define(version: 20131022165051) do
 
   create_table "estados", force: true do |t|
     t.datetime "created_at"
@@ -103,7 +103,55 @@ ActiveRecord::Schema.define(version: 20131008062311) do
     t.datetime "photo_updated_at"
     t.string   "photo"
     t.integer  "user_id"
+    t.string   "title"
+    t.string   "alias"
+    t.string   "title_alias"
+    t.string   "introtext"
+    t.string   "fulltext"
+    t.integer  "state"
+    t.integer  "sectionid"
+    t.integer  "mask"
+    t.integer  "catid"
+    t.datetime "created"
+    t.integer  "created_by"
+    t.string   "created_by_alias"
+    t.datetime "modified"
+    t.integer  "modified_by"
+    t.integer  "checked_out"
+    t.datetime "checked_out_time"
+    t.datetime "publish_up"
+    t.datetime "publish_down"
+    t.text     "images"
+    t.text     "urls"
+    t.text     "attribs"
+    t.integer  "version"
+    t.integer  "parentid"
+    t.integer  "ordering"
+    t.text     "metakey"
+    t.text     "metadesc"
+    t.integer  "acces"
+    t.integer  "hits"
+    t.text     "metadata"
+    t.text     "imagen"
+    t.text     "lugar"
+    t.text     "munciudad"
+    t.text     "mapa"
+    t.text     "comollegar"
+    t.integer  "votos"
+    t.string   "fb_author"
+    t.string   "tagcategorias"
   end
+
+  create_table "relationeventos", force: true do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "relationeventos", ["followed_id"], name: "index_relationeventos_on_followed_id"
+  add_index "relationeventos", ["follower_id", "followed_id"], name: "index_relationeventos_on_follower_id_and_followed_id", unique: true
+  add_index "relationeventos", ["follower_id"], name: "index_relationeventos_on_follower_id"
 
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"
@@ -131,9 +179,23 @@ ActiveRecord::Schema.define(version: 20131008062311) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "admin"
+    t.string   "slug"
+    t.string   "username"
+    t.string   "password"
+    t.string   "usertype"
+    t.integer  "block"
+    t.integer  "sendEmail"
+    t.integer  "gid"
+    t.datetime "registerDate"
+    t.datetime "lastvisitDate"
+    t.string   "activation"
+    t.text     "params"
+    t.string   "fb_author"
+    t.text     "ntlparam"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+  add_index "users", ["slug"], name: "index_users_on_slug"
 
 end

@@ -8,6 +8,12 @@ SampleApp::Application.routes.draw do
       get :following, :followers
     end
   end
+  resources :eventos do
+    member do
+      get :following, :followers
+    end
+  end
+
   resources :eventos
   resources :locations
   resources :micrositios
@@ -15,6 +21,7 @@ SampleApp::Application.routes.draw do
   resources :sessions,      only: [:new, :create, :destroy]
   resources :microposts,    only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
+  resources :relationeventos, only: [:create, :destroy]
   root to: 'notelimites#home'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
