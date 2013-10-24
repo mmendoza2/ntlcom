@@ -4,11 +4,6 @@ class Evento < ActiveRecord::Base
   has_many :relationeventos, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationeventos, source: :followed
 
-  has_many :reverse_relationeventos, foreign_key: "followed_id",
-           class_name:  "Relationevento",
-           dependent:   :destroy
-  has_many :followers, through: :reverse_relationeventos, source: :follower
-
   validates :user_id, presence: true
   default_scope -> { order('created_at DESC') }
   validates :nombre, presence: true
@@ -31,17 +26,6 @@ class Evento < ActiveRecord::Base
   friendly_id :nombre, use: :slugged
 
 
-  def followingevento?(other_user)
-    relationeventos.find_by(followed_id: other_user.id)
-  end
-
-  def followevento!(other_user)
-    relationeventos.create!(followed_id: other_user.id)
-  end
-
-  def unfollowevento!(other_user)
-    relationeventos.find_by(followed_id: other_user.id).destroy!
-  end
 
 
 

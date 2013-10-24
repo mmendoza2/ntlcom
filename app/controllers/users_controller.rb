@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :signed_in_user,
-                only: [:create, :index, :edit, :update, :destroy, :following, :followers]
+                only: [:index, :edit, :update, :destroy, :following, :followers]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
 
@@ -10,7 +10,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.friendly.find(params[:id])
-    @evento = Evento.friendly.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
     @eventos = @user.eventos.paginate(page: params[:page])
     @micrositios = @user.micrositios.paginate(page: params[:page])
@@ -50,14 +49,13 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+
   def following
     @title = "Following"
     @user = User.friendly.find(params[:id])
     @users = @user.followed_users.paginate(page: params[:page])
     render 'show_follow'
   end
-
-
 
   def followers
     @title = "Followers"
@@ -66,20 +64,11 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
-  def followingeventos
-    @title = "Following"
-    @user = User.friendly.find(params[:id])
-    @users = @user.followed_eventos.paginate(page: params[:page])
-    render 'show_follow'
-  end
 
   private
 
-
-
     def user_params
-      params.require(:user).permit(:name, :email, :password,
-                                   :password_confirmation)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 
     # Before filters

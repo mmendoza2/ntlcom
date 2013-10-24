@@ -1,7 +1,6 @@
 class EventosController < ApplicationController
   before_action :signed_in_user,
                 only: [:create, :index, :edit, :update, :destroy, :following, :followers]
-  before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
 
   # GET /eventos
@@ -79,27 +78,7 @@ class EventosController < ApplicationController
     @eventos = Evento.search params[:search]
   end
 
-
-  def following
-    @title = "Following"
-    @user = User.friendly.find(params[:id])
-    @users = @user.followed_users.paginate(page: params[:page])
-    render 'show_follow'
-  end
-
-  def follower
-    @title = "Followers"
-    @user = User.friendly.find(params[:id])
-    @users = @user.followers.paginate(page: params[:page])
-    render 'show_follow'
-  end
-
   private
-
-  def user_params
-    params.require(:user).permit(:name, :email, :password,
-                                 :password_confirmation)
-  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_evento
@@ -111,10 +90,7 @@ class EventosController < ApplicationController
       params[:evento].permit(:nombre, :descripcion, :photo, :precio, :fecha, :artista, :urloficial, :estado)
     end
 
-  def correct_user
-    @user = current_user.eventos.find_by(id: params[:id])
-    redirect_to root_url if @user.nil?
-  end
+
 
 
 end
