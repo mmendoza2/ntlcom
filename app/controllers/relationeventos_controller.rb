@@ -2,20 +2,20 @@ class RelationeventosController < ApplicationController
   before_action :signed_in_user
 
   def create
-    @user = User.find(params[:relationevento][:followed_id])
-    current_user.followevento!(@user)
+    @evento = Evento.find(params[:relationevento][:followed_id])
+    current_user.followevento!(@evento)
     respond_to do |format|
-      format.html { redirect_to @user }
+      format.html { redirect_to @evento }
       format.js
     end
 
   end
 
   def destroy
-    @user = Relationevento.find(params[:id]).followed
-    current_user.unfollowevento!(@user)
+    @evento = Relationevento.find(params[:id]).followed
+    current_user.unfollowevento!(@evento)
     respond_to do |format|
-      format.html { redirect_to @user }
+      format.html { redirect_to @evento }
       format.js
     end
 

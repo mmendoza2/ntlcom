@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.friendly.find(params[:id])
+    @evento = Evento.friendly.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
     @eventos = @user.eventos.paginate(page: params[:page])
     @micrositios = @user.micrositios.paginate(page: params[:page])
@@ -84,7 +85,7 @@ class UsersController < ApplicationController
     # Before filters
 
     def correct_user
-      @user = User.find(params[:id])
+      @user = User.friendly.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
     end
 
