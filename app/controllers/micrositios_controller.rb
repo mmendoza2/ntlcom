@@ -12,6 +12,9 @@ class MicrositiosController < ApplicationController
   # GET /micrositios/1
   # GET /micrositios/1.json
   def show
+    @micrositios = Micrositio.all
+    @micrositio = Micrositio.find(params[:id])
+    @user = Micrositio.friendly.find(params[:id])
   end
 
   # GET /micrositios/new
@@ -71,7 +74,7 @@ class MicrositiosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_micrositio
-      @micrositio = Micrositio.find(params[:id])
+      @micrositio = Micrositio.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
   has_many :relationeventos, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationeventos, source: :followed
 
+  has_many :relationmicrositios, foreign_key: "follower_id", dependent: :destroy
+  has_many :followed_users, through: :relationmicrositios, source: :followed
+
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
   has_many :reverse_relationships, foreign_key: "followed_id",
@@ -61,7 +64,20 @@ class User < ActiveRecord::Base
     relationeventos.find_by(followed_id: other_user.id).destroy!
   end
 
-   private
+  def followingmicrositio?(other_user)
+    relationmicrositios.find_by(followed_id: other_user.id)
+  end
+
+  def followmicrositio!(other_user)
+    relationmicrositios.create!(followed_id: other_user.id)
+  end
+
+  def unfollowmicrositio!(other_user)
+    relationmicrositios.find_by(followed_id: other_user.id).destroy!
+  end
+
+
+  private
 
     def create_remember_token
       self.remember_token = User.encrypt(User.new_remember_token)

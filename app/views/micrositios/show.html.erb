@@ -1,6 +1,34 @@
-<div id="micrositiocontainer">
+<div class="contenedor">
 
-    <div class="imagenmicrositio">
+  <div id="eventostitulocontendedor">
+    <div id="eventostitulovotos">
+      <div id="formrow">
+        <%= render 'follow_form' if signed_in? %>
+
+        <%= form_for(@micrositio, :html => { :multipart => true }) do |f| %>
+
+            <%= render 'shared/error_messages', object: f.object %>
+
+            <%= f.label :votos %>
+            <%= check_box_tag 'Vota', 1 %>
+
+        <% end %>
+      </div>
+
+    </div>
+    <div id="eventostitulo">
+      <h1><%=	@micrositio.name %> </h1>
+    </div>
+    <div id="eventostitulocomparteredes">
+      <div class="fb-like" data-href="<%=request.original_url%>" data-height="The pixel height of the plugin" data-colorscheme="light" data-layout="box_count" data-action="recommend" data-show-faces="true" data-send="false"></div>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="NTLmx" data-lang="es" data-size="large">Twittear</a>
+      <div class="g-plusone" data-annotation="inline" data-width="120"></div>
+
+    </div>
+  </div>
+
+
+  <div class="imagenmicrositio">
       <aside>
         <%= image_tag @micrositio.photo.url(:medium) %>
       </aside>

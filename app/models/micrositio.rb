@@ -12,6 +12,8 @@ class Micrositio < ActiveRecord::Base
   validates_attachment_size :photo, :less_than => 20.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 
 
 end
