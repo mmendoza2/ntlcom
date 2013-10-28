@@ -14,7 +14,7 @@ gem 'aws-sdk'
 
 
 group :development, :test do
-  gem 'sqlite3', '1.3.7'
+  gem 'pg', '0.15.1'
   gem 'rspec-rails', '2.13.1'
   # The following optional lines are part of the advanced setup.
   gem 'guard-rspec', '2.5.0'

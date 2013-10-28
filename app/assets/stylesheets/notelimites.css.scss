@@ -42,3 +42,166 @@
     opacity: 1;
   }
 }
+
+.contenedorlogin{
+  width: 100%;
+  height: 100px;
+  margin-top: -100px;
+  min-width: 50%;
+  min-height: 50%;
+}
+
+//PAGINA PRINCIPAL Y FONDO DE PANTALLA
+.front-bg {
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  top: 0;
+}
+.front-image {
+  margin: auto;
+  min-width: 50%;
+  min-height: 50%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: .8;
+}
+
+.front-overlay-message-wrap {
+  height: 100% !important;
+  min-height: 100%;
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 2;
+}
+.front-overlay-message-container {
+  width: 100%;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+.front-overlay-message-content {
+  max-width: 800px;
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+  text-shadow: 0 1px 2px #111;
+}
+.front-overlay-message {
+  font-size: 42px;
+  color: #ffffff;
+  font-family: "HelveticaNeueLight", "HelveticaNeue-Light", "Helvetica Neue Light", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosCnRegular', "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
+  text-shadow: 0 1px 2px #111;
+  font-weight: normal;
+  letter-spacing: 3px;
+}
+
+.front-overlay-message-sub {
+  font-size: 25px;
+  color: #ffffff;
+  font-family: "HelveticaNeueLight", "HelveticaNeue-Light", "Helvetica Neue Light", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosCnRegular', "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
+  margin-bottom: 32px;
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+
+.contenedorpagprincipal{
+  width: 100%;
+  height: 703px;
+}
+
+.footerpagprincipal{
+  width: 100%;
+  position: absolute;
+  background-color: #000000;
+  opacity: .8;
+}
+
+//SIGN UP FORM
+
+.login-form-wrap-center {
+  margin-top: 50px;
+  display: inline-block;
+  text-align: center;
+  position: absolute;
+  width: 940px;
+
+}
+.sign-up-header {
+  color: #ffffff;
+  text-align: center !important;
+}
+.signup .login-form .wrapper-form {
+  padding-top: 20px;
+}
+.form-signup .action {
+  margin-top: 13px;
+  float: right;
+  color: #aeaeae;
+}
+.form-signup .action:hover {
+  color: #ffffff;
+}
+.form-signup .action.not-username {
+  float: left;
+}
+.form-signup .actions {
+  padding-top: 10px;
+  padding-bottom: 0;
+}
+
+.signupbox{
+  height: 703px;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+
+// FACEBOOK BOTON
+.btn-social.facebook {
+  color: #f1f1f1;
+  text-shadow: 0 1px #173B86;
+  border: 1px solid transparent;
+  background: #4D78CE;
+  background: -moz-linear-gradient(top,  #4D78CE 0%, #456fa7 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4D78CE), color-stop(100%, #456fa7)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #4D78CE 0%, #456fa7 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #4D78CE 0%, #456fa7 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #4D78CE 0%, #456fa7 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #4D78CE 0%, #456fa7 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4D78CE', endColorstr='#456fa7',GradientType=0 ); /* IE6-9 */
+}
+.btn-social.facebook:hover {
+  border: 1px solid #225DD8;
+  background: #356AB1;
+  background: -moz-linear-gradient(top,  #4D78CE 0%, #356AB1 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4D78CE), color-stop(100%, #356AB1)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #4D78CE 0%, #356AB1 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #4D78CE 0%, #356AB1 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #4D78CE 0%, #356AB1 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #4D78CE 0%, #356AB1 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4D78CE', endColorstr='#356AB1',GradientType=0 ); /* IE6-9 */
+}
+.btn-social.facebook:active {
+  border: 1px solid #18294D;
+  box-shadow: 0 1px 1px rgba(255, 255, 255, .2);
+}
+
+.btn-social.facebook:after {
+  background: url(https://nb9-stumbleupon.netdna-ssl.com/lW50qvOVBqxKc-OA5ppbxA) no-repeat;
+  border-right: 1px solid #5272AA;
+}
+.btn-social.facebook.large:after {
+  background: url(https://nb9-stumbleupon.netdna-ssl.com/UmgrTPYGdCQVnTe55qVUGg) no-repeat;
+}
+.btn-social.facebook.small:after {
+  background: url(https://nb9-stumbleupon.netdna-ssl.com/y93Ewcifdb2sIOSkS6Fkdw) no-repeat;
+}

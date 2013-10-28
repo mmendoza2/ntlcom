@@ -1,5 +1,6 @@
 
 <% if signed_in? %>
+
     <div class="row">
       <section class="menu">
         <p>...................................</p>
@@ -28,29 +29,45 @@
         <h3>Micropost Feed</h3>
         <%= render 'shared/feed' %>
       </div>
-      <a class="twitter-timeline" href="https://twitter.com/NTLmx" data-widget-id="387472701780004866">Tweets por @NTLmx</a>
-
     </div>
+
+
+    <div class="fb-like" data-href="https://www.facebook.com/NoTeLimites" data-width="The pixel width of the plugin" data-colorscheme="light" data-layout="standard" data-action="like" data-show-faces="true" data-send="false"></div>
+
+    <div class="fb-comments" data-href="http://notelimites.com" data-numposts="10"></div>
+
+    <a class="twitter-timeline" href="https://twitter.com/NTLmx" data-widget-id="387472701780004866">Tweets por @NTLmx</a>
 
 <% else %>
-    <div class="center hero-unit">
-      <h1>La mejor Red Social de Turismo de  México</h1>
 
-      <h2>
-        La mejor la mejor Red Social de Turismo
-        <a href="http://notelimites.com/">NoTeLimites.com</a>
-        en México
-      </h2>
-
-      <%= link_to "Sign up now!", signup_path,
-                  class: "btn btn-large btn-primary" %>
+    <div class="front-overlay-message-wrap">
+      <div class="front-overlay-message-container">
+        <div class="front-overlay-message-content">
+          <h1 class="front-overlay-message">NoTeLimites contiene gran cantidad de lugares y actividades en México</h1>
+          <h2 class="front-overlay-message-sub"> Cuentanos tus intereses y nostros te recomendamos los mejores lugares a donde ir y las mejores cosas que hacer
+            en México</h2>
+          <%= link_to "Sign up now!", signup_path,
+                      class: "btn btn-large btn-primary" %>
+        </div>
+      </div>
     </div>
+
+    <div class="contenedorpagprincipal">
+    </div>
+    <div class="footerpagprincipal">
+      <div class="container">
+          <%= render 'layouts/footer' %>
+          <%= debug(params) if Rails.env.development? %>
+      </div>
+    </div>
+
+
+
+
+
 
 <% end %>
 
 
 
 
-<div class="fb-like" data-href="https://www.facebook.com/NoTeLimites" data-width="The pixel width of the plugin" data-colorscheme="light" data-layout="standard" data-action="like" data-show-faces="true" data-send="false"></div>
-
-<div class="fb-comments" data-href="http://notelimites.com" data-numposts="10"></div>
