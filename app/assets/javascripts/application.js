@@ -26,3 +26,5 @@ $(function(){
             .end().appendTo('#slider');}, 4000);
 });
 //]]>
+
+

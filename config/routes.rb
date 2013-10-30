@@ -40,6 +40,8 @@ SampleApp::Application.routes.draw do
   match '/micrositios', to: 'micrositios#index', via: 'get'
 
 
+  match 'auth/:provider/callback', to: 'sessions#create',   via: 'get'
+  match 'auth/failure', to: redirect('/'),                  via: 'get'
 
 
 

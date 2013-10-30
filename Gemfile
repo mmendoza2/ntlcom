@@ -11,6 +11,9 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'paperclip'
 gem 'friendly_id'
 gem 'aws-sdk'
+gem 'omniauth'
+gem 'omniauth-facebook', '1.4.0'
+gem 'koala'
 
 
 group :development, :test do

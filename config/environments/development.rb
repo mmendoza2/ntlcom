@@ -26,6 +26,8 @@ SampleApp::Application.configure do
   config.assets.debug = true
 
 
+
+
   config.paperclip_defaults = {
       :storage => :s3,
       :s3_credentials => {

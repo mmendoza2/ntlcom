@@ -1,12 +1,38 @@
+<% if signed_in? %>
+
+
+  <%=  request.env['omniauth.auth']   %>
+
+    <p> YA ESTAS LOGUEADO</p>
+    <p> AHORA</p>
+    <p> ¡COMIENZA A CONOCER MÉXICO!</p>
+
+<% else %>
+
+
 
 <div class="container">
     <div class="contenedorpagprincipal">
         <div class="login-form-wrap-center">
           <h1 class="sign-up-header">Resgitrate en No Te Limites</h1>
           <div class="wrapper-form">
+
+
+
             <section class="wrapper-facebook">
+              <div id="user-widget">
+                <% if current_user %>
+                    Welcome <strong><%= current_user.name %></strong>!
+                    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+                <% else %>
+                    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+                <% end %>
+              </div>
+
               <a class="connect-service btn-social facebook">Registrate con <strong>Facebook</strong></a>
             </section>
+
+
             <h3>o Registrate con tu Mail</h3>
 
 
@@ -48,7 +74,7 @@
 
 
 
-
+<% end %>
 
 
 
