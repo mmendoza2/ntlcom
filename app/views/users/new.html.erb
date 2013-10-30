@@ -1,7 +1,9 @@
 <% if signed_in? %>
 
 
-  <%=  request.env['omniauth.auth']   %>
+  <%= puts(request.env['omniauth.auth'])   %>
+  <%=    %>
+  <%= @user.name %>
 
     <p> YA ESTAS LOGUEADO</p>
     <p> AHORA</p>
