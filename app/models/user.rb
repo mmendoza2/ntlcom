@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   before_create :create_remember_token
   validates :name, presence: true, length: { maximum: 50 }
 
+
   def facebook
     @facebook ||= Koala::Facebook::API.new(oauth_token)
   end

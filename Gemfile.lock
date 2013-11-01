@@ -158,6 +158,9 @@ GEM
       rack
     omniauth-facebook (1.4.0)
       omniauth-oauth2 (~> 1.0.2)
+    omniauth-identity (1.1.1)
+      bcrypt-ruby (~> 3.0)
+      omniauth (~> 1.0)
     omniauth-oauth2 (1.0.3)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
@@ -284,6 +287,7 @@ DEPENDENCIES
   koala
   omniauth
   omniauth-facebook (= 1.4.0)
+  omniauth-identity
   paperclip
   pg (= 0.15.1)
   rails (= 4.0.0)

@@ -13,6 +13,7 @@ gem 'friendly_id'
 gem 'aws-sdk'
 gem 'omniauth'
 gem 'omniauth-facebook', '1.4.0'
+gem 'omniauth-identity'
 gem 'koala'
 
 

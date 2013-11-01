@@ -27,38 +27,14 @@
                     Welcome <strong><%= current_user.name %></strong>!
                     <%= link_to "Sign out", signout_path, id: "sign_out" %>
                 <% else %>
-                    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+                    <%= link_to "Registrate con Facebook", "/auth/facebook", id: "sign_in", class: "btn btn-large btn-primary" %>
                 <% end %>
               </div>
 
-              <a class="connect-service btn-social facebook">Registrate con <strong>Facebook</strong></a>
-            </section>
+             </section>
 
 
-            <h3>o Registrate con tu Mail</h3>
 
-
-            <div class="row" >
-              <div class="span6 offset3" >
-                <%= form_for(@user) do |f| %>
-                    <%= render 'shared/error_messages', object: f.object %>
-
-                    <%= f.label :name %>
-                    <%= f.text_field :name %>
-
-                    <%= f.label :email %>
-                    <%= f.text_field :email %>
-
-                    <%= f.label :password %>
-                    <%= f.password_field :password %>
-
-                    <%= f.label :password_confirmation, "Confirmation" %>
-                    <%= f.password_field :password_confirmation %>
-
-                    <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
-                <% end %>
-              </div>
-            </div>
 
 
           </div>
