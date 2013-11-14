@@ -1,5 +1,5 @@
 class RelationeventosController < ApplicationController
-  before_action :signed_in_user
+  before_filter :authenticate_user!
 
   def create
     @evento = Evento.find(params[:relationevento][:followed_id])

@@ -1,5 +1,12 @@
 class User < ActiveRecord::Base
 
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :authorizations
+
   has_many :relationeventos, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationeventos, source: :followed
 
@@ -18,7 +25,10 @@ class User < ActiveRecord::Base
   has_many :microposts, dependent: :destroy
 
   before_create :create_remember_token
-  validates :name, presence: true, length: { maximum: 50 }
+
+
+
+
 
 
   def facebook

@@ -8,13 +8,16 @@
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>
 
+    <script type="text/javascript">
+        Shadowbox.init();
+    </script>
 
   </head>
   <body>
   <%= render 'layouts/header' %>
 
 
-  <% if signed_in? %>
+  <% if user_signed_in? %>
 
       <div class="container">
         <% flash.each do |key, value| %>

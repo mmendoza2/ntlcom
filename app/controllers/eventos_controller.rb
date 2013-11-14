@@ -1,6 +1,6 @@
 class EventosController < ApplicationController
-  before_action :signed_in_user,
-                only: [:create, :index, :edit, :update, :destroy, :following, :followers]
+  before_filter :authenticate_user!
+
   before_action :admin_user,     only: :destroy
 
   # GET /eventos

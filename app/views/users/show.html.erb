@@ -1,44 +1,35 @@
 <% provide(:title, @user.name) %>
 <div class="row">
+  <section class="menu">
+    <p>...................................</p>
+    <%=  link_to "Micrositios", controller: "micrositios", action:"index"  %>
+    <p>...................................</p>
+    <%=  link_to "Eventos", controller: "eventos", action:"index"  %>
+    <p>...................................</p>
+    <%=  link_to "Estados", controller: "estados", action:"index"  %>
+    <p>...................................</p>
+
+  </section>
+
+
+
+
+
   <aside class="span4">
     <section>
-      <h1>
-        <%= image_tag(@user.avatar) %>
-        <%= @user.name %>
-      </h1>
+      <%= render 'shared/user_info' %>
     </section>
     <section>
       <%= render 'shared/stats' %>
     </section>
+    <section>
+      <%= render 'shared/micropost_form' %>
+    </section>
   </aside>
   <div class="span8">
-    <%= render 'follow_form' if signed_in? %>
-    <% if @user.microposts.any? %>
-      <h3>Microposts (<%= @user.microposts.count %>)</h3>
-      <ol class="microposts">
-        <%= render @microposts %>
-      </ol>
-      <%= will_paginate @microposts %>
-    <% end %>
+    <h3>Micropost Feed</h3>
+    <%= render 'shared/feed' %>
   </div>
 
-  <div class="span8">
-    <% if @user.eventos.any? %>
-        <h3>Eventos (<%= @user.eventos.count %>)</h3>
-        <ol class="microposts">
-          <%= render @eventos %>
-        </ol>
-        <%= will_paginate @eventos %>
-    <% end %>
-  </div>
 
-  <div class="span8">
-    <% if @user.micrositios.any? %>
-        <h3>Micrositios (<%= @user.micrositios.count %>)</h3>
-        <ol class="microposts">
-          <%= render @micrositios %>
-        </ol>
-        <%= will_paginate @micrositios %>
-    <% end %>
-  </div>
 </div>

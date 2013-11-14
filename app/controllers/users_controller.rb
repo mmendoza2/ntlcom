@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  before_action :signed_in_user,
-                only: [:index, :edit, :update, :destroy, :following, :followers]
+  before_filter :authenticate_user!
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
 
@@ -13,6 +12,10 @@ class UsersController < ApplicationController
     @microposts = @user.microposts.paginate(page: params[:page])
     @eventos = @user.eventos.paginate(page: params[:page])
     @micrositios = @user.micrositios.paginate(page: params[:page])
+
+    @micropost  = current_user.microposts.build
+    @feed_items = current_user.feed.paginate(page: params[:page])
+
   end
 
   def new
@@ -20,7 +23,6 @@ class UsersController < ApplicationController
   end
 
   def create
-
     @user = User.new(user_params)
     if @user.save
       sign_in @user
@@ -75,7 +77,7 @@ class UsersController < ApplicationController
 
     def correct_user
       @user = User.friendly.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
+      redirect_to(root_url) unless signed_in?
     end
 
     def admin_user

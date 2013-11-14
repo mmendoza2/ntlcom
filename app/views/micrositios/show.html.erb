@@ -1,48 +1,64 @@
-<div class="contenedor">
+<div id="micrositiocontainer">
 
-  <div id="eventostitulocontendedor">
-    <div id="eventostitulovotos">
+  <div id="micrositiotitulocontendedor">
+    <div id="micrositiotitulo">
+      <h1><%=	@micrositio.name %> </h1>
+      <p> <%=	@micrositio.estado %> </p>
+    </div>
+    <div id="micrositiotitulofollow">
       <div id="formrow">
         <%= render 'follow_form' if signed_in? %>
-
-        <%= form_for(@micrositio, :html => { :multipart => true }) do |f| %>
-
-            <%= render 'shared/error_messages', object: f.object %>
-
-            <%= f.label :votos %>
-            <%= check_box_tag 'Vota', 1 %>
-
-        <% end %>
       </div>
+    </div>
 
-    </div>
-    <div id="eventostitulo">
-      <h1><%=	@micrositio.name %> </h1>
-    </div>
-    <div id="eventostitulocomparteredes">
+    <div id="micrositiotitulocomparteredes">
       <div class="fb-like" data-href="<%=request.original_url%>" data-height="The pixel height of the plugin" data-colorscheme="light" data-layout="box_count" data-action="recommend" data-show-faces="true" data-send="false"></div>
       <a href="https://twitter.com/share" class="twitter-share-button" data-via="NTLmx" data-lang="es" data-size="large">Twittear</a>
       <div class="g-plusone" data-annotation="inline" data-width="120"></div>
-
     </div>
   </div>
 
 
   <div class="imagenmicrositio">
       <aside>
-        <%= image_tag @micrositio.photo.url(:medium) %>
+        <% if @micrositio.photo_file_size? %>
+              <%= image_tag @micrositio.photo.url(:small) %>
+        <% else %>
+          <a href="https://s3.amazonaws.com/imagenes.notelimites/micrositios/photos/sitios/big/<%= @micrositio.photo_file_name %>" rel="shadowbox">
+            <img src="https://s3.amazonaws.com/imagenes.notelimites/micrositios/photos/sitios/big/<%= @micrositio.photo_file_name %>"  >
+          </a>
+        <% end %>
       </aside>
     </div>
 
+    <div class="masinformacionmicrositio">
+      <button class="masfotosmicrositio">
 
-    <div class="micrositioarticulo">
-            <div class="micrositionombre">
-                <h1><%=	@micrositio.name  %> </h1>
-            </div>
-            <div class="micrositiodescripcion">
-                 <p><%=	@micrositio.descripcion  %></p>
-            </div>
+        <h3><%= link_to 'Ver más fotos', :controller => 'micrositios', :action => "fotos", rel: 'shadowbox' %></h3>
+        </a>
+      </button>
+
+      <button class="masvideosmicrositio">
+        <h3>Ver videos</h3>
+      </button>
+      <button class="comollegarmicrositio">
+        <h3>¿Cómo llegar?</h3>
+      </button>
     </div>
+    <div class="micrositioarticulo">
+        <div class="userimagenmicrositio">
+             <%= link_to image_tag(@micrositio.user.avatar), @micrositio.user %>
+        </div>
+        <div class="micrositiodescripcion">
+             <p><%=	@micrositio.descripcion  %></p>
+        </div>
+    </div>
+
+  <div class="comentariosfbmicrositio">
+  <div class="fb-comments" data-href="<%=request.original_url%>" data-numposts="10" data-width="420px"></div>
+  </div>
+
+
 
 
 </div>

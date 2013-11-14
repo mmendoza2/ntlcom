@@ -6,14 +6,16 @@
 
         <%= render 'shared/error_messages', object: f.object %>
 
-        <%= f.label :name %>
+        <%= f.label :"Nombre del Micrositio" %>
         <%= f.text_field :name %>
 
-        <%= f.label :descripcion %>
+        <%= f.label :"Descripción" %>
         <%= f.text_area :descripcion %>
 
-        <%= f.label :imagen %><br />
+        <%= f.label :imagen %>
         <%= f.file_field :photo %>
+
+
 
 
         <%= f.submit "Sube tu nuevo Lugar", class: "btn btn-large btn-primary" %>

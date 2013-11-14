@@ -1,5 +1,5 @@
 class MicrositiosController < ApplicationController
-  before_action :signed_in_user, only: [:create, :destroy]
+  before_filter :authenticate_user!
   before_action :correct_user,   only: :destroy
   before_action :set_micrositio, only: [:show, :edit, :update, :destroy]
 
@@ -13,13 +13,15 @@ class MicrositiosController < ApplicationController
   # GET /micrositios/1.json
   def show
     @micrositios = Micrositio.all
-    @micrositio = Micrositio.find(params[:id])
+    @micrositio = Micrositio.friendly.find(params[:id])
     @user = Micrositio.friendly.find(params[:id])
   end
 
   # GET /micrositios/new
   def new
     @micrositio = Micrositio.new
+    @estados = Estado.all
+
   end
 
   # GET /micrositios/1/edit
@@ -68,7 +70,7 @@ class MicrositiosController < ApplicationController
   def has_attached_file
   end
 
-  def photo
+  def fotos
   end
 
   private
@@ -79,7 +81,7 @@ class MicrositiosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def micrositio_params
-      params.require(:micrositio).permit(:name, :descripcion, :photo)
+      params.require(:micrositio).permit(:name,  :introtext, :photo)
     end
 
   def correct_user

@@ -11,10 +11,13 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'paperclip'
 gem 'friendly_id'
 gem 'aws-sdk'
+gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook', '1.4.0'
-gem 'omniauth-identity'
 gem 'koala'
+gem 'geocoder'
+gem 'shadowbox-rails'
+
 
 
 group :development, :test do

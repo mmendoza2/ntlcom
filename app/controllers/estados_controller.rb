@@ -1,5 +1,5 @@
 class EstadosController < ApplicationController
-  before_action :set_estado, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /estados
   # GET /estados.json
@@ -21,6 +21,7 @@ class EstadosController < ApplicationController
   # GET /estados/new
   def new
     @estado = Estado.new
+
   end
 
   # GET /estados/1/edit
