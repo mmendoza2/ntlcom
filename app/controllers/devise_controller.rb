@@ -9,6 +9,8 @@ class DeviseController < Devise.parent_controller.constantize
   hide_action *helpers
   helper_method *helpers
 
+
+
   prepend_before_filter :assert_is_devise_resource!
   respond_to :html if mimes_for_respond_to.empty?
 
@@ -173,4 +175,8 @@ MESSAGE
   def resource_params
     params.fetch(resource_name, {})
   end
+
+  def terminos
+  end
+
 end

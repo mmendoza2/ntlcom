@@ -13,13 +13,17 @@ class NotelimitesController < ApplicationController
 
 
 
-  def help
+  def ayuda
   end
+
 
   def nosotros
   end
 
   def contacto
+  end
+
+  def terminos
   end
 
   def user_params

@@ -1,5 +1,10 @@
 <a href="<%= user_path(current_user) %>">
-  <%= image_tag(current_user.avatar) %>
+
+  <% if current_user.photo.blank?  %>
+    <%= image_tag(current_user.avatar) %>
+  <%	 else %>
+      <%= image_tag @user.photo.url(:small) %>
+  <%	 end %>
 </a>
 <h1>
   <%= current_user.name %>

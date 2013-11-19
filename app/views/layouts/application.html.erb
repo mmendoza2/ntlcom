@@ -14,11 +14,13 @@
 
   </head>
   <body>
-  <%= render 'layouts/header' %>
+
+         <%= render 'layouts/header' %>
+
+
 
 
   <% if user_signed_in? %>
-
       <div class="container">
         <% flash.each do |key, value| %>
             <div class="alert alert-<%= key %>"><%= value %></div>
@@ -28,18 +30,10 @@
         <%= debug(params) if Rails.env.development? %>
       </div>
   <% else %>
-
-    <div class="front-bg">
-      <img class="front-image" src="https://s3.amazonaws.com/imagenes.notelimites/TURISMO_MEXICO.JPG" width="800px" height="703px">
-    </div>
-
-
-        <% flash.each do |key, value| %>
-            <div class="alert alert-<%= key %>"><%= value %></div>
-        <% end %>
-        <%=	 yield %>
-
-
+      <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+      <%=	 yield %>
   <% end %>
 
 

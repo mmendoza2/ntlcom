@@ -1,12 +1,45 @@
-<h2>Forgot your password?</h2>
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+<div class="container">
+  <div class="contenedorpagprincipal">
 
-  <div><%= f.submit "Send me reset password instructions" %></div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+    <div class="login-form-wrap-center">
+      <h1 class="sign-up-header">Olvidaste tu Password</h1>
+      <div class="wrapper-form">
+        <section class="wrapper-facebook">
+          <div id="user-widget">
+
+            <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+              <%= devise_error_messages! %>
+
+              <div><%= f.label :email %><br />
+              <%= f.email_field :email, :autofocus => true %></div>
+
+              <div><%= f.submit "Send me reset password instructions" %></div>
+            <% end %>
+
+            <%= render "devise/shared/links" %>
+
+          </div>
+
+        </section>
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="footerpagprincipal">
+  <div class="container">
+    <%= render 'layouts/footer' %>
+    <%= debug(params) if Rails.env.development? %>
+  </div>
+</div>
+
+

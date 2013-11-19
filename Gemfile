@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+  source 'https://rubygems.org'
 ruby '2.0.0'
 #ruby-gemset=ntlcom
 
@@ -13,7 +13,8 @@ gem 'friendly_id'
 gem 'aws-sdk'
 gem 'devise'
 gem 'omniauth'
-gem 'omniauth-facebook', '1.4.0'
+gem 'omniauth-facebook'
+
 gem 'koala'
 gem 'geocoder'
 gem 'shadowbox-rails'

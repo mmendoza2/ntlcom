@@ -10,7 +10,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = 'ntl@notelimites.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -227,7 +227,34 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', :scope => 'user,public_repo'
+
+
+  if Rails.env.development?
+     config.omniauth :facebook, '626384007393278', 'c8e03770698ac3fa74828538c16dceb9',
+                  scope: "email, publish_stream",
+                  :secure_image_url => 'true'
+  else
+    provider :facebook, '182819485154177', 'd0a0ccde76db8a64187351ffa7f8d465',
+                scope: "email, publish_stream",
+                :secure_image_url => 'true'
+  end
+
+  #OmniAuth.config.logger = Rails.logger
+
+  #Rails.application.config.middleware.use OmniAuth::Builder do
+  #  if Rails.env.development?
+  #    provider :facebook, '626384007393278', 'c8e03770698ac3fa74828538c16dceb9',
+  #             scope: "email, publish_stream",
+  #             :secure_image_url => 'true'
+  #
+  #  else
+  #    provider :facebook, '182819485154177', 'd0a0ccde76db8a64187351ffa7f8d465',
+  #             scope: "email, publish_stream",
+  #             :secure_image_url => 'true'
+  #  end
+  #end
+
+
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

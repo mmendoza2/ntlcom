@@ -94,7 +94,7 @@
   text-shadow: 0 1px 2px #111;
 }
 .front-overlay-message {
-  font-size: 42px;
+  font-size: 56px;
   color: #ffffff;
   font-family: "HelveticaNeueLight", "HelveticaNeue-Light", "Helvetica Neue Light", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosCnRegular', "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
   text-shadow: 0 1px 2px #111;
@@ -128,6 +128,88 @@
 
 //SIGN UP FORM
 
+.signup .wrapper-form {
+  width: 300px;
+  padding: 25px;
+  margin: 0 auto;
+  position: relative;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.signup .wrapper-form .btn.large {
+  height: 42px;
+  width: 150px;
+  font-family: "HelveticaNeueMedium", "HelveticaNeue-Medium", "Helvetica Neue Medium", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+  font-weight: 500;
+  font-stretch: normal;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  background: #2AB558;
+  background-image: linear-gradient(bottom, #38AD5F 0%, #2AB558 100%);
+  background-image: -o-linear-gradient(bottom, #38AD5F 0%, #2AB558 100%);
+  background-image: -moz-linear-gradient(bottom, #38AD5F 0%, #2AB558 100%);
+  background-image: -webkit-linear-gradient(bottom, #38AD5F 0%, #2AB558 100%);
+  background-image: -ms-linear-gradient(bottom, #38AD5F 0%, #2AB558 100%);
+  background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, #38AD5F), color-stop(1, #2AB558) );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#38AD5F', endColorstr='#2AB558',GradientType=0 );
+}
+.signup .wrapper-form .btn.large:hover {
+  border: 1px solid #147E46;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+  background: #32A358;
+  background-image: linear-gradient(bottom, #32A358 0%, #2AB558 100%);
+  background-image: -o-linear-gradient(bottom, #32A358 0%, #2AB558 100%);
+  background-image: -moz-linear-gradient(bottom, #32A358 0%, #2AB558 100%);
+  background-image: -webkit-linear-gradient(bottom, #32A358 0%, #2AB558 100%);
+  background-image: -ms-linear-gradient(bottom, #32A358 0%, #2AB558 100%);
+  background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, #32A358), color-stop(1, #2AB558) );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#32A358', endColorstr='#2AB558',GradientType=0 );
+}
+.signup .wrapper-form .btn.large:active {
+  border: 1px solid #212925;
+  box-shadow: 0 1px 1px rgba(255, 255, 255, .2);
+  -moz-box-shadow: 0 1px 1px rgba(255, 255, 255, .2);
+  -webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, .2);
+}
+
+.sign-up-header {
+  font-size: 48px;
+  font-family: "HelveticaNeueLightCondensed", "HelveticaNeue-Light-Condensed", "Helvetica Neue Light Condensed", "HelveticaNeueLight", "HelveticaNeue-Light", "Helvetica Neue Light", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosCnRegular', "Helvetica", "Tahoma", "Geneva", "Arial Narrow", "Arial", sans-serif;
+  font-weight:300;
+  font-stretch:condensed;
+  margin-bottom: 0;
+  text-shadow: 0 1px 2px #111;
+}
+.sign-up-subheader {
+  font-size: 22px;
+  text-shadow: 1px 2px 2px black;
+}
+.sign-up-divider {
+  height: 1px;
+  margin: 25px 0;
+  text-align: center;
+  background-color: #616161;
+  border-top: 1px solid #272727;
+}
+.sign-up-divider span {
+  padding: 0 10px;
+  font-size: 16px;
+  position: relative;
+  top: -8px;
+  color: #dedede;
+}
+.sign-up-email {
+  text-align: center;
+  color: #ffffff;
+  font-size: 16px;
+  display: block;
+}
+
 .login-form-wrap-center {
   margin-top: 50px;
   display: inline-block;
@@ -146,7 +228,7 @@
 .form-signup .action {
   margin-top: 13px;
   float: right;
-  color: #aeaeae;
+  color: #fbfbfb;
 }
 .form-signup .action:hover {
   color: #ffffff;

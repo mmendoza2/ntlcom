@@ -59,7 +59,7 @@ h2 {
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: #999;
+  color: #fbfbfb;
   vertical-align: baseline;
   background: transparent;
 }
@@ -75,7 +75,7 @@ p {
   width: 260px;
   margin-right: 10px;
   vertical-align: text-top;
-  padding-top: 4px;
+  padding-top: 3px;
   margin-top: 2px;
 }
 
@@ -83,13 +83,49 @@ p {
   color: #fff;
   text-decoration: none;
 }
+
+#logolog {
+  float: left;
+  width: 260px;
+  margin-right: 10px;
+  vertical-align: text-top;
+  padding-top: 10px;
+  margin-top: 2px;
+}
+
+#logolog:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.stretchy {
+  color: #ffffff !important;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  width: 75px;
+  line-height: 1px;
+  font-size: 16px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  background: #2AB558;
+  background-image: linear-gradient(bottom, #38AD5F 0%, #2AB558 100%);
+  background-image: -o-linear-gradient(bottom, #38AD5F 0%, #2AB558 100%);
+  background-image: -moz-linear-gradient(bottom, #38AD5F 0%, #2AB558 100%);
+  background-image: -webkit-linear-gradient(bottom, #38AD5F 0%, #2AB558 100%);
+  background-image: -ms-linear-gradient(bottom, #38AD5F 0%, #2AB558 100%);
+  background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, #38AD5F), color-stop(1, #2AB558) );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#38AD5F', endColorstr='#2AB558',GradientType=0 ); /* IE6-9 */
+}
+
 /* footer */
 
 footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
-  color: #999;
+  color: #fbfbfb;
   margin-bottom: 0%;
 }
 
@@ -253,5 +289,11 @@ aside {
     margin-bottom: 5px;
   }
 }
+
+
+
+
+
+/* Modificando bootstrap */
 
 

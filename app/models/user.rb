@@ -2,10 +2,10 @@ class User < ActiveRecord::Base
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable,  :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :authorizations
+         has_many :authorizations
 
   has_many :relationeventos, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationeventos, source: :followed
@@ -24,11 +24,15 @@ class User < ActiveRecord::Base
   has_many :eventos
   has_many :microposts, dependent: :destroy
 
+  has_attached_file :photo, :styles => { :big => "600x600>", :small => "200x200>", :smallest =>"100x100>" },
+                    :url  => ":s3_domain_url",
+                    :path => "/:class/:attachment/:id_partition/:style/:filename"
+
+  validates_attachment_presence :photo
+  validates_attachment_size :photo, :less_than => 20.megabytes
+  validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
+
   before_create :create_remember_token
-
-
-
-
 
 
   def facebook
@@ -106,6 +110,29 @@ class User < ActiveRecord::Base
         user.avatar = auth.info.image
         user.save!
       end
+    end
+  end
+
+  def self.new_with_session(params, session)
+    if session["devise.user_attributes"]
+      new(session["devise.user_attributes"], without_protection: true) do |user|
+        user.attributes = params
+        user.valid?
+      end
+    else
+      super
+    end
+  end
+
+  def password_required?
+    super && provider.blank?
+  end
+
+  def update_with_password(params, *options)
+    if encrypted_password.blank?
+      update_attributes(params, *options)
+    else
+      super
     end
   end
 

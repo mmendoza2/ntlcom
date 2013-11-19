@@ -28,7 +28,11 @@
   <div class="navbar-inner">
 
     <div class="container">
+      <% if signed_in? %>
       <%= link_to image_tag("LogoNTL.png"), root_path, id: "logo" %>
+      <%	 else %>
+      <%= link_to image_tag("LogoNTL.png"), root_path, id: "logolog" %>
+      <%	 end %>
       <nav>
         <ul class="nav pull-right">
 
@@ -55,7 +59,9 @@
                 </ul>
               </li>
           <% else %>
-              <li><%= link_to "Únete Ya", new_user_session_path %></li>
+            <div class= "btn btn-large stretchy">
+              <li><%= link_to "Explora", new_user_session_path %></li>
+            </div>
           <% end %>
         </ul>
       </nav>

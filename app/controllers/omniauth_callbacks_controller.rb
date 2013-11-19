@@ -1,4 +1,20 @@
-class Devise::OmniauthCallbacksController < DeviseController
+class OmniauthCallbacksController < DeviseController
+
+
+
+  def all
+    user = User.from_omniauth(request.env["omniauth.auth"])
+    if user.persisted?
+      flash.notice = "Signed in!"
+      sign_in_and_redirect user
+    else
+      session["devise.user_attributes"] = user.attributes
+      redirect_to new_user_registration_url
+    end
+  end
+  alias_method :facebook, :all
+
+
   prepend_before_filter { request.env["devise.skip_timeout"] = true }
 
   def passthru
@@ -9,6 +25,9 @@ class Devise::OmniauthCallbacksController < DeviseController
     set_flash_message :alert, :failure, :kind => OmniAuth::Utils.camelize(failed_strategy.name), :reason => failure_message
     redirect_to after_omniauth_failure_path_for(resource_name)
   end
+
+
+
 
   protected
 
