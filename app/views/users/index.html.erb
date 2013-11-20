@@ -3,8 +3,25 @@
 
 <%= will_paginate %>
 
-<ul class="users">
-  <%= render @users %>
-</ul>
+
+
+    <% @users.each do |user| %>
+        <ul class="userrenglonindex">
+
+           <li class="userimageindex">
+                 <% if user.avatar.blank?  %>
+                      <%= link_to image_tag(user.photo.url(:square)), user %>
+                 <% else %>
+                      <%= link_to image_tag(user.avatar), user %>
+                 <% end %>
+           </li>
+           <li class="usernameindex">
+                <%= link_to user.name, user %>
+           </li>
+        </ul>
+
+    <% end %>
+
+
 
 <%= will_paginate %>

@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   has_many :eventos
   has_many :microposts, dependent: :destroy
 
-  has_attached_file :photo, :styles => { :big => "600x600>", :small => "200x200>", :smallest =>"100x100>" },
+  has_attached_file :photo, :styles => { :big => "600x600>", :square =>"50x50>"  },
                     :url  => ":s3_domain_url",
                     :path => "/:class/:attachment/:id_partition/:style/:filename"
 
