@@ -69,6 +69,8 @@
     </div>
 
   </div>
+  <% if signed_in? %>
+  <% else %>
   <div class="reservaviaje" ><%= link_to  image_tag("reserva_tu_viaje.png"), 'http://viajes.notelimites.com/Hoteles/Lista?af=NOTELIMITES&ds=123'  %>   </div>
-
+  <% end %>
 </header>

@@ -16,7 +16,7 @@
 //= require bootstrap
 //= require_tree .
 
-require shadowbox
+
 
 
 //<![CDATA[
