@@ -1,5 +1,3 @@
-
-
 <% provide(:title, "Edit user") %>
 
 
@@ -30,7 +28,7 @@
       <div> <i>(Dejalo en blanco si no lo quieres cambiar)</i><br />
       <%= f.password_field :password, :autocomplete => "off", :autofocus => true, :placeholder => "Password" %></div>
 
-      <div><br />
+        <div><br />
       <%= f.password_field :password_confirmation, :placeholder => "Confirma tu Password" %></div>
 
       <% if f.object.encrypted_password.present? %>

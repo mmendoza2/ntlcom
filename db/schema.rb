@@ -11,10 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131119221839) do
+ActiveRecord::Schema.define(version: 20131126230144) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "actividades", force: true do |t|
+    t.string   "actividad"
+    t.string   "actividadpadre"
+    t.string   "slug"
+    t.integer  "tagid"
+    t.integer  "catid"
+    t.integer  "tagparent"
+    t.string   "descripcion"
+    t.string   "status"
+    t.string   "icono"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+  end
+
+  add_index "actividades", ["slug"], name: "index_actividades_on_slug", using: :btree
+
+  create_table "actividadpadre", force: true do |t|
+    t.integer  "tagid"
+    t.integer  "catid"
+    t.string   "descripcion"
+    t.string   "slug"
+    t.string   "icono"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+  end
+
+  add_index "actividadpadre", ["slug"], name: "index_actividadpadre_on_slug", using: :btree
 
   create_table "authorizations", force: true do |t|
     t.string   "provider"
@@ -133,6 +165,17 @@ ActiveRecord::Schema.define(version: 20131119221839) do
   end
 
   add_index "micrositios", ["slug"], name: "index_micrositios_on_slug", using: :btree
+
+  create_table "relationactividades", force: true do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "relationactividades", ["followed_id"], name: "index_relationactividades_on_followed_id", using: :btree
+  add_index "relationactividades", ["follower_id", "followed_id"], name: "index_relationactividades_on_follower_id_and_followed_id", unique: true, using: :btree
+  add_index "relationactividades", ["follower_id"], name: "index_relationactividades_on_follower_id", using: :btree
 
   create_table "relationeventos", force: true do |t|
     t.integer  "follower_id"

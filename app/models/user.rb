@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,  :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
 
-         has_many :authorizations
+  has_many :authorizations
 
   has_many :relationeventos, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationeventos, source: :followed
@@ -28,7 +28,8 @@ class User < ActiveRecord::Base
                     :url  => ":s3_domain_url",
                     :path => "/:class/:attachment/:id_partition/:style/:filename"
 
-  validates_attachment_presence :photo
+
+
   validates_attachment_size :photo, :less_than => 20.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
 
@@ -91,6 +92,18 @@ class User < ActiveRecord::Base
 
   def unfollowmicrositio!(other_user)
     relationmicrositios.find_by(followed_id: other_user.id).destroy!
+  end
+
+  def followingactividad?(other_user)
+    relationactividades.find_by(followed_id: other_user.id)
+  end
+
+  def followactividad!(other_user)
+    relationactividades.create!(followed_id: other_user.id)
+  end
+
+  def unfollowactividad!(other_user)
+    relationactividades.find_by(followed_id: other_user.id).destroy!
   end
 
 

@@ -1,4 +1,7 @@
 SampleApp::Application.routes.draw do
+  resources :actividades
+
+  resources :actividades, :as => :actividad
 
   root to: 'notelimites#home'
 
@@ -24,6 +27,7 @@ SampleApp::Application.routes.draw do
 
   resources :estados
 
+
   resources :users do
     member do
       get :following, :followers
@@ -35,6 +39,11 @@ SampleApp::Application.routes.draw do
     end
   end
   resources :micrositios do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :actividades do
     member do
       get :following, :followers
     end

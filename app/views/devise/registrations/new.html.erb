@@ -39,6 +39,8 @@
 
                   <div> <%= f.password_field :password_confirmation, :placeholder => "Password confirmation" %></div>
 
+                  <div><%= f.hidden_field :avatar, value: "http://imagenes.notelimites.s3.amazonaws.com/users/default_user.png"%></div>
+
                   <div class="field"><%= f.submit "Sign up", class: "btn" %></div>
                 <% end %>
 

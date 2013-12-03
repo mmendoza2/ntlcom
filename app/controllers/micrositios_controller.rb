@@ -67,11 +67,7 @@ class MicrositiosController < ApplicationController
     end
   end
 
-  def has_attached_file
-  end
 
-  def fotos
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
