@@ -5,12 +5,63 @@
 
 .estados{
   float: left;
-  width: 150px;
-  height: 150px;
-  background-color: lightyellow;
+  width: 160px;
+  height: 250px;
+  background-color: #fbfbfb;
   text-align: center;
-  margin: 2px;
+
 }
+.estadostitulo{
+  float: left;
+  text-align: left;
+  width: 95%;
+  height: 19px;
+  background-color: #008000;
+  padding-left: 3px;
+  padding-top: 2px;
+  margin: 2px;
+  color: white;
+}
+
+.estadostitulo:link{
+  color: white;
+  background-color: #008000;
+}
+
+.estadostitulo:visited {
+  color: white;
+}
+
+.estadoimagen{
+  margin: 2px;
+  float: left;
+  text-align: left;
+}
+
+.estadoarticulo{
+  width: 100%;
+  height: 60px;
+  float: left;
+  overflow: hidden;
+  text-align: left;
+  line-height: 15px;
+  font-size: smaller;
+}
+
+.estadofollow{
+  float: left;
+  width: 100%;
+  height: 18px;
+  padding: 2px;
+  border-top: 1px solid #ffffff;
+  background-color: #A6A7A8;
+  background-image: -moz-linear-gradient(top, #bcbec0 0%, #979797 100%);
+  background-image: -webkit-linear-gradient(top, #bcbec0 0%, #979797 100%);
+  background-image: -ms-linear-gradient(top, #bcbec0 0%, #979797 100%);
+  background-image: linear-gradient(top, #bcbec0 0%, #979797 100%);
+}
+
+
 
 .imagenprinc{
   float: left;
@@ -119,3 +170,5 @@
   float: right;
   width: 35%;
 }
+
+

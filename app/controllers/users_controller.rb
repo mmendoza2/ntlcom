@@ -15,7 +15,6 @@ class UsersController < ApplicationController
     @micrositios = @user.micrositios.paginate(page: params[:page])
     @micropost  = current_user.microposts.build
     @feed_items = current_user.feed.paginate(page: params[:page])
-
   end
 
   def new
@@ -34,6 +33,8 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @micrositio = Micrositio.friendly.find(params[:id])
+    @estado = Estado.friendly.find(params[:id])
   end
 
   def update

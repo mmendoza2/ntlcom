@@ -1,7 +1,32 @@
+<%=render 'estados/follow_form' %>
+
+
 <ul>
   <% @estadosalf.each do |estado| %>
+
+
+
       <li class="estados">
-        <%= link_to estado.estado, estado %>
+       <div class="estadostitulo"> <%= link_to estado.estado, estado %> </div>
+        <%= link_to image_tag(estado.photo.url(:medium)), estado, class: 'estadoimagen'%>
+        <div class="estadoarticulo"><%=  estado.descripcion %> </div>
+        <div class="estadofollow">
+
+          <% unless current_user?(@user) %>
+              <div id="follow_form">
+
+              <% if current_user.followingestado?(@user) %>
+                  <%= render 'estados/unfollow_mini' %>
+              <% else %>
+                  <%= render 'estados/follow_mini' %>
+              <% end %>
+
+              </div>
+          <% end %>
+
+        </div>
       </li>
+
+
   <% end %>
 </ul>

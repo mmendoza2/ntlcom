@@ -8,6 +8,7 @@ class EstadosController < ApplicationController
     @estados = Estado.all
     @eventos = Evento.all
     @estadosalf = Estado.order("estado")
+
   end
 
   # GET /estados/1
@@ -18,24 +19,22 @@ class EstadosController < ApplicationController
     @estado = Estado.friendly.find(params[:id])
     @eventosimg = Evento.find_by principal: 1
     @user = Estado.friendly.find(params[:id])
-
   end
 
   # GET /estados/new
   def new
-    @estado = Estado.new
-
+    @estado = Estado.friendly.find(params[:id])
   end
 
   # GET /estados/1/edit
   def edit
+    @estado = Estado.friendly.find(params[:id])
   end
 
   # POST /estados
   # POST /estados.json
   def create
     @estado = Estado.new(estado_params)
-
     respond_to do |format|
       if @estado.save
         format.html { redirect_to @estado, notice: 'Estado was successfully created.' }
@@ -50,8 +49,9 @@ class EstadosController < ApplicationController
   # PATCH/PUT /estados/1
   # PATCH/PUT /estados/1.json
   def update
+    @estado = Estado.friendly.find(params[:id])
     respond_to do |format|
-      if @estado.update(estado_params)
+      if   @estado.update_attributes!(estado_params)
         format.html { redirect_to @estado, notice: 'Estado was successfully updated.' }
         format.json { head :no_content }
       else
@@ -79,7 +79,7 @@ class EstadosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def estado_params
-      params[:estado].permit(:estado, :photo, :evento)
+      params[:estado].permit(:estado, :photo, :evento, :descripcion)
     end
 
 
