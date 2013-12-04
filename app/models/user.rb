@@ -5,13 +5,19 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,  :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :micrositios
+  has_many :eventos
+  has_many :microposts, dependent: :destroy
   has_many :authorizations
+
+      has_many :relationestados, foreign_key: "follower_id", dependent: :destroy
+      has_many :followed_users, through: :relationestados, source: :followed
 
   has_many :relationeventos, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationeventos, source: :followed
 
-  has_many :relationmicrositios, foreign_key: "follower_id", dependent: :destroy
-  has_many :followed_users, through: :relationmicrositios, source: :followed
+      has_many :relationmicrositios, foreign_key: "follower_id", dependent: :destroy
+      has_many :followed_users, through: :relationmicrositios, source: :followed
 
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
@@ -20,92 +26,13 @@ class User < ActiveRecord::Base
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
 
-  has_many :micrositios
-  has_many :eventos
-  has_many :microposts, dependent: :destroy
-
   has_attached_file :photo, :styles => { :big => "600x600>", :square =>"50x50>"  },
                     :url  => ":s3_domain_url",
                     :path => "/:class/:attachment/:id_partition/:style/:filename"
-
-
-
   validates_attachment_size :photo, :less_than => 20.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
 
   before_create :create_remember_token
-
-
-  def facebook
-    @facebook ||= Koala::Facebook::API.new(oauth_token)
-  end
-
-
-  extend FriendlyId
-  friendly_id :name, use: :slugged
-
-  def User.new_remember_token
-    SecureRandom.urlsafe_base64
-  end
-
-  def User.encrypt(token)
-    Digest::SHA1.hexdigest(token.to_s)
-  end
-
-  def feed
-    Micropost.from_users_followed_by(self)
-  end
-
-
-
-  def following?(other_user)
-    relationships.find_by(followed_id: other_user.id)
-  end
-
-  def follow!(other_user)
-    relationships.create!(followed_id: other_user.id)
-  end
-
-  def unfollow!(other_user)
-    relationships.find_by(followed_id: other_user.id).destroy!
-  end
-
-  def followingevento?(other_user)
-    relationeventos.find_by(followed_id: other_user.id)
-  end
-
-  def followevento!(other_user)
-    relationeventos.create!(followed_id: other_user.id)
-  end
-
-  def unfollowevento!(other_user)
-    relationeventos.find_by(followed_id: other_user.id).destroy!
-  end
-
-  def followingmicrositio?(other_user)
-    relationmicrositios.find_by(followed_id: other_user.id)
-  end
-
-  def followmicrositio!(other_user)
-    relationmicrositios.create!(followed_id: other_user.id)
-  end
-
-  def unfollowmicrositio!(other_user)
-    relationmicrositios.find_by(followed_id: other_user.id).destroy!
-  end
-
-  def followingactividad?(other_user)
-    relationactividades.find_by(followed_id: other_user.id)
-  end
-
-  def followactividad!(other_user)
-    relationactividades.create!(followed_id: other_user.id)
-  end
-
-  def unfollowactividad!(other_user)
-    relationactividades.find_by(followed_id: other_user.id).destroy!
-  end
-
 
   def self.from_omniauth(auth)
     if user = User.find_by_email(auth.info.email)
@@ -147,6 +74,72 @@ class User < ActiveRecord::Base
     else
       super
     end
+  end
+
+  def facebook
+    @facebook ||= Koala::Facebook::API.new(oauth_token)
+  end
+
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+  def User.new_remember_token
+    SecureRandom.urlsafe_base64
+  end
+  def User.encrypt(token)
+    Digest::SHA1.hexdigest(token.to_s)
+  end
+  def feed
+    Micropost.from_users_followed_by(self)
+  end
+
+  def following?(other_user)
+    relationships.find_by(followed_id: other_user.id)
+  end
+  def follow!(other_user)
+    relationships.create!(followed_id: other_user.id)
+  end
+  def unfollow!(other_user)
+    relationships.find_by(followed_id: other_user.id).destroy!
+  end
+
+      def followingevento?(other_user)
+        relationeventos.find_by(followed_id: other_user.id)
+      end
+      def followevento!(other_user)
+        relationeventos.create!(followed_id: other_user.id)
+      end
+      def unfollowevento!(other_user)
+        relationeventos.find_by(followed_id: other_user.id).destroy!
+      end
+
+  def followingmicrositio?(other_user)
+    relationmicrositios.find_by(followed_id: other_user.id)
+  end
+  def followmicrositio!(other_user)
+    relationmicrositios.create!(followed_id: other_user.id)
+  end
+  def unfollowmicrositio!(other_user)
+    relationmicrositios.find_by(followed_id: other_user.id).destroy!
+  end
+
+      def followingactividad?(other_user)
+        relationactividades.find_by(followed_id: other_user.id)
+      end
+      def followactividad!(other_user)
+        relationactividades.create!(followed_id: other_user.id)
+      end
+      def unfollowactividad!(other_user)
+        relationactividades.find_by(followed_id: other_user.id).destroy!
+      end
+
+  def followingestado?(other_user)
+    relationestados.find_by(followed_id: other_user.id)
+  end
+  def followestado!(other_user)
+    relationestados.create!(followed_id: other_user.id)
+  end
+  def unfollowestado!(other_user)
+    relationestados.find_by(followed_id: other_user.id).destroy!
   end
 
 

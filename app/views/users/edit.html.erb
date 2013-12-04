@@ -1,14 +1,22 @@
-<% provide(:title, "Edit user") %> 
+<% provide(:title, "Edit user") %>
 <h1>Update your profile</h1>
 
 
-
+<%= form_for(@user, :html => { :multipart => true }) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <%= f.label :imagen %>
+    <%= f.file_field :photo %>
+    <%= f.submit "Sube tu foto de Perfil", class: "btn btn-large btn-primary" %>
+<% end %>
 
 
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for(@user) do |f| %>
+    <%= form_for(@user, :html => { :multipart => true }) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
+
+        <%= f.label :imagen %>
+        <%= f.file_field :photo %>
 
       <%= f.label :name %>
       <%= f.text_field :name %>

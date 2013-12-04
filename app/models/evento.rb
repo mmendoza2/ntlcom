@@ -1,8 +1,6 @@
 class Evento < ActiveRecord::Base
   belongs_to :user
 
-  has_many :relationeventos, foreign_key: "follower_id", dependent: :destroy
-  has_many :followed_users, through: :relationeventos, source: :followed
 
   validates :user_id, presence: true
   default_scope -> { order('created_at DESC') }
@@ -15,7 +13,6 @@ class Evento < ActiveRecord::Base
   has_attached_file :photo, :styles => {:biggest => "900x900>", :big => "600x600>", :medium => "400x400>", :small => "200x200>", :smallest =>"100x100>" },
                     :url  => ":s3_domain_url",
                     :path => "/:class/:attachment/:id_partition/:style/:filename"
-
   validates_attachment_presence :photo
   validates_attachment_size :photo, :less_than => 20.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
@@ -24,24 +21,5 @@ class Evento < ActiveRecord::Base
 
   extend FriendlyId
   friendly_id :nombre, use: :slugged
-
-
-
-
-
-  def self.search(search)
-    if search
-      find(:all, :conditions => ['nombre LIKE ?', "%#{search}%"])
-    else
-      find(:all)
-    end
-  end
-
-
-
-
-
-
-
 
 end

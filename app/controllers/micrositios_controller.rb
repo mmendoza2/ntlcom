@@ -77,13 +77,10 @@ class MicrositiosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def micrositio_params
-      params.require(:micrositio).permit(:name,  :introtext, :photo)
+      params.require(:micrositio).permit(:name,  :descripcion, :photo)
     end
 
-  def correct_user
-    @micrositio = current_user.micrositios.find_by(id: params[:id])
-    redirect_to root_url if @micrositio.nil?
-  end
+
 
 end
 

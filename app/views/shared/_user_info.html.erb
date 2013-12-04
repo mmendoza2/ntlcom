@@ -1,6 +1,6 @@
 <a href="<%= user_path(current_user) %>">
 
-  <% if @current_user.photo.blank?  %>
+  <% if @current_user.photo_file_name.blank?  %>
     <%= image_tag @current_user.avatar %>
   <%	 else %>
       <%= image_tag @user.photo.url(:square) %>

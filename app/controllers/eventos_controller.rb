@@ -1,6 +1,5 @@
 class EventosController < ApplicationController
   before_filter :authenticate_user!
-
   before_action :admin_user,     only: :destroy
 
   # GET /eventos
@@ -68,15 +67,6 @@ class EventosController < ApplicationController
   end
 
 
-  def has_attached_file
-  end
-
-  def photo
-  end
-
-  def search
-    @eventos = Evento.search params[:search]
-  end
 
   private
 

@@ -1,5 +1,5 @@
 class RelationmicrositiosController < ApplicationController
-  before_action :signed_in_user
+  before_filter :authenticate_user!
 
   def create
     @micrositio = Micrositio.find(params[:relationmicrositio][:followed_id])
@@ -15,7 +15,7 @@ class RelationmicrositiosController < ApplicationController
     @micrositio = Relationmicrositio.find(params[:id]).followed
     current_user.unfollowmicrositio!(@micrositio)
     respond_to do |format|
-      format.html { redirect_to @micrositio }
+      format.html { redirect_to @micrositio}
       format.js
     end
 

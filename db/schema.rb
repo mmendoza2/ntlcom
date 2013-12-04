@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131126230144) do
+ActiveRecord::Schema.define(version: 20131204010413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,11 @@ ActiveRecord::Schema.define(version: 20131126230144) do
     t.string   "estado"
     t.string   "slug"
     t.string   "poblacion"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.integer  "user_id"
   end
 
   add_index "estados", ["slug"], name: "index_estados_on_slug", using: :btree
@@ -176,6 +181,17 @@ ActiveRecord::Schema.define(version: 20131126230144) do
   add_index "relationactividades", ["followed_id"], name: "index_relationactividades_on_followed_id", using: :btree
   add_index "relationactividades", ["follower_id", "followed_id"], name: "index_relationactividades_on_follower_id_and_followed_id", unique: true, using: :btree
   add_index "relationactividades", ["follower_id"], name: "index_relationactividades_on_follower_id", using: :btree
+
+  create_table "relationestados", force: true do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "relationestados", ["followed_id"], name: "index_relationestados_on_followed_id", using: :btree
+  add_index "relationestados", ["follower_id", "followed_id"], name: "index_relationestados_on_follower_id_and_followed_id", unique: true, using: :btree
+  add_index "relationestados", ["follower_id"], name: "index_relationestados_on_follower_id", using: :btree
 
   create_table "relationeventos", force: true do |t|
     t.integer  "follower_id"

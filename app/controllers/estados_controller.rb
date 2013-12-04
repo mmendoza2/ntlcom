@@ -1,5 +1,6 @@
 class EstadosController < ApplicationController
   before_filter :authenticate_user!
+  before_action :admin_user,     only: :destroy
 
   # GET /estados
   # GET /estados.json
@@ -14,7 +15,9 @@ class EstadosController < ApplicationController
   def show
     @eventos = Evento.all
     @estados = Estado.all
+    @estado = Estado.friendly.find(params[:id])
     @eventosimg = Evento.find_by principal: 1
+    @user = Estado.friendly.find(params[:id])
 
   end
 
@@ -78,4 +81,6 @@ class EstadosController < ApplicationController
     def estado_params
       params[:estado].permit(:estado, :photo, :evento)
     end
+
+
 end

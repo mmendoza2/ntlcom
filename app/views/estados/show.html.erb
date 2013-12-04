@@ -1,12 +1,12 @@
 
 
-<% if @estado.estado == 'Baja California' %>
-
 <p id="notice"><%= notice %></p>
+
+<%= render 'follow_form' if signed_in? %>
 
 <div class="contenedor">
 
-<h1><%=	@estado.estado %> </h1>
+
 
 
   <div class="imagenprinc">
@@ -70,7 +70,7 @@
 
 
 
-  <% end %>
+
 <%= link_to 'Edit', edit_estado_path(@estado) %> |
 <%= link_to 'Back', estados_path %>
 

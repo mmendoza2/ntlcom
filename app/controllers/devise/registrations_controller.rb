@@ -31,6 +31,9 @@ class Devise::RegistrationsController < DeviseController
 
   # GET /resource/edit
   def edit
+    @micrositios = Micrositio.all
+
+    @estadosalf = Estado.order("estado")
     render :edit
   end
 

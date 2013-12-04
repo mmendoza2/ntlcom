@@ -11,8 +11,8 @@ class UsersController < ApplicationController
     @user = User.friendly.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
     @eventos = @user.eventos.paginate(page: params[:page])
+    @eestados = @user.estados.paginate(page: params[:page])
     @micrositios = @user.micrositios.paginate(page: params[:page])
-
     @micropost  = current_user.microposts.build
     @feed_items = current_user.feed.paginate(page: params[:page])
 
@@ -34,15 +34,13 @@ class UsersController < ApplicationController
   end
 
   def edit
-
-
   end
 
   def update
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
       sign_in @user
-      redirect_to @user
+      redirect_to edit_user_registration_path
     else
       render 'edit'
     end
@@ -73,7 +71,7 @@ class UsersController < ApplicationController
 
 
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar, :photo)
     end
 
     # Before filters
