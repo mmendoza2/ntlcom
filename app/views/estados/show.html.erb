@@ -23,11 +23,15 @@
   </div>
 
   <div class="searchestados">
+    <%= @estado.descripcion %>
+    <%= image_tag(@estado.photo.url(:medium)) %>
     <%= form_tag(@evento, method: "get") do %>
         <%= label_tag(:nombre, "Search for:") %>
         <%= text_field_tag(:nombre) %>
         <%= submit_tag("Search") %>
     <% end %>
+
+
   </div>
 
 <div class="contenedoreventoslista">
