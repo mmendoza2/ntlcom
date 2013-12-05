@@ -12,10 +12,7 @@ class User < ActiveRecord::Base
 
       has_many :relationestados, foreign_key: "follower_id", dependent: :destroy
       has_many :followed_users, through: :relationestados, source: :followed
-      has_many :reverse_relationestados, foreign_key: "followed_id",
-               class_name:  "Relationestado",
-               dependent:   :destroy
-      has_many :followers, through: :reverse_relationestados, source: :follower
+
 
   has_many :relationeventos, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationeventos, source: :followed

@@ -32,8 +32,9 @@ class Devise::RegistrationsController < DeviseController
   # GET /resource/edit
   def edit
     @micrositios = Micrositio.all
-
     @estadosalf = Estado.order("estado")
+    @estadosfollow = Relationestado.all
+
     render :edit
   end
 
@@ -77,6 +78,8 @@ class Devise::RegistrationsController < DeviseController
     expire_data_after_sign_in!
     redirect_to new_registration_path(resource_name)
   end
+
+
 
   protected
 

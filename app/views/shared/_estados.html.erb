@@ -14,10 +14,10 @@
 
           <div class="estadobarrafollow">
               <div class="estadofollow">
-                  <div id="follow_form">
+                  <div id="follow_form" >
                     <% if current_user.followingestado?(estado) %>
                         <%= form_for(current_user.relationestados.find_by(followed_id: estado), html: { method: :delete }) do |f| %>
-                            <%= f.submit "Unfollow", class: "btn " %>
+                            <%= f.submit "Siguiendo", class: "btn " %>
                         <% end %>
                     <% else %>
                         <%= form_for(current_user.relationestados.build(followed_id: estado.id)) do |f| %>
@@ -28,9 +28,12 @@
                   </div>
               </div>
               <div class="estadocontador">
+                <%= estado.followers.count%>
+                Usuarios
 
-                <%= @user.followers.count %>
-                Siguiendo
+
+
+
               </div>
           </div>
 

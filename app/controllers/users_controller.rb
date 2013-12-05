@@ -36,6 +36,8 @@ class UsersController < ApplicationController
   def edit
     @micrositio = Micrositio.friendly.find(params[:id])
     @estado = Estado.friendly.find(params[:id])
+    @user = User.friendly.find(params[:id])
+
   end
 
   def update
