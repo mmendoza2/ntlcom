@@ -10,9 +10,14 @@ class User < ActiveRecord::Base
   has_many :microposts, dependent: :destroy
   has_many :authorizations
 
+    has_many :relationactividadespadre, foreign_key: "follower_id", dependent: :destroy
+    has_many :followed_users, through: :relationactividadespadre, source: :followed
+
+  has_many :relationactividades, foreign_key: "follower_id", dependent: :destroy
+  has_many :followed_users, through: :relationactividades, source: :followed
+
       has_many :relationestados, foreign_key: "follower_id", dependent: :destroy
       has_many :followed_users, through: :relationestados, source: :followed
-
 
   has_many :relationeventos, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationeventos, source: :followed
@@ -142,6 +147,17 @@ class User < ActiveRecord::Base
   def unfollowestado!(other_user)
     relationestados.find_by(followed_id: other_user.id).destroy!
   end
+
+      def followingactividadpadre?(other_user)
+        relationactividadespadre.find_by(followed_id: other_user.id)
+      end
+      def followactividadpadre!(other_user)
+        relationactividadespadre.create!(followed_id: other_user.id)
+      end
+      def unfollowactividadpadre!(other_user)
+        relationactividadespadre.find_by(followed_id: other_user.id).destroy!
+      end
+
 
 
   private

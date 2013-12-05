@@ -3,7 +3,7 @@ class RelationactividadesController < ApplicationController
 
   def create
     @actividad = Actividad.find(params[:relationactividad][:followed_id])
-    current_user.followevento!(@actividad)
+    current_user.followactividad!(@actividad)
     respond_to do |format|
       format.html { redirect_to @actividad }
       format.js
@@ -13,7 +13,7 @@ class RelationactividadesController < ApplicationController
 
   def destroy
     @actividad = Relationactividad.find(params[:id]).followed
-    current_user.unfollowevento!(@actividad)
+    current_user.unfollowactividad!(@actividad)
     respond_to do |format|
       format.html { redirect_to @actividad }
       format.js

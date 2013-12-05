@@ -33,7 +33,8 @@ class Devise::RegistrationsController < DeviseController
   def edit
     @micrositios = Micrositio.all
     @estadosalf = Estado.order("estado")
-    @estadosfollow = Relationestado.all
+    @actividad = Actividad.all
+    @actividadpadre = Actividadpadre.all
 
     render :edit
   end

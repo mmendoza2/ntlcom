@@ -40,9 +40,16 @@ SampleApp::Application.routes.draw do
       get :following, :followers
     end
   end
+  resources :actividadespadre do
+    member do
+      get :following, :followers
+    end
+  end
 
   resources :actividades
   resources :actividades, :as => :actividad
+  resources :actividadespadre
+  resources :actividadespadre, :as => :actividadpadre
   resources :estados
   resources :eventos
   resources :locations
@@ -52,6 +59,8 @@ SampleApp::Application.routes.draw do
   resources :relationeventos, only: [:create, :destroy]
   resources :relationmicrositios, only: [:create, :destroy]
   resources :relationestados, only: [:create, :destroy]
+  resources :relationactividades, only: [:create, :destroy]
+  resources :relationactividadespadre, only: [:create, :destroy]
 
 
 

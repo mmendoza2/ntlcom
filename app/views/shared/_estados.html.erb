@@ -1,11 +1,6 @@
 
-
-
 <ul >
   <% @estadosalf.each do |estado| %>
-
-
-
       <li class="estados">
        <div class="estadostitulo"> <%= link_to estado.estado, estado %> </div>
         <%= link_to image_tag(estado.photo.url(:medium)), estado, class: 'estadoimagen'%>

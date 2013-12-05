@@ -1,9 +1,9 @@
-class Actividad < ActiveRecord::Base
+class Actividadpadre < ActiveRecord::Base
 
-  has_many :reverse_relationactividades, foreign_key: "followed_id",
-           class_name:  "Relationactividad",
+  has_many :reverse_relationactividadespadre, foreign_key: "followed_id",
+           class_name:  "Relationactividadpadre",
            dependent:   :destroy
-  has_many :followers, through: :reverse_relationactividades, source: :follower
+  has_many :followers, through: :reverse_relationactividadespadre, source: :follower
 
 
 
@@ -12,6 +12,6 @@ class Actividad < ActiveRecord::Base
                     :path => "/:class/:attachment/:id_partition/:style/:filename"
 
   extend FriendlyId
-  friendly_id :actividad, use: :slugged
+  friendly_id :actividadpadre, use: :slugged
 
 end
