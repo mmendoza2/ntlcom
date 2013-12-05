@@ -2,12 +2,16 @@ class EstadosController < ApplicationController
   before_filter :authenticate_user!
   before_action :admin_user,     only: :destroy
 
+
   # GET /estados
   # GET /estados.json
   def index
     @estados = Estado.all
     @eventos = Evento.all
     @estadosalf = Estado.order("estado")
+    @user = Estado.all
+    @estado = Estado.all
+    @estadosfollow = Relationestado.all
 
   end
 

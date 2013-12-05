@@ -7,9 +7,23 @@
     <% @estadosalf.each do |estado| %>
         <li class="estados">
           <%= link_to estado.estado, estado %>
+          <%= link_to estado.id, estado %>
+        <div>
 
+          <div id="follow_form">
+            <% if current_user.followingestado?(estado) %>
+                <%= form_for(current_user.relationestados.find_by(followed_id: @user), html: { method: :delete }) do |f| %>
+                    <%= f.submit "Unfollow", class: "btn " %>
+                <% end %>
+            <% else %>
+                <%= form_for(current_user.relationestados.build(followed_id: estado.id)) do |f| %>
+                    <div><%= f.hidden_field :followed_id %></div>
+                    <%= f.submit "Seguir", class: "btn  btn-primary" %>
+                <% end %>
+            <% end %>
+          </div>
 
-
+        </div>
         </li>
     <% end %>
   </ul>

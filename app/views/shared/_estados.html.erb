@@ -1,7 +1,7 @@
-<%=render 'estados/follow_form' %>
 
 
-<ul>
+
+<ul >
   <% @estadosalf.each do |estado| %>
 
 
@@ -12,21 +12,33 @@
         <div class="estadoarticulo"><%=  estado.descripcion %> </div>
         <div class="estadofollow">
 
-          <% unless current_user?(@user) %>
-              <div id="follow_form">
-
-              <% if current_user.followingestado?(@user) %>
-                  <%= render 'estados/unfollow_mini' %>
-              <% else %>
-                  <%= render 'estados/follow_mini' %>
-              <% end %>
-
+          <div class="estadobarrafollow">
+              <div class="estadofollow">
+                  <div id="follow_form">
+                    <% if current_user.followingestado?(estado) %>
+                        <%= form_for(current_user.relationestados.find_by(followed_id: estado), html: { method: :delete }) do |f| %>
+                            <%= f.submit "Unfollow", class: "btn " %>
+                        <% end %>
+                    <% else %>
+                        <%= form_for(current_user.relationestados.build(followed_id: estado.id)) do |f| %>
+                            <div><%= f.hidden_field :followed_id %></div>
+                            <%= f.submit "Seguir", class: "btn  btn-primary" %>
+                        <% end %>
+                    <% end %>
+                  </div>
               </div>
-          <% end %>
+              <div class="estadocontador">
+
+                <%= @user.followers.count %>
+                Siguiendo
+              </div>
+          </div>
 
         </div>
       </li>
 
 
   <% end %>
+
+
 </ul>

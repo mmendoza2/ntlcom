@@ -5,16 +5,17 @@ class UsersController < ApplicationController
 
   def index
     @users = User.paginate(page: params[:page])
+    @user = User.all
   end
 
   def show
     @user = User.friendly.find(params[:id])
     @microposts = @user.microposts.paginate(page: params[:page])
     @eventos = @user.eventos.paginate(page: params[:page])
-    @eestados = @user.estados.paginate(page: params[:page])
     @micrositios = @user.micrositios.paginate(page: params[:page])
     @micropost  = current_user.microposts.build
     @feed_items = current_user.feed.paginate(page: params[:page])
+
   end
 
   def new
@@ -67,6 +68,7 @@ class UsersController < ApplicationController
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
   end
+
 
 
 
