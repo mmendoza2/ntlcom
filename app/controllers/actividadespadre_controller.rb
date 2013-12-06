@@ -1,11 +1,11 @@
 class ActividadespadreController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_actividad, only: [:show, :edit, :update, :destroy]
+  before_action :set_actividadpadre, only: [:show, :edit, :update, :destroy]
 
   # GET /actividades
   # GET /actividades.json
   def index
-    @actividadespadre = Actividad.all
+    @actividadespadre = Actividadpadre.all
   end
 
   # GET /actividades/1
@@ -68,12 +68,12 @@ class ActividadespadreController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_actividad
+    def set_actividadpadre
       @actividadpadre = Actividadpadre.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def actividad_params
+    def actividadpadre_params
       params[:actividadpadre].permit(:actividadpadre, :photo, :descripcion)
     end
 end

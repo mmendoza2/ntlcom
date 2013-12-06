@@ -1,20 +1,20 @@
 <ul >
-  <% @actividadpadre.each do |actividad| %>
+  <% @actividadpadres.each do |actividad| %>
 
       <li class="actividadespadre">
-       <div class="actividadespadretitulo"> <%= link_to actividad.actividad, actividad %> </div>
+       <div class="actividadespadretitulo"> <%= link_to actividad.actividadpadre, actividad %> </div>
         <%= link_to image_tag(actividad.photo.url(:medium)), actividad, class: 'actividadespadreimagen'%>
         <div class="actividadespadrearticulo"><%=  actividad.descripcion %> </div>
         <div class="actividadespadrefollow">
           <div class="actividadespadrebarrafollow">
               <div class="actividadespadrefollow">
                   <div id="follow_form" >
-                    <% if current_user.followingactividad?(actividad) %>
-                        <%= form_for(current_user.relationactividades.find_by(followed_id: actividad), html: { method: :delete }) do |f| %>
+                    <% if current_user.followingactividadpadre?(actividad) %>
+                        <%= form_for(current_user.relationactividadespadre.find_by(followed_id: actividad), html: { method: :delete }) do |f| %>
                             <%= f.submit "Siguiendo", class: "btn " %>
                         <% end %>
                     <% else %>
-                        <%= form_for(current_user.relationactividades.build(followed_id: actividad.id)) do |f| %>
+                        <%= form_for(current_user.relationactividadespadre.build(followed_id: actividad.id)) do |f| %>
                             <div><%= f.hidden_field :followed_id %></div>
                             <%= f.submit "Seguir", class: "btn  btn-primary" %>
                         <% end %>
