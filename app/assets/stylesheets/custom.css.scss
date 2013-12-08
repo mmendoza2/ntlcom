@@ -3,7 +3,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 @import "bootstrap";
+@import "bootstrap-responsive";
+
+
+$grayLighter: gray;
+
+
 
 
 @mixin box_sizing {

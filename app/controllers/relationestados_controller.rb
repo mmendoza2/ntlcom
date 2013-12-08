@@ -5,7 +5,7 @@ class RelationestadosController < ApplicationController
     @estado = Estado.find(params[:relationestado][:followed_id])
     current_user.followestado!(@estado)
     respond_to do |format|
-      format.html { redirect_to @estado }
+      format.html { redirect_to(:back) }
       format.js
     end
 
@@ -15,7 +15,7 @@ class RelationestadosController < ApplicationController
     @estado = Relationestado.find(params[:id]).followed
     current_user.unfollowestado!(@estado)
     respond_to do |format|
-      format.html { redirect_to @estado}
+      format.html { redirect_to(:back)}
       format.js
     end
 

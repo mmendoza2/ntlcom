@@ -5,7 +5,7 @@ class RelationactividadespadreController < ApplicationController
     @actividadpadre = Actividadpadre.find(params[:relationactividadpadre][:followed_id])
     current_user.followactividadpadre!(@actividadpadre)
     respond_to do |format|
-      format.html { redirect_to @actividadpadre }
+      format.html { redirect_to(:back)}
       format.js
     end
 
@@ -15,7 +15,7 @@ class RelationactividadespadreController < ApplicationController
     @actividadpadre = Relationactividadpadre.find(params[:id]).followed
     current_user.unfollowactividadpadre!(@actividadpadre)
     respond_to do |format|
-      format.html { redirect_to @actividadpadre }
+      format.html { redirect_to(:back) }
       format.js
     end
 

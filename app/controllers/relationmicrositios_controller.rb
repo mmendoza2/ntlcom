@@ -5,7 +5,7 @@ class RelationmicrositiosController < ApplicationController
     @micrositio = Micrositio.find(params[:relationmicrositio][:followed_id])
     current_user.followmicrositio!(@micrositio)
     respond_to do |format|
-      format.html { redirect_to @micrositio }
+      format.html { redirect_to(:back) }
       format.js
     end
 
@@ -15,7 +15,7 @@ class RelationmicrositiosController < ApplicationController
     @micrositio = Relationmicrositio.find(params[:id]).followed
     current_user.unfollowmicrositio!(@micrositio)
     respond_to do |format|
-      format.html { redirect_to @micrositio}
+      format.html { redirect_to(:back)}
       format.js
     end
 

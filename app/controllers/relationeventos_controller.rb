@@ -5,7 +5,7 @@ class RelationeventosController < ApplicationController
     @evento = Evento.find(params[:relationevento][:followed_id])
     current_user.followevento!(@evento)
     respond_to do |format|
-      format.html { redirect_to @evento }
+      format.html { redirect_to(:back) }
       format.js
     end
 
@@ -15,7 +15,7 @@ class RelationeventosController < ApplicationController
     @evento = Relationevento.find(params[:id]).followed
     current_user.unfollowevento!(@evento)
     respond_to do |format|
-      format.html { redirect_to @evento }
+      format.html { redirect_to(:back) }
       format.js
     end
 
