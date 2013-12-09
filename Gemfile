@@ -18,6 +18,7 @@ gem 'omniauth-facebook'
 gem 'koala'
 gem 'geocoder'
 gem 'shadowbox-rails'
+gem 'font-awesome-rails'
 
 
 

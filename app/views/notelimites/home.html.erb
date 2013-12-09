@@ -33,30 +33,144 @@
 
 <% else %>
 
-    <div class="front-bg">
-      <img class="front-image" src="https://s3.amazonaws.com/imagenes.notelimites/TURISMO_MEXICO.JPG" width="800px" height="703px">
-    </div>
 
-    <div class="front-overlay-message-wrap">
-      <div class="front-overlay-message-container">
-        <div class="front-overlay-message-content">
-          <h1 class="front-overlay-message">NoTeLimites te ayudará a conocer México. </h1>
-          <h2 class="front-overlay-message-sub"> Cuentanos tus intereses y nostros te recomendamos los mejores lugares a donde ir y las mejores cosas que hacer
-            en México</h2>
-           <div class= "btn btn-large btn-primary">
-          <%= link_to "Comienza a Explorar", new_user_registration_path %>
-           </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="contenedorpagprincipal">
-    </div>
-    <div class="footerpagprincipal">
+
+
+    <header id="header" class="site-header">
       <div class="container">
-        <%= render 'layouts/footer' %>
-        <%= debug(params) if Rails.env.development? %>
-      </div>
-    </div>
+        <div class="row-fluid">
+          <div class="span12">
+            <h1><div class="site-title pull-left"> <%= link_to image_tag("LogoNTL.png"), root_path, id: "logo" %></div></h1>
+            <div class="user text-right">
+              <ul>
+              <li class="user-login" ><%= link_to "Login", new_user_session_path %></li> |
+              <li class="user-regidter" ><%= link_to "Registrate", new_user_registration_path %></li>
+              </ul>
+            </div>
+          </div><!-- /span12 -->
+        </div><!-- /row-fluid -->
+      </div><!-- /container -->
+
+      <div class="container">
+        <div class="row-fluid">
+          <div class="span12">
+
+            <div class="header-description">
+              <h2>NoTeLimites te ayudará a conocer México.</h2>
+              <div class="header-btn"><%= link_to "Comienza a Explorar", new_user_registration_path %></div>
+            </div><!-- /header-description -->
+
+            <div class="header-features">
+              <div class="row-fluid">
+                <div class="header-feature">
+                  <h3> &nbsp; Cuentanos tus intereses</h3>
+                  <p>Nostros te recomendamos los mejores lugares a donde ir y las mejores cosas que hacer en México</p>
+                </div>
+
+                </div>
+              </div>
+            </div><!-- /header-features -->
+
+          </div><!-- /span12 -->
+        </div><!-- /row-fluid -->
+      </div><!-- /container -->
+    </header>
+
+
+
+
+    <section id="features" class="features">
+      <div class="container">
+        <div class="row-fluid">
+
+          <div class="span3">
+            <div class="feature">
+              <i class="icon-globe icon-2x pull-left"></i>
+              <h4>Culturizate</h4>
+              <p>Curabitur fringilla, elit pulvinar auctor tincidunt, arcu nibh adipiscing velit, at tincidunt libero nisl sit amet nisl.</p>
+            </div>
+          </div><!-- /span3 -->
+
+          <div class="span3">
+            <div class="feature">
+              <i class="icon-wrench icon-2x pull-left"></i>
+              <h4>Socializa</h4>
+              <p>Nullam ac magna sit amet Justo eu vulputate fermentum.</p>
+            </div>
+          </div><!-- /span3 -->
+
+          <div class="span3">
+            <div class="feature">
+              <i class="icon-desktop icon-2x pull-left"></i>
+              <h4>Ubicate</h4>
+              <p>From desktop tto mobile. Dignissim et dolor. Proin facilisis nulla vitae dui luctus ac pulvinar magna tincidunt.</p>
+            </div>
+          </div><!-- /span3 -->
+
+          <div class="span3">
+            <div class="feature">
+              <i class="icon-thumbs-up icon-2x pull-left"></i>
+              <h4>Comparte</h4>
+              <p>keeping up with trends, can impact your success. Integer.</p>
+            </div>
+          </div><!-- /span3 -->
+
+        </div><!-- /row-fluid -->
+      </div><!-- /container -->
+    </section>
+
+    <section id="testimonials" class="testimonials">
+      <div class="container">
+
+        <div id="testimonials-carousel" class="carousel slide">
+          <div class="carousel-inner">
+            <div class="item active">
+              <div class="row-fluid">
+                <div class="span12">
+                  <blockquote>
+                    <div>
+                      <i class="icon-quote-left"></i>
+                      <p>Curabitur fringilla, elit pulvinar auctor tincidunt, arcu nibh adipiscing velit, at tincidunt libero nisl sit amet nisl. Proin facilisis nulla vitae dui luctus ac pulvinar magna tincidunt.</p>
+                      <small>Someone famous <cite title="Source Title">Source Title</cite></small>
+                    </div>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="row-fluid">
+                <div class="span12">
+                  <blockquote>
+                    <div>
+                      <i class="icon-quote-left"></i>
+                      <p>Curabitur fringilla, elit pulvinar auctor tincidunt, arcu nibh adipiscing velit, at tincidunt libero nisl sit amet nisl. Proin facilisis nulla vitae dui luctus ac pulvinar magna</p>
+                      <small>Someone famous <cite title="Source Title">Source Title</cite></small>
+                    </div>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="row-fluid">
+                <div class="span12">
+                  <blockquote>
+                    <div>
+                      <i class="icon-quote-left"></i>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                      <small>Someone famous <cite title="Source Title">Source Title</cite></small>
+                    </div>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control left" href="#testimonials-carousel" data-slide="prev">&lsaquo;</a>
+          <a class="carousel-control right" href="#testimonials-carousel" data-slide="next">&rsaquo;</a>
+        </div><!-- /testimonials-carousel -->
+
+      </div><!-- /container -->
+    </section>
+
 
 <% end %>

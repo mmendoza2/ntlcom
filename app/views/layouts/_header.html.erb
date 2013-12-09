@@ -21,56 +21,42 @@
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 
+<% if signed_in? %>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+              <%= link_to image_tag("LogoNTL.png"), root_path, id: "logo" %>
+          <nav>
+            <ul class="nav pull-right">
+                  <li><%= link_to "Home", root_path %></li>
+                  <li><%= link_to "Users", users_path %></li>
+                  <li id="fat-menu" class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <%	 if current_user.name? %>
+                          <%=  current_user.name %> <b class="caret"></b>
+                      <%	 else %>
+                          <%=  current_user.email %> <b class="caret"></b>
 
-<header class="navbar navbar-fixed-top navbar-inverse">
-
-
-  <div class="navbar-inner">
-
-    <div class="container">
-      <% if signed_in? %>
-      <%= link_to image_tag("LogoNTL.png"), root_path, id: "logo" %>
-      <%	 else %>
-      <%= link_to image_tag("LogoNTL.png"), root_path, id: "logolog" %>
-      <%	 end %>
-      <nav>
-        <ul class="nav pull-right">
-
-
-          <% if signed_in? %>
-              <li><%= link_to "Home", root_path %></li>
-              <li><%= link_to "Users", users_path %></li>
-              <li id="fat-menu" class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                   <%	 if current_user.name? %>
-                     <%=  current_user.name %> <b class="caret"></b>
-                   <%	 else %>
-                      <%=  current_user.email %> <b class="caret"></b>
-
-                   <%	 end %>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><%= link_to "Profile", current_user %></li>
-                  <li><%= link_to "Settings", edit_user_registration_path(current_user) %></li>
-                  <li class="divider"></li>
-                  <li>
-                    <%= link_to "Sign out",  destroy_user_session_path, method: "delete" %>
+                      <%	 end %>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><%= link_to "Profile", current_user %></li>
+                      <li><%= link_to "Settings", edit_user_registration_path(current_user) %></li>
+                      <li class="divider"></li>
+                      <li>
+                        <%= link_to "Sign out",  destroy_user_session_path, method: "delete" %>
+                      </li>
+                    </ul>
                   </li>
-                </ul>
-              </li>
-          <% else %>
-            <div class= "btn btn-large stretchy">
-              <li><%= link_to "Explora", new_user_session_path %></li>
-            </div>
-          <% end %>
-        </ul>
-      </nav>
+            </ul>
+          </nav>
+        </div>
+      </div>
 
-    </div>
+    </header>
+<%	 else %>
 
-  </div>
-  <% if signed_in? %>
-  <% else %>
-  <div class="reservaviaje" ><%= link_to  image_tag("reserva_tu_viaje.png"), 'http://viajes.notelimites.com/Hoteles/Lista?af=NOTELIMITES&ds=123'  %>   </div>
-  <% end %>
-</header>
+
+
+
+<%	 end %>

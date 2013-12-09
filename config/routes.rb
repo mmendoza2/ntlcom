@@ -1,19 +1,18 @@
 SampleApp::Application.routes.draw do
 
   root to: 'notelimites#home'
+  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
+  match '/users/auth/facebook' => 'devise/omniauth_callbacks#passthru',  via: 'get'
+  match 'auth/:provider/callback', to: 'sessions#create',   via: 'get'
+  match 'auth/failure', to: redirect('/'),                  via: 'get'
+  match '/users/sign_out',    to: 'devise/sessions#destroy',    via: 'post'
+  match '/index',    to: 'notelimites#index',    via: 'get'
   match '/ayuda',    to: 'notelimites#ayuda',    via: 'get'
   match '/terminos',    to: 'notelimites#terminos',    via: 'get'
   match '/nosotros',   to: 'notelimites#nosotros',   via: 'get'
   match '/contacto', to: 'notelimites#contacto', via: 'get'
   match '/micrositios', to: 'micrositios#index', via: 'get'
-  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
-
-  match '/users/auth/facebook' => 'devise/omniauth_callbacks#passthru',  via: 'get'
-  match 'auth/:provider/callback', to: 'sessions#create',   via: 'get'
-  match 'auth/failure', to: redirect('/'),                  via: 'get'
   match '/micrositios/fotos', to: 'micrositios#fotos', via: 'get'
-
-  resources :search_suggestions
 
   resources :users do
     member do
@@ -46,6 +45,7 @@ SampleApp::Application.routes.draw do
     end
   end
 
+  resources :users
   resources :actividades
   resources :actividades, :as => :actividad
   resources :actividadespadre
