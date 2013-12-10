@@ -13,21 +13,24 @@
             <li class="user-regidter" ><%= link_to "Registrate", new_user_registration_path %></li>
           </ul>
         </div>
-        <div class="text-center" style="color: #ffffff">
+        <div class="text-center" >
           <br>
           <br>
-                  <h2>Ingresa a No Te Limites</h2>
-              <br>
+                  <h2 style="color: #ffffff; font-weight: 300; font-size: 50px">Ingresa a NoTeLimites.com</h2>
+          <br/>
         <div class="wrapper-form">
                 <section class="text-center">
-                        <%= link_to "Ingresa con Facebook", user_omniauth_authorize_path(:facebook), class: "btn btn-large btn-primary" %>
+                        <%= link_to "FACEBOOK", user_omniauth_authorize_path(:facebook), class: "btn btn-large btn-primary" %>
                   <div class="row" >
                     <div class="span4 offset4" >
                       <div class="sign-up-divider">
                       </div>
                       <p>
                       <br>
-                        <strong >O Ingresa con tu Email</strong>
+                        <h2 style="color: #ffffff; font-weight: 100;">Ó Ingresa con tu Email</h2>
+                            <% flash.each do |key, value| %>
+                              <div class="alert alert-<%= key %>"><%= value %></div>
+                             <% end %>
                       <br>
                       </p>
                         <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
@@ -40,6 +43,11 @@
                           <div><%= f.submit "Ingresa", class: 'btn' %></div>
                         <% end %>
                       <%= render "devise/shared/links" %>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+
                     </div>
                   </div>
                 </section>
