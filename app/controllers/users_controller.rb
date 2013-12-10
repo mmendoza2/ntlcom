@@ -36,8 +36,35 @@ class UsersController < ApplicationController
     @micrositio = Micrositio.friendly.find(params[:id])
     @estado = Estado.friendly.find(params[:id])
     @user = User.friendly.find(params[:id])
-
   end
+
+  def editestados
+    @micrositios = Micrositio.all
+    @estadosalf = Estado.order("estado")
+    @actividad = Actividad.all
+    @actividadpadres = Actividadpadre.all
+  end
+
+  def editactividades
+    @micrositios = Micrositio.all
+    @estadosalf = Estado.order("estado")
+    @actividad = Actividad.all
+    @actividadpadres = Actividadpadre.all
+  end
+  def editlugares
+    @micrositios = Micrositio.all
+    @estadosalf = Estado.order("estado")
+    @actividad = Actividad.all
+    @actividadpadres = Actividadpadre.all
+  end
+  def editusuarios
+    @micrositios = Micrositio.all
+    @usuarios = User.all
+    @estadosalf = Estado.order("estado")
+    @actividad = Actividad.all
+    @actividadpadres = Actividadpadre.all
+  end
+
 
   def update
     if @user.update_attributes(user_params)

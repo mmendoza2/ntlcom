@@ -28,11 +28,16 @@
          <% end %>
 
          <% if signed_in? 	  %>
-              <div class="container">
+
+              <div class="container" style="margin-top: 50px">
                     <%=	 yield %>
               </div>
+
                  <% else %>
+
                      <%= yield %>
+
+
                  <% end %>
 
          <div class="container">
