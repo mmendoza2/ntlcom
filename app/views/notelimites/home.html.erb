@@ -3,34 +3,34 @@
 
 
 
-    <div class="row">
-      <section class="menu">
-        <p>...................................</p>
-        <%=  link_to "Micrositios", controller: "micrositios", action:"index"  %>
-        <p>...................................</p>
-        <%=  link_to "Eventos", controller: "eventos", action:"index"  %>
-        <p>...................................</p>
-        <%=  link_to "Estados", controller: "estados", action:"index"  %>
-        <p>...................................</p>
+    <div class="row-fluid">
 
-      </section>
-      <section>
+          <div class="span9">
 
-        <% @micrositios.take(10).each do |micrositio| %>
-            <% if micrositio.photo_file_size? %>
-                <li id="cadaevento">
-                  <%= link_to micrositio.name, micrositio %>
-                  <%= image_tag micrositio.photo.url(:small) %>
-                  <%= micrositio.imagen %>
-            <% else %>
-                <li id="cadaevento">
-                  <%= link_to micrositio.name, micrositio %>
-                  <img src="https://s3.amazonaws.com/imagenes.notelimites/micrositios/photos/sitios/big/<%= micrositio.photo_file_name %>"    >
-                  <%= micrositio.imagen %>
+            <% @micrositios.take(10).each do |micrositio| %>
+                <% if micrositio.photo_file_size? %>
+                    <li id="cadaevento">
+                      <%= link_to micrositio.name, micrositio %>
+                      <%= image_tag micrositio.photo.url(:small) %>
+                      <%= micrositio.imagen %>
+                <% else %>
+                    <li id="cadaevento">
+                      <%= link_to micrositio.name, micrositio %>
+                      <img src="https://s3.amazonaws.com/imagenes.notelimites/micrositios/photos/sitios/big/<%= micrositio.photo_file_name %>"    >
+                      <%= micrositio.imagen %>
+                <% end %>
             <% end %>
-        <% end %>
-      </section>
-    </div>
+          </div>
+          <div class="span3">
+            <p>...................................</p>
+            <%=  link_to "Micrositios", controller: "micrositios", action:"index"  %>
+            <p>...................................</p>
+            <%=  link_to "Eventos", controller: "eventos", action:"index"  %>
+            <p>...................................</p>
+            <%=  link_to "Estados", controller: "estados", action:"index"  %>
+            <p>...................................</p>
+          </div>
+        </div>
 
 
 <% else %>

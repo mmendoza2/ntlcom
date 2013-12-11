@@ -14,10 +14,8 @@ gem 'aws-sdk'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
-
 gem 'koala'
 gem 'geocoder'
-gem 'shadowbox-rails'
 gem 'font-awesome-rails'
 
 
