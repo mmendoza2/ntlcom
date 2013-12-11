@@ -23,15 +23,17 @@
     <% if signed_in? %>
 
 
-    <header class="navbar navbar-fixed-top navbar-inverse" >
-      <div class="navbar-inner">
-        <div class="container-fluid">
+
+
+    <header class="navbar navbar-fixed-top navbar-inverse" style="padding-top: 5px !important;">
+
+      <div class="container" >
               <%= link_to image_tag("LogoNTL.png"), root_path, id: "logo" %>
-          <nav>
-            <ul class="nav pull-right">
-                  <li><%= link_to "Home", root_path %></li>
+          <nav >
+            <ul class="navbar pull-right list-inline" style="padding-top: 5px; margin-bottom: 0px">
+                  <li ><%= link_to "Home", root_path %></li>
                   <li><%= link_to "Users", users_path %></li>
-                  <li id="fat-menu" class="dropdown">
+                  <li id="fat-menu" class="dropdown" role="menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                           <%=  current_user.name %><b class="caret"></b>
                     </a>
@@ -46,11 +48,8 @@
                   </li>
             </ul>
           </nav>
-        </div>
-       </div>
+      </div>
     </header>
-
-
 
 
 <%	 else %>

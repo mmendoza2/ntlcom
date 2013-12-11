@@ -8,10 +8,10 @@
  * * http://fortawesome.github.com/Font-Awesome/
  **/
 
-
-
 @import "bootstrap";
 @import "font-awesome";
+
+$grayLighter: gray;
 
 
 
@@ -103,12 +103,11 @@ a.carousel-control:hover {
 .site-header {
   background-image: url("https://s3.amazonaws.com/imagenes.notelimites/TURISMO_MEXICO.JPG");
   background-repeat: no-repeat;
-  background-color: #000000;
+  background-color: blac;
   -webkit-background-size:cover;
   -moz-background-size:cover;
   background-size:cover;
 width: 100%;
-  opacity: .9;
 }
 
 /* logo - icon is from fontawesome font */
@@ -145,7 +144,7 @@ width: 100%;
 
 /* header-description */
 .header-description {
-  margin: 0px 0 80px;
+  margin: 130px 0 80px;
   text-align: center;
 }
 .header-description h2 {  
@@ -567,7 +566,6 @@ ul.social li:nth-child(6):before{
 @media (max-width: 767px) { 
   body {
     padding: 0;
-    margin-top: 30px;
   }
   .container {
     padding-left: 20px;
@@ -667,6 +665,64 @@ footer ul li {
 @include box_sizing;
 }
 
+/* sidebar */
+
+aside {
+section {
+    padding: 10px 0;
+    border-top: 1px solid #a7a7a7;
+&:first-child {
+    border: 0;
+    padding-top: 0;
+}
+span {
+    display: block;
+    margin-bottom: 3px;
+    line-height: 1;
+}
+h1 {
+    font-size: 1.4em;
+    text-align: left;
+    letter-spacing: -1px;
+    margin-bottom: 3px;
+    margin-top: 0px;
+}
+    }
+    }
+
+.gravatar {
+    float: left;
+    margin-right: 10px;
+}
+
+.stats {
+    overflow: auto;
+a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $grayLighter;
+    color: gray;
+&:first-child {
+    padding-left: 0;
+    border: 0;
+}
+&:hover {
+    text-decoration: none;
+    color: blue;
+}
+    }
+strong {
+    display: block;
+}
+    }
+
+.user_avatars {
+    overflow: auto;
+    margin-top: 10px;
+.gravatar {
+    margin: 1px 1px;
+}
+    }
 
 /* forms */
 
@@ -695,6 +751,33 @@ ul {
 @extend .error;
     }
 
+
+
+/* microposts */
+
+.microposts {
+    list-style: none;
+    margin: 10px 0 0 0;
+
+li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+}
+    }
+.content {
+    display: block;
+}
+
+.gravatar {
+    float: left;
+    margin-right: 10px;
+}
+aside {
+textarea {
+    height: 100px;
+    margin-bottom: 5px;
+}
+    }
 
 
 

@@ -8,18 +8,12 @@
     <%= csrf_meta_tags %>
     <%= render 'layouts/shim' %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <script type="text/javascript">
-        Shadowbox.init();
-    </script>
-
   </head>
   <body>
 
          <%= render 'layouts/header' %>
          <% if signed_in? 	  %>
-              <div class="container-fluid">
+              <div class="container">
                 <% flash.each do |key, value| %>
                     <div class="alert alert-<%= key %>"><%= value %></div>
                 <% end %>
@@ -28,19 +22,14 @@
          <% end %>
 
          <% if signed_in? 	  %>
-
-              <div class="container-fluid" style="margin-top: 60px">
+              <div class="container" style="margin-top: 60px">
                     <%=	 yield %>
               </div>
-
                  <% else %>
-
                      <%= yield %>
-
-
                  <% end %>
 
-         <div class="container-fluid">
+         <div class="container">
         <%= render 'layouts/footer' %>
         <%= debug(params) if Rails.env.development? %>
          </div>

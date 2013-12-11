@@ -3,9 +3,9 @@
 
 
 
-    <div class="row-fluid">
+    <div class="row">
 
-          <div class="span9">
+          <div class="col-md-9">
 
             <% @micrositios.take(10).each do |micrositio| %>
                 <% if micrositio.photo_file_size? %>
@@ -21,7 +21,7 @@
                 <% end %>
             <% end %>
           </div>
-          <div class="span3">
+          <div class="col-md-3">
             <p>...................................</p>
             <%=  link_to "Micrositios", controller: "micrositios", action:"index"  %>
             <p>...................................</p>
