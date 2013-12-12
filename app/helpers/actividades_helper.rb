@@ -1,2 +1,4 @@
 module ActividadesHelper
+
+
 end

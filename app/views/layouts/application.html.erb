@@ -14,8 +14,13 @@
          <%= render 'layouts/header' %>
          <% if signed_in? 	  %>
               <div class="container">
-                <% flash.each do |key, value| %>
-                    <div class="alert alert-<%= key %>"><%= value %></div>
+                <% [:notice, :error, :alert].each do |level| %>
+                    <% unless flash[level].blank? %>
+                        <div data-alert="alert" class="alert-message <%= flash_class(level) %> fade in">
+                          <a class="close" href="#">×</a>
+                          <%= content_tag :p, flash[level] %>
+                        </div>
+                    <% end %>
                 <% end %>
               </div>
          <%  else %>

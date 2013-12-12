@@ -8,15 +8,22 @@
  * * http://fortawesome.github.com/Font-Awesome/
  **/
 
-@import "bootstrap";
-@import "font-awesome";
+
+
+
 
 $grayLighter: gray;
 
 
+.menu-background-settings{
+  height: 120px;
+  opacity: .8;
+  padding-top: 30px;
+}
 
 
-@mixin box_sizing {
+
+  @mixin box_sizing {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -99,9 +106,13 @@ a.carousel-control:hover {
   text-decoration: none;
 }
 
+#header-text{
+  color: #ffffff !important;
+}
+
 
 .site-header {
-  background-image: url("https://s3.amazonaws.com/imagenes.notelimites/TURISMO_MEXICO.JPG");
+  background-image: url("https://s3.amazonaws.com/imagenes.notelimites/bg.jpg");
   background-repeat: no-repeat;
   background-color: blac;
   -webkit-background-size:cover;
@@ -177,6 +188,31 @@ width: 100%;
   color: #fff;
   background: transparent;
 }
+
+.header-btn-form {
+  color: #fff;
+  width: 130px;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 18px;
+  padding: 5px 5px;
+  border: 2px solid rgb(219, 82, 47);
+  background: rgb(219, 82, 47);
+  display: inline-block;
+
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+}
+.header-btn-form:hover {
+  color: #fff;
+  opacity: .6;
+}
+
+
 
 /* header features */
 .header-features {
@@ -373,7 +409,7 @@ ul.social li {
 }
 ul.social li:hover {
   background: #33cc99;
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3); 
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
 }
 ul.social li:hover a {
   top: -60px; 
@@ -527,9 +563,11 @@ ul.social li:nth-child(6):before{
                         #footer
 **************************************************************/
 .footer {
+  color: #ffffff;
   padding: 0px 0 !important;
-  background-color: #000000;
-  opacity: .6;
+  background-color: #ff6900;
+  height: 50px;
+  opacity: .5;
 }
 .footer-title {
   font-size: 20px;

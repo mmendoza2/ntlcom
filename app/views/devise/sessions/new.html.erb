@@ -15,42 +15,45 @@
         </div>
         <div class="text-center" >
           <br>
+          <h2 style="color: #ffffff; font-weight: 100; font-size: 40px" >¡Ingresa a NoTeLimites.com!</h2>
           <br>
-                  <h2 style="color: #ffffff; font-weight: 300; font-size: 50px">Ingresa a NoTeLimites.com</h2>
-          <br/>
-        <div class="wrapper-form">
-                <section class="text-center">
-                        <%= link_to "FACEBOOK", user_omniauth_authorize_path(:facebook), class: "btn btn-large btn-primary" %>
-                  <div class="row-fluid" >
-                    <div class="span8 offset4" >
-                      <div class="sign-up-divider">
-                      </div>
-                      <p>
-                      <br>
-                        <h2 style="color: #ffffff; font-weight: 100;">Ó Ingresa con tu Email</h2>
-                            <% flash.each do |key, value| %>
-                              <div class="alert alert-<%= key %>"><%= value %></div>
-                             <% end %>
-                      <br>
-                      </p>
+
+
+          <% [:notice, :error, :alert].each do |level| %>
+              <% unless flash[level].blank? %>
+                  <div data-alert="alert" class="alert-message <%= flash_class(level) %> fade in">
+                    <a class="close" href="#">×</a>
+                    <%= content_tag :p, flash[level] %>
+                  </div>
+              <% end %>
+          <% end %>
+
+        </div>
+        <section>
+          <div class="text-center  ">
+            <i class="icon-facebook-sign"></i>  <%= link_to "Ingresa con Facebook", user_omniauth_authorize_path(:facebook), class: " btn btn-lg btn-primary" %>
+          </div>
+          <div class="row text-center" >
+
+            <%= devise_error_messages! %>
+            <div class="col-md-4 col-md-offset-4" >
+              <h2 class="text-center" style="color: #ffffff; font-weight: 100" >Ó registrate con tu E-mail... </h2>
+              <div class="col-md-10 col-md-offset-1 " >
                         <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
-                          <div><%= f.email_field :email, :autofocus => true,  :placeholder => "Email" %></div>
-                          <div><%= f.password_field :password,  :placeholder => "Password" %></div>
-                          <% if devise_mapping.rememberable? -%>
-                            <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-                          <% end -%>
-                          <div><%= f.submit "Ingresa", class: 'btn' %></div>
+                          <div><%= f.email_field :email, :autofocus => true,  :placeholder => "Email", class: 'input-sm' %></div>
+                          <div><%= f.password_field :password,  :placeholder => "Password", class: 'input-sm' %></div>
+                          <div><%= f.submit "Ingresa", class: "btn header-btn-form" %></div>
                         <% end %>
                       <%= render "devise/shared/links" %>
                       <br>
                       <br>
                       <br>
                       <br>
-
-                    </div>
-                  </div>
-                </section>
+               </div>
+             </div>
+          </div>
+          </section>
         </div>
         </div>
       </div>

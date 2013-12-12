@@ -40,8 +40,8 @@
 
     <header id="header" class="site-header">
       <div class="container">
-        <div class="row-fluid">
-          <div class="span12">
+        <div class="row">
+          <div class="col-md-12">
             <h1><div class="site-title pull-left"> <%= link_to image_tag("LogoNTL.png"), root_path, id: "logo" %></div></h1>
             <div class="user text-right">
               <ul>
@@ -54,10 +54,15 @@
       </div><!-- /container -->
 
       <div class="container">
-        <div class="row-fluid">
-          <div class="span12">
-            <% flash.each do |key, value| %>
-                <div class="alert alert-<%= key %>"><%= value %></div>
+        <div class="row">
+          <div class="col-md-12">
+            <% [:notice, :error, :alert].each do |level| %>
+                <% unless flash[level].blank? %>
+                    <div data-alert="alert" class="alert-message <%= flash_class(level) %> fade in">
+                      <a class="close" href="#">×</a>
+                      <%= content_tag :p, flash[level] %>
+                    </div>
+                <% end %>
             <% end %>
 
             <div class="header-description">
@@ -66,7 +71,7 @@
             </div><!-- /header-description -->
 
             <div class="header-features">
-              <div class="row-fluid">
+              <div class="row">
                 <div class="header-feature">
                   <h3> &nbsp; Cuentanos tus intereses</h3>
                   <p>Nostros te recomendamos los mejores lugares a donde ir y las mejores cosas que hacer en México</p>
@@ -86,52 +91,50 @@
 
     <section id="features" class="features">
       <div class="container">
-        <div class="row-fluid">
+        <div class="row">
 
-          <div class="span3">
+          <div class="col-md-3">
             <div class="feature">
               <i class="icon-globe icon-2x pull-left"></i>
-              <h4>Culturizate</h4>
-              <p>Curabitur fringilla, elit pulvinar auctor tincidunt, arcu nibh adipiscing velit, at tincidunt libero nisl sit amet nisl.</p>
+              <h4>Descubre</h4>
+              <p>Descubre todos los lugares, actividades y eventos que existen en México.</p>
             </div>
           </div><!-- /span3 -->
 
-          <div class="span3">
+          <div class="col-md-3">
             <div class="feature">
               <i class="icon-wrench icon-2x pull-left"></i>
-              <h4>Socializa</h4>
-              <p>Nullam ac magna sit amet Justo eu vulputate fermentum.</p>
+              <h4>Conoce</h4>
+              <p>Conoce lugares que nunca antes habías visto.</p>
             </div>
           </div><!-- /span3 -->
 
-          <div class="span3">
+          <div class="col-md-3">
             <div class="feature">
               <i class="icon-desktop icon-2x pull-left"></i>
-              <h4>Ubicate</h4>
-              <p>From desktop tto mobile. Dignissim et dolor. Proin facilisis nulla vitae dui luctus ac pulvinar magna tincidunt.</p>
+              <h4>Disfruta</h4>
+              <p>Disfruta todo lo que México tiene para ti</p>
             </div>
           </div><!-- /span3 -->
 
-          <div class="span3">
+          <div class="col-md-3">
             <div class="feature">
               <i class="icon-thumbs-up icon-2x pull-left"></i>
               <h4>Comparte</h4>
-              <p>keeping up with trends, can impact your success. Integer.</p>
+              <p>Comparte con tus amigos todo lo que sabes acerca de México y sus lugares.</p>
             </div>
           </div><!-- /span3 -->
-
         </div><!-- /row-fluid -->
       </div><!-- /container -->
     </section>
 
     <section id="testimonials" class="testimonials">
       <div class="container">
-
         <div id="testimonials-carousel" class="carousel slide">
           <div class="carousel-inner">
             <div class="item active">
-              <div class="row-fluid">
-                <div class="span12">
+              <div class="row">
+                <div class="col-md-12">
                   <blockquote>
                     <div>
                       <i class="icon-quote-left"></i>
@@ -143,8 +146,8 @@
               </div>
             </div>
             <div class="item">
-              <div class="row-fluid">
-                <div class="span12">
+              <div class="row">
+                <div class="col-md-12">
                   <blockquote>
                     <div>
                       <i class="icon-quote-left"></i>
@@ -156,8 +159,8 @@
               </div>
             </div>
             <div class="item">
-              <div class="row-fluid">
-                <div class="span12">
+              <div class="row">
+                <div class="col-md-12">
                   <blockquote>
                     <div>
                       <i class="icon-quote-left"></i>

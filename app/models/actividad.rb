@@ -1,5 +1,7 @@
 class Actividad < ActiveRecord::Base
 
+  belongs_to :actividadpadre
+
   has_many :reverse_relationactividades, foreign_key: "followed_id",
            class_name:  "Relationactividad",
            dependent:   :destroy
