@@ -2,108 +2,92 @@
 
 <p id="notice"><%= notice %></p>
 
-<%= render 'follow_form' if signed_in? %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'follow_form' if signed_in? %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9 ">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="overflow:hidden" >
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
 
-<div class="contenedor">
-
-
-
-  <section id="slider" class="slider text-center">
-    <div class="container">
-      <div class="row-fluid">
-        <div class="span12">
-
-          <div id="slider-carousel" class="carousel slide">
-            <div class="carousel-inner">
-              <div class="item active">
-                <% @eventos.each do |evento| %>
-                    <% if evento.principal == 1 %>
-                        <div>
-                          <%= link_to image_tag(evento.photo.url(:big)), evento %>
-                          <p><%=evento.nombre%></p>
-                        </div>
-                    <% end %>
-                <% end %>
-
-
-              </div>
-              <div class="item">
-                <img src="img/macbook-air-1.png" alt="">
-              </div>
-              <div class="item">
-                <img src="img/macbook-air-2.png" alt="">
-              </div>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <div class="item active">
+          <div class="inner-item ">
+            <img src="https://s3.amazonaws.com/imagenes.notelimites/micrositios/photos/sitios/big/<%= @estado.micrositios.first.photo_file_name %>" width="100%"  alt="<%=@estado.micrositios.first.name %>">
+          </div>
+            <div class="carousel-caption">
+           <h3>   <%=	 @estado.micrositios.first.name %>  </h3>
             </div>
-            <a class="carousel-control left" href="#slider-carousel" data-slide="prev">&lsaquo;</a>
-            <a class="carousel-control right" href="#slider-carousel" data-slide="next">&rsaquo;</a>
-          </div><!-- /slider-carousel -->
+          </div>
 
-        </div><!-- /span12 -->
-      </div><!-- /row-fluid -->
-    </div><!-- /container -->
-  </section>
+          <div class="item">
+            <div class="inner-item">
+              <img src="https://s3.amazonaws.com/imagenes.notelimites/micrositios/photos/sitios/big/<%= @estado.micrositios.second.photo_file_name %>" width="100%"  alt="<%=@estado.micrositios.first.name %>">
+            </div>
+            <div class="carousel-caption">
+              <h3>   <%= @estado.micrositios.second.name %>  </h3>
+            </div>
+          </div>
 
+          <div class="item">
+            <div class="inner-item">
+              <img src="https://s3.amazonaws.com/imagenes.notelimites/micrositios/photos/sitios/big/<%= @estado.micrositios.third.photo_file_name %>" width="100%"  alt="<%=@estado.micrositios.first.name %>">
+            </div>
+            <div class="carousel-caption">
+              <h3>   <%=	 @estado.micrositios.third.name %>  </h3>
+            </div>
+          </div>
 
-  <div class="imagenprinc">
-    <div id="slider">
+        </div>
 
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+    <ul>
+     <% @micrositios.each do |p| %>
+          <% if p.estado == @estado.slug %>
+
+                  <% if p.photo_file_size? %>
+                      <li>
+                        <%= link_to p.name, p %>
+                        <%= image_tag p.photo.url(:big), class: "img-responsive", alt: "responsive image" %>
+                  <% else %>
+                      <li>
+                        <%= link_to p.name, p %>
+                        <img src="https://s3.amazonaws.com/imagenes.notelimites/micrositios/photos/sitios/big/<%= p.photo_file_name %>" class="img-responsive img-thumbnail" alt="Responsive image">
+                  <% end %>
+
+          <%	else %>
+
+          <%	end %>
+     <% end %>
+    </ul>
     </div>
   </div>
 
-  <div class="searchestados">
-    <%= @estado.descripcion %>
-    <%= image_tag(@estado.photo.url(:medium)) %>
-    <%= form_tag(@evento, method: "get") do %>
-        <%= label_tag(:nombre, "Search for:") %>
-        <%= text_field_tag(:nombre) %>
-        <%= submit_tag("Search") %>
-    <% end %>
-
-
-  </div>
-
-<div class="contenedoreventoslista">
-
-
-
-<ul>
-  <% @eventos.each do |evento| %>
-      <% if evento.estado == 'Baja California' %>
-        <% if evento.nombre.blank?  %>
-         <li class="listaeventos">
-            <div class="imagenlistaeventos"> <%= link_to image_tag(evento.d10), evento %>  </div>
-           <div class="textolistaeventos">
-            <div class="nombrelistaeventos"> <%= link_to evento.d2, evento %></div>
-            <div class="ubicacionlistaeventos"> <%=  evento.d3 %> </div>
-            <div class="descripcionlistaeventos"> <%=  evento.d4 %> </div>
-            </div>
-         </li>
-              <hr>
-         <%	 else %>
-          <li class="listaeventos">
-            <div class="imagenlistaeventos"> <%= link_to image_tag(evento.photo.url(:small)), evento %>  </div>
-            <div class="textolistaeventos">
-              <div class="nombrelistaeventos"> <%= link_to evento.nombre, evento %></div>
-              <div class="ubicacionlistaeventos"> <%=  evento.artista %> </div>
-              <div class="descripcionlistaeventos"> <%=  evento.descripcion %> </div>
-            </div>
-         </li>
-        <%	end %>
-      <% end %>
-  <% end %>
-</ul>
 
 
 
 
-</div>
-
-
-
-
-
-
-<%= link_to 'Edit', edit_estado_path(@estado) %> |
-<%= link_to 'Back', estados_path %>
+    <%= link_to 'Edit', edit_estado_path(@estado) %> |
+    <%= link_to 'Back', estados_path %>
 
 </div>

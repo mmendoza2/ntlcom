@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131206023525) do
+ActiveRecord::Schema.define(version: 20131217051447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -164,12 +164,14 @@ ActiveRecord::Schema.define(version: 20131206023525) do
     t.string   "fb_author"
     t.string   "tagcategorias"
     t.integer  "user_id"
-    t.integer  "estado"
     t.text     "descripcion"
     t.integer  "status"
     t.datetime "created"
     t.datetime "publish_up"
     t.text     "urls"
+    t.string   "estado"
+    t.integer  "favorito"
+    t.integer  "estado_id"
   end
 
   add_index "micrositios", ["slug"], name: "index_micrositios_on_slug", using: :btree

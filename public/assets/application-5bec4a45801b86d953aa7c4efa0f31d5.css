@@ -4496,8 +4496,8 @@ input[type="button"].btn-block {
 
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url("../../../../../../Downloads/dist/fonts/glyphicons-halflings-regular.eot");
-  src: url("../../../../../../Downloads/dist/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../../../../../../Downloads/dist/fonts/glyphicons-halflings-regular.woff") format("woff"), url("../../../../../../Downloads/dist/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../../../../../../Downloads/dist/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular") format("svg"); }
+  src: url("../../app/assets/fonts/glyphicons-halflings-regular.eot");
+  src: url("../../app/assets/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../../app/assets/fonts/glyphicons-halflings-regular.woff") format("woff"), url("../../app/assets/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../../app/assets/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular") format("svg"); }
 
 .glyphicon {
   position: relative;
@@ -9921,8 +9921,8 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url("../../../../../../Downloads/dist/fonts/glyphicons-halflings-regular.eot");
-  src: url("../../../../../../Downloads/dist/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../../../../../../Downloads/dist/fonts/glyphicons-halflings-regular.woff") format("woff"), url("../../../../../../Downloads/dist/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../../../../../../Downloads/dist/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular") format("svg"); }
+  src: url("../../app/assets/fonts/glyphicons-halflings-regular.eot");
+  src: url("../../app/assets/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../../app/assets/fonts/glyphicons-halflings-regular.woff") format("woff"), url("../../app/assets/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../../app/assets/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular") format("svg"); }
 
 .glyphicon {
   position: relative;
@@ -15508,8 +15508,8 @@ input[type="button"].btn-block {
 
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url("../../../../../../Downloads/dist/fonts/glyphicons-halflings-regular.eot");
-  src: url("../../../../../../Downloads/dist/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../../../../../../Downloads/dist/fonts/glyphicons-halflings-regular.woff") format("woff"), url("../../../../../../Downloads/dist/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../../../../../../Downloads/dist/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular") format("svg"); }
+  src: url("../../app/assets/fonts/glyphicons-halflings-regular.eot");
+  src: url("../../app/assets/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../../app/assets/fonts/glyphicons-halflings-regular.woff") format("woff"), url("../../app/assets/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../../app/assets/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular") format("svg"); }
 
 .glyphicon {
   position: relative;

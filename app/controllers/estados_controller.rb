@@ -19,6 +19,7 @@ class EstadosController < ApplicationController
   # GET /estados/1.json
   def show
     @eventos = Evento.all
+    @micrositios = Micrositio.all
     @estados = Estado.all
     @estado = Estado.friendly.find(params[:id])
     @eventosimg = Evento.find_by principal: 1
