@@ -1,5 +1,8 @@
 class Actividad < ActiveRecord::Base
 
+  has_many :actimicros
+  has_many :micrositios, :through => :actimicros
+
   belongs_to :actividadpadre
 
   has_many :reverse_relationactividades, foreign_key: "followed_id",

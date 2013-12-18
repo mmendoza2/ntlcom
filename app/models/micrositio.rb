@@ -1,5 +1,8 @@
 class Micrositio < ActiveRecord::Base
 
+  belongs_to :estado
+  has_many :actimicros
+  has_many :actividades, :through => :actimicros
   has_many :reverse_relationmicrositios, foreign_key: "followed_id",
            class_name:  "Relationmicrositio",
            dependent:   :destroy

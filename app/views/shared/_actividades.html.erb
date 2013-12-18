@@ -3,11 +3,6 @@
 
   <% @actividad.each do |actividad| %>
 
-      <% if actividad.id= 1	  %>
-      <%= actividad.actividadpadre.name	  %>
-
-       <% else %>
-        <% end %>
 
           <li class="actividades">
             <div class="actividadestitulo"> <%= link_to actividad.actividad, actividad %> </div>

@@ -2,12 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#micrositiocontainer{
-  width: 100%;
-  height: 1000px;
-}
-
-
 
 //CONTENDEDOR TITUILO
 
@@ -42,10 +36,10 @@ table {
 //CONTENDEDOR TITUILO
 
 #micrositiotitulocontendedor{
-  width: 100%;
   background-color: #434343;
   height: 120px;
-  float: left;
+  padding-bottom: 20px;
+  padding-left: 40px;
   opacity: .8;
   border-radius: 5px;
   box-shadow: 10px 10px 5px #888888;
@@ -82,8 +76,7 @@ table {
 // MICROSITIO IMAGEN PRINCIPAL
 
 .imagenmicrositio {
-  float: left;
-  width: 530px;
+  width: 100%;
   height: 280px;
   margin-bottom: 20px;
 }
@@ -91,11 +84,8 @@ table {
 // MICROSITIO MAS INFORMACION
 
 .masinformacionmicrositio{
-  float: left;
-  width: 380px;
+  width: 100%;
   height: 280px;
-  margin-left: 20px;
-  padding-left: 10px;
   background-color: #434343;
   border-radius: 5px;
   box-shadow: 10px 10px 5px #888888;
@@ -169,9 +159,7 @@ table {
 // MICROISTIO DESCRIPCION
 
 .micrositioarticulo{
-  width: 500px;
-  height: auto;
-  float: left;
+  width: 100%;
   background-color: #d4d4d4;
   padding-left: 15px;
   padding-right: 15px;

@@ -3,13 +3,21 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-3">
+  <div class="row" style="margin-bottom: 20px">
+    <div class="col-md-5">
+      <h1 style="color: #090909"><%=	@estado.estado %> </h1>
+    </div>
+    <div class="col-md-2 " style="padding-top: 40px">
       <%= render 'follow_form' if signed_in? %>
+    </div>
+    <div class="col-md-4" style="padding-top: 40px">
+      <div class="fb-like" data-href="<%=request.original_url%>" data-height="The pixel height of the plugin" data-colorscheme="light" data-layout="box_count" data-action="recommend" data-show-faces="true" data-send="false"></div>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="NTLmx" data-lang="es" data-size="large">Twittear</a>
+      <div class="g-plusone" data-annotation="inline" data-width="120"></div>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-9 ">
+    <div class="col-md-7 ">
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="overflow:hidden" >
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -51,10 +59,10 @@
 
         <!-- Controls -->
         <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left"></span>
+          <span class="glyphicon glyphicon-chevron-left glyphicons-chevron-left"></span>
         </a>
         <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right"></span>
+          <span class="glyphicon glyphicon-chevron-right glyphicons-chevron-right"></span>
         </a>
       </div>
     </div>

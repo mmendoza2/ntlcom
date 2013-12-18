@@ -11,10 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131217051447) do
+ActiveRecord::Schema.define(version: 20131217230630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "actimicros", force: true do |t|
+    t.integer "actividad_id"
+    t.integer "micrositio_id"
+  end
 
   create_table "actividades", force: true do |t|
     t.string   "actividad"
@@ -30,6 +35,7 @@ ActiveRecord::Schema.define(version: 20131217051447) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "actividadpadre_id"
   end
 
   add_index "actividades", ["slug"], name: "index_actividades_on_slug", using: :btree
@@ -115,6 +121,7 @@ ActiveRecord::Schema.define(version: 20131217051447) do
     t.integer   "institucion"
     t.integer   "user_id"
     t.integer   "estado_id"
+    t.integer   "actividad_id"
   end
 
   add_index "eventos", ["slug"], name: "index_eventos_on_slug", using: :btree
@@ -172,6 +179,7 @@ ActiveRecord::Schema.define(version: 20131217051447) do
     t.string   "estado"
     t.integer  "favorito"
     t.integer  "estado_id"
+    t.integer  "actividad_id"
   end
 
   add_index "micrositios", ["slug"], name: "index_micrositios_on_slug", using: :btree

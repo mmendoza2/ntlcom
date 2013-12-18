@@ -16,7 +16,6 @@ SampleApp::Application.routes.draw do
   match '/nosotros',   to: 'notelimites#nosotros',   via: 'get'
   match '/contacto', to: 'notelimites#contacto', via: 'get'
   match '/micrositios', to: 'micrositios#index', via: 'get'
-  match '/micrositios/fotos', to: 'micrositios#fotos', via: 'get'
 
   resources :users do
     member do

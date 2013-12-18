@@ -777,7 +777,7 @@ input {
 }
 
 #error_explanation {
-    color: #f00;
+    color: #720000;
 ul {
     list-style: none;
     margin: 0 0 18px 0;
@@ -785,8 +785,8 @@ ul {
     }
 
 .field_with_errors {
-@extend .control-group;
-@extend .error;
+@extend .control-group !optional;
+@extend .error !optional;
     }
 
 
