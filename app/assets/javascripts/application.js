@@ -11,10 +11,10 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 // Loads all Bootstrap javascripts
-//= require bootstrap
 //= require turbolinks
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require_tree .
 
 
