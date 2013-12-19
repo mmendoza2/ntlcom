@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131219030416) do
+ActiveRecord::Schema.define(version: 20131219043646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20131219030416) do
   create_table "actividades", force: true do |t|
     t.string   "actividad"
     t.string   "actividadpadre"
-    t.string   "slug"
     t.integer  "tagid"
     t.integer  "catid"
     t.integer  "tagparent"
@@ -36,6 +35,7 @@ ActiveRecord::Schema.define(version: 20131219030416) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.integer  "actividadpadre_id"
+    t.string   "slug"
   end
 
   add_index "actividades", ["slug"], name: "index_actividades_on_slug", using: :btree
