@@ -18,29 +18,15 @@
 //= require_tree .
 
 
-
-
-//<![CDATA[
-$(function(){
-    $('#slider div:gt(0)').hide();
-    setInterval(function(){
-        $('#slider div:first-child').fadeOut(0)
-            .next('div').fadeIn(1000)
-            .end().appendTo('#slider');}, 4000);
-});
-//]]>
-
-
-
 var geocoder;
 var map;
 var infowindow = new google.maps.InfoWindow();
 var marker;
 function initialize() {
     geocoder = new google.maps.Geocoder();
-    var latlng = new google.maps.LatLng(40.730885,-73.997383);
+    var latlng = new google.maps.LatLng(20.555491,-100.959678);
     var mapOptions = {
-        zoom: 8,
+        zoom: 4,
         center: latlng,
         mapTypeId: 'roadmap'
     }
@@ -55,8 +41,8 @@ function codeLatLng() {
     var latlng = new google.maps.LatLng(lat, lng);
     geocoder.geocode({'latLng': latlng}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
-            if (results[1]) {
-                map.setZoom(11);
+            if (results[2]) {
+                map.setZoom(15);
                 marker = new google.maps.Marker({
                     position: latlng,
                     map: map
@@ -73,4 +59,3 @@ function codeLatLng() {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
-

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131217230630) do
+ActiveRecord::Schema.define(version: 20131219030416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,20 @@ ActiveRecord::Schema.define(version: 20131217230630) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "categorias", force: true do |t|
+    t.text     "descripcion"
+    t.string   "slug"
+    t.string   "name"
+    t.string   "imagen"
+    t.string   "icono"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+  end
+
+  add_index "categorias", ["slug"], name: "index_categorias_on_slug", using: :btree
 
   create_table "estados", force: true do |t|
     t.datetime "created_at"
@@ -125,6 +139,21 @@ ActiveRecord::Schema.define(version: 20131217230630) do
   end
 
   add_index "eventos", ["slug"], name: "index_eventos_on_slug", using: :btree
+
+  create_table "imagenes", force: true do |t|
+    t.string   "slug"
+    t.string   "name"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.integer  "user_id"
+    t.integer  "micrositio_id"
+    t.integer  "evento_id"
+    t.integer  "actividad_id"
+  end
+
+  add_index "imagenes", ["slug"], name: "index_imagenes_on_slug", using: :btree
 
   create_table "locations", force: true do |t|
     t.string   "address"

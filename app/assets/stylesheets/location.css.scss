@@ -1,40 +1,16 @@
 
+
+
+
 #panel {
-  position: absolute;
   top: 5px;
   left: 50%;
-  margin-left: 100px;
   width: 350px;
   z-index: 5;
   background-color: #fff;
   padding: 5px;
   border: 1px solid #999;
-  margin-top: 150px;
 }
 #latlng {
   width: 225px;
-}
-
-#canvas {
-    width: 500px;
-    height: 400px;
-  float: left;
-}
-
-#map-canvas {
-    height: 300px;
-}
-
-#formlocation{
-  float: left;
-  width: 400px;
-}
-
-.contlocation{
-  padding-left: 20px;
-  height: 900px;
-  width: 900px;
-}
-.boton{
-
 }

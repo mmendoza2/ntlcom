@@ -46,6 +46,7 @@ class UsersController < ApplicationController
   end
 
   def editactividades
+    @categorias = Categoria.all
     @micrositios = Micrositio.all
     @estadosalf = Estado.order("estado")
     @actividad = Actividad.all

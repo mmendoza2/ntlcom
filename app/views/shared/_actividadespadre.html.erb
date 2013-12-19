@@ -1,10 +1,13 @@
+
 <ul >
+
+
   <% @actividadpadres.each do |actividad| %>
 
-      <li class="actividadespadre">
-       <div class="actividadespadretitulo"> <%= link_to actividad.actividadpadre, actividad %> </div>
-        <%= link_to image_tag(actividad.photo.url(:medium)), actividad, class: 'actividadespadreimagen'%>
-        <div class="actividadespadrearticulo"><%=  actividad.descripcion %> </div>
+
+
+      <li>
+       <div class="actividadespadretitulo"> <%= link_to actividad.descripcion, actividad %> </div>
         <div class="actividadespadrefollow">
           <div class="actividadespadrebarrafollow">
               <div class="actividadespadrefollow">

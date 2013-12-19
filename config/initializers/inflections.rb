@@ -11,6 +11,7 @@
 
    inflect.irregular 'actividad', 'actividades'
    inflect.irregular 'actividadpadre', 'actividadespadre'
+   inflect.irregular 'imagen', 'imagenes'
 
  end
 

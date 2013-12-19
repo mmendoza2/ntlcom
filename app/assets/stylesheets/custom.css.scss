@@ -565,10 +565,16 @@ ul.social li:nth-child(6):before{
 .footer {
   color: #ffffff;
   padding: 0px 0 !important;
-  background-color: #ff6900;
-  height: 50px;
-  opacity: .5;
+  background-color: #382401;
+  opacity: .9;
 }
+
+footer a:focus {color: #ff1919 !important;}
+footer a:hover {color: #ff1919 !important;}
+footer a:active {color: #000000 !important;}
+footer a:visited {color: #fbfbfb !important;}
+footer a:link {color: #fbfbfb !important;}
+
 .footer-title {
   font-size: 20px;
 }

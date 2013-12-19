@@ -1,5 +1,6 @@
 class Actividadpadre < ActiveRecord::Base
 
+  belongs_to :categoria
   has_many :actividades
 
   has_many :reverse_relationactividadespadre, foreign_key: "followed_id",

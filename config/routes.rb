@@ -54,6 +54,7 @@ SampleApp::Application.routes.draw do
   resources :actividadespadre
   resources :actividadespadre, :as => :actividadpadre
   resources :estados
+  resources :categorias
   resources :eventos
   resources :locations
   resources :micrositios
