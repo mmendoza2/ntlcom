@@ -41,7 +41,7 @@ function codeLatLng() {
     var latlng = new google.maps.LatLng(lat, lng);
     geocoder.geocode({'latLng': latlng}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
-            if (results[2]) {
+            if (results[5]) {
                 map.setZoom(15);
                 marker = new google.maps.Marker({
                     position: latlng,

@@ -1515,7 +1515,7 @@
 /*! normalize.css v2.1.3 | MIT License | git.io/normalize */
 .inner-item {
   text-align: center;
-  height: 350px; }
+  height: 300px; }
   .inner-item img {
     margin: 0 auto; }
 
@@ -3874,8 +3874,8 @@ input[type="button"].btn-block {
 
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url("../fonts/glyphicons-halflings-regular.eot");
-  src: url("../fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular") format("svg"); }
+  src: url("glyphicons-halflings-regular.eot");
+  src: url("glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("glyphicons-halflings-regular.woff") format("woff"), url("glyphicons-halflings-regular.ttf") format("truetype"), url("fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular") format("svg"); }
 
 .glyphicon {
   position: relative;
@@ -9778,7 +9778,7 @@ td.visible-print {
 /*! normalize.css v2.1.3 | MIT License | git.io/normalize */
 .inner-item {
   text-align: center;
-  height: 350px; }
+  height: 300px; }
   .inner-item img {
     margin: 0 auto; }
 
@@ -12137,8 +12137,8 @@ input[type="button"].btn-block {
 
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url("../fonts/glyphicons-halflings-regular.eot");
-  src: url("../fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular") format("svg"); }
+  src: url("glyphicons-halflings-regular.eot");
+  src: url("glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("glyphicons-halflings-regular.woff") format("woff"), url("glyphicons-halflings-regular.ttf") format("truetype"), url("fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular") format("svg"); }
 
 .glyphicon {
   position: relative;
@@ -21293,9 +21293,23 @@ ul.social li:nth-child(6):before {
 .footer {
   color: #ffffff;
   padding: 0px 0 !important;
-  background-color: #ff6900;
-  height: 50px;
-  opacity: .5; }
+  background-color: #382401;
+  opacity: .9; }
+
+footer a:focus {
+  color: #ff1919 !important; }
+
+footer a:hover {
+  color: #ff1919 !important; }
+
+footer a:active {
+  color: #000000 !important; }
+
+footer a:visited {
+  color: #fbfbfb !important; }
+
+footer a:link {
+  color: #fbfbfb !important; }
 
 .footer-title {
   font-size: 20px; }
@@ -21304,7 +21318,7 @@ ul.social li:nth-child(6):before {
   text-decoration: none; }
 
 .copyright {
-  margin-top: 22px; }
+  margin-top: 1px; }
 
 /*************************************************************
                         responsive fix
@@ -21374,28 +21388,10 @@ ul.social li:nth-child(6):before {
 /* Landscape phones and down */
 /* footer */
 footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid #eaeaea;
+  padding-top: 30px;
+  border-top: 2px solid #090909;
   color: #fbfbfb;
-  margin-bottom: 0%; }
-
-footer a {
-  color: #555; }
-
-footer a:hover {
-  color: #222; }
-
-footer small {
-  float: left; }
-
-footer ul {
-  float: right;
-  list-style: none; }
-
-footer ul li {
-  float: left;
-  margin-left: 10px; }
+  height: 100px; }
 
 /* miscellaneous */
 .debug_dump {
@@ -21465,7 +21461,7 @@ input {
   height: auto !important; }
 
 #error_explanation {
-  color: #f00; }
+  color: #720000; }
   #error_explanation ul {
     list-style: none;
     margin: 0 0 18px 0; }
@@ -21795,40 +21791,16 @@ aside textarea {
   height: auto;
   float: left; }
 #panel {
-  position: absolute;
   top: 5px;
   left: 50%;
-  margin-left: 100px;
   width: 350px;
   z-index: 5;
   background-color: #fff;
   padding: 5px;
-  border: 1px solid #999;
-  margin-top: 150px; }
+  border: 1px solid #999; }
 
 #latlng {
   width: 225px; }
-
-#canvas {
-  width: 500px;
-  height: 400px;
-  float: left; }
-
-#map-canvas {
-  height: 300px; }
-
-#formlocation {
-  float: left;
-  width: 400px; }
-
-.contlocation {
-  padding-left: 20px;
-  height: 900px;
-  width: 900px; }
-#micrositiocontainer {
-  width: 100%;
-  height: 1000px; }
-
 .micrositiodescripcion {
   word-wrap: break-word; }
 
@@ -21848,10 +21820,10 @@ table {
   position: static; }
 
 #micrositiotitulocontendedor {
-  width: 100%;
   background-color: #434343;
   height: 120px;
-  float: left;
+  padding-bottom: 20px;
+  padding-left: 40px;
   opacity: .8;
   border-radius: 5px;
   box-shadow: 10px 10px 5px #888888;
@@ -21879,17 +21851,20 @@ table {
   float: left; }
 
 .imagenmicrositio {
-  float: left;
-  width: 530px;
+  width: 100%;
   height: 280px;
   margin-bottom: 20px; }
 
-.masinformacionmicrositio {
-  float: left;
-  width: 380px;
-  height: 280px;
-  margin-left: 20px;
+.micrositiocontenedoractividades {
+  background-color: #665a29;
   padding-left: 10px;
+  opacity: .8;
+  border-radius: 5px;
+  border-color: #000000;
+  box-shadow: 10px 10px 5px #888888; }
+
+.masinformacionmicrositio {
+  width: 100%;
   background-color: #434343;
   border-radius: 5px;
   box-shadow: 10px 10px 5px #888888;
@@ -21897,9 +21872,8 @@ table {
 
 .comollegarmicrositio {
   float: left;
-  width: 310px;
-  height: 60px;
-  margin-left: 20px;
+  width: 100%;
+  padding-bottom: 20px;
   padding-left: 50px;
   margin-top: 15px;
   background-color: #d4d4d4;
@@ -21913,9 +21887,7 @@ table {
 
 .masvideosmicrositio {
   float: left;
-  width: 310px;
-  height: 60px;
-  margin-left: 20px;
+  width: 100%;
   padding-left: 50px;
   margin-top: 15px;
   background-color: #d4d4d4;
@@ -21929,9 +21901,7 @@ table {
 
 .masfotosmicrositio {
   float: left;
-  width: 310px;
-  height: 60px;
-  margin-left: 20px;
+  width: 100%;
   padding-left: 50px;
   margin-top: 15px;
   background-color: #d4d4d4;
@@ -21949,9 +21919,7 @@ table {
   padding-left: 10px; }
 
 .micrositioarticulo {
-  width: 500px;
-  height: auto;
-  float: left;
+  width: 100%;
   background-color: #d4d4d4;
   padding-left: 15px;
   padding-right: 15px;

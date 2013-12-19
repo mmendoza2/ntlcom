@@ -582,7 +582,7 @@ footer a:link {color: #fbfbfb !important;}
   text-decoration: none;
 }
 .copyright {
-  margin-top: 22px;
+  margin-top: 1px;
 }
 
 /*************************************************************
@@ -670,34 +670,14 @@ footer a:link {color: #fbfbfb !important;}
 /* footer */
 
 footer {
-    margin-top: 45px;
-    padding-top: 5px;
-    border-top: 1px solid #eaeaea;
+    padding-top: 30px;
+    border-top: 2px solid #090909;
     color: #fbfbfb;
-    margin-bottom: 0%;
+     height: 100px;
 }
 
-footer a {
-    color: #555;
-}
 
-footer a:hover {
-    color: #222;
-}
 
-footer small {
-    float: left;
-}
-
-footer ul {
-    float: right;
-    list-style: none;
-}
-
-footer ul li {
-    float: left;
-    margin-left: 10px;
-}
 
 /* miscellaneous */
 
