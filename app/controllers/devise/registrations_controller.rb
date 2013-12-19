@@ -35,7 +35,7 @@ class Devise::RegistrationsController < DeviseController
     @estadosalf = Estado.order("estado")
     @actividad = Actividad.all
     @actividadpadres = Actividadpadre.all
-
+    @usuarios = User.all
     render :edit
   end
 

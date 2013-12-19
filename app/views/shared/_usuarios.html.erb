@@ -3,8 +3,6 @@
 
 <ul >
   <% @usuarios.each do |actividad| %>
-
-
       <li class="actividades">
        <div class="actividadestitulo"> <%= link_to actividad.name, actividad %> </div>
         <%= link_to image_tag(actividad.avatar), actividad, class: 'actividadesimagen'%>
@@ -28,14 +26,10 @@
               <div class="actividadescontador">
                 <%= actividad.followers.count%>
                 Usuarios
-
               </div>
           </div>
-
         </div>
       </li>
-
-
   <% end %>
 
 
