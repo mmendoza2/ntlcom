@@ -17,6 +17,9 @@
 //= require bootstrap
 //= require_tree .
 
+$(document).ready(function () {
+    $('button').popover();
+});
 
 var geocoder;
 var map;

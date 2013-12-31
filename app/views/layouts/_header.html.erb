@@ -29,9 +29,17 @@
 
       <div class="container" >
             <%= link_to image_tag("LogoNTL.png"), root_path, id: "logo" %>
+           <ul class="list-inline pull-left">
+             <li class="social" ></li>
+             <li class="turismo" ></li>
+             <li class="ecoturismo" ></li>
+             <li class="alternativo" ></li>
+           </ul>
+
             <ul class="list-inline pull-right" style="padding-top: 10px">
                   <li  id="header-text"><%= link_to "Home", root_path %></li>
                   <li><%= link_to "Users", users_path %></li>
+
                   <li id="fat-menu" class="dropdown" role="menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                               <%=  current_user.name %><b class="caret"></b>

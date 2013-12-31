@@ -8,10 +8,57 @@
  * * http://fortawesome.github.com/Font-Awesome/
  **/
 
+#help{
+}
 
+#follow_form{
+}
+#unfollow_form{
+}
+#followers{
+}
 
+.social{
+  background-image: url("social.png");
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 50px;
+  margin-bottom: 5px;
+  margin-left: 60px;
+}
 
+.social:hover{background-image: url("socialo.png")}
 
+.ecoturismo{
+  background-image: url("ecoturismo.png");
+  background-repeat: no-repeat;
+  width: 60px;
+  height: 50px;
+  margin-bottom: -3px;
+  margin-left: 30px;
+  text-align: center;
+}
+.ecoturismo:hover{background-image: url("ecoturismoo.png")}
+
+.turismo{
+  background-image: url("turismo.png");
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  margin-left: 30px;
+
+}
+.turismo:hover{background-image: url("turismoo.png")}
+
+.alternativo{
+  background-image: url("alternativo.png");
+  background-repeat: no-repeat;
+  width: 60px;
+  height: 50px;
+  margin-left: 30px;
+
+}
+.alternativo:hover{background-image: url("alternativoo.png")}
 $grayLighter: gray;
 
 

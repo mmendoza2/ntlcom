@@ -15,6 +15,7 @@ SampleApp::Application.routes.draw do
   match '/terminos',    to: 'notelimites#terminos',    via: 'get'
   match '/nosotros',   to: 'notelimites#nosotros',   via: 'get'
   match '/contacto', to: 'notelimites#contacto', via: 'get'
+  match '/instrucciones', to: 'notelimites#instrucciones', via: 'get'
   match '/micrositios', to: 'micrositios#index', via: 'get'
 
   resources :users do

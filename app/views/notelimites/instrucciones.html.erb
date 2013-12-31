@@ -1,0 +1,102 @@
+<div class="container" xmlns="http://www.w3.org/1999/html">
+
+
+
+<% provide(:title, 'Instrucciones') %>
+<h1>Bienvenido a NoTeLimites.com</h1>
+  <button data-toggle="popover" title="first tooltip" data-content="Empieza por seguir actividades que te gustan">help</button>
+<h2>Te explicaremos como funciona para puedas disrutarla ya!.</h2>
+<h3>Lo primero que debes de hacer es escoger entre alguna de las siguientes actividades.</h3>
+
+<div class="row">
+  <div class="col-md-offset-2 col-md-8">
+
+
+
+
+
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="row" style="text-align: center">
+      <%=	 image_tag "socialp.png" %>
+    </div>
+    <div class="col-md-4">
+      <div class="row" style="text-align: center; font-weight: bold">  Restaurantes </div>
+      <div class="row">
+         <%	 @actividades.each do |actividad| %>
+            <%	 if actividad.actividadpadre_id == 289 %>
+               <ul>
+                 <li>  <%= link_to actividad.actividad, actividad %>
+                   <div id="follow_form" >
+                     <% if current_user.followingactividad?(actividad) %>
+                         <%= form_for(current_user.relationactividades.find_by(followed_id: actividad), html: { method: :delete }, remote: true)  do |f| %>
+                             <%= f.submit "Si", class: "btn " %>
+                         <% end %>
+                     <% else %>
+                         <%= form_for(current_user.relationactividades.build(followed_id: actividad.id), remote: true) do |f| %>
+                             <div><%= f.hidden_field :followed_id %></div>
+                             <%= f.submit "No", class: "btn  btn-primary" %>
+                         <% end %>
+                     <% end %>
+                   </div>
+                 </li>
+               </ul>
+            <%	else %>
+            <%	 end %>
+         <%	 end %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="row" style="text-align: center; font-weight: bold"> Antros y Bares   </div>
+      <div class="row">
+        <%	 @actividades.each do |actividad| %>
+            <%	 if actividad.actividadpadre_id == 288 %>
+                <ul>
+                  <li>  <%=	 actividad.actividad %>
+                    <div id="follow_form" >
+                      <% if current_user.followingactividad?(actividad) %>
+                          <%= form_for(current_user.relationactividades.find_by(followed_id: actividad), html: { method: :delete })  do |f| %>
+                              <%= f.submit "Siguiendo", class: "btn " %>
+                          <% end %>
+                      <% else %>
+                          <%= form_for(current_user.relationactividades.build(followed_id: actividad.id)) do |f| %>
+                              <div><%= f.hidden_field :followed_id %></div>
+                              <%= f.submit "Seguir", class: "btn  btn-primary" %>
+                          <% end %>
+                      <% end %>
+                    </div>
+                  </li>
+                </ul>
+            <%	else %>
+            <%	 end %>
+        <%	 end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="row" style="text-align: center">
+      <%=	 image_tag "turismop.png" %>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+</div>
+
+  <% if signed_in? %>
+  <% else%>
+      <div class="footerpagprincipal">
+        <div class="container">
+          <%= render 'layouts/footer' %>
+          <%= debug(params) if Rails.env.development? %>
+        </div>
+      </div>
+  <% end%>
+

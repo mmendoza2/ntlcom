@@ -11,6 +11,9 @@ class ActividadesController < ApplicationController
   # GET /actividades/1
   # GET /actividades/1.json
   def show
+    @actividades = Actividad.all
+    @actividad = Actividad.friendly.find(params[:id])
+    @user = Actividad.friendly.find(params[:id])
   end
 
   # GET /actividades/new
