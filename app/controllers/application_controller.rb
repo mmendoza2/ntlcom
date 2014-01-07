@@ -8,7 +8,13 @@ class ApplicationController < ActionController::Base
 
 
   def after_sign_in_path_for(resource)
+    @user ||= current_user
+    if @user.followed_actividades.count >= 3
+    root_path
+    else
     instrucciones_path
+    end
+
   end
 
 

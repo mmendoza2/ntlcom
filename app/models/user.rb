@@ -11,19 +11,19 @@ class User < ActiveRecord::Base
   has_many :authorizations
 
     has_many :relationactividadespadre, foreign_key: "follower_id", dependent: :destroy
-    has_many :followed_users, through: :relationactividadespadre, source: :followed
+    has_many :followed_actividadespadre, through: :relationactividadespadre, source: :followed
 
   has_many :relationactividades, foreign_key: "follower_id", dependent: :destroy
-  has_many :followed_users, through: :relationactividades, source: :followed
+  has_many :followed_actividades, through: :relationactividades, source: :followed
 
       has_many :relationestados, foreign_key: "follower_id", dependent: :destroy
-      has_many :followed_users, through: :relationestados, source: :followed
+      has_many :followed_estados, through: :relationestados, source: :followed
 
   has_many :relationeventos, foreign_key: "follower_id", dependent: :destroy
-  has_many :followed_users, through: :relationeventos, source: :followed
+  has_many :followed_eventos, through: :relationeventos, source: :followed
 
       has_many :relationmicrositios, foreign_key: "follower_id", dependent: :destroy
-      has_many :followed_users, through: :relationmicrositios, source: :followed
+      has_many :followed_micrositios, through: :relationmicrositios, source: :followed
 
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed

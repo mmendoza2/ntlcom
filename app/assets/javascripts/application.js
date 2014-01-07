@@ -17,6 +17,14 @@
 //= require bootstrap
 //= require_tree .
 
+$(document).ready(function() {
+    $('#follow_form').on('click','.interest-label', function() {
+        $(this).toggleClass('checked');
+    });
+});
+
+
+
 $(document).ready(function () {
     $('button').popover();
 });
