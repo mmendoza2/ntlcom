@@ -17,6 +17,8 @@ gem 'omniauth-facebook'
 gem 'koala'
 gem 'geocoder'
 gem 'font-awesome-rails'
+gem 'json'
+
 
 
 

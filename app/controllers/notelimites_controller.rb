@@ -3,6 +3,7 @@ class NotelimitesController < ApplicationController
 
   def home
       @micrositios = Micrositio.all
+      @user = User.all
 
   end
 

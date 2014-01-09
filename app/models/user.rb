@@ -32,13 +32,15 @@ class User < ActiveRecord::Base
                                    dependent:   :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
 
-  has_attached_file :photo, :styles => { :big => "600x600>", :square =>"50x50>"  },
+  has_attached_file :photo, :styles => { :large => "200x200>", :normal => "100x100>", :square =>"50x50>"  },
                     :url  => ":s3_domain_url",
                     :path => "/:class/:attachment/:id_partition/:style/:filename"
   validates_attachment_size :photo, :less_than => 20.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
 
   before_create :create_remember_token
+
+
 
   def self.from_omniauth(auth)
     if user = User.find_by_email(auth.info.email)
@@ -93,6 +95,12 @@ class User < ActiveRecord::Base
   def friends_count
     facebook { |fb| fb.get_connection("me", "friends").size }
   end
+
+  def friends_using_app
+  facebook { |fb| fb.get_connection("me", "friends?fields=installed") }
+  end
+
+
 
   extend FriendlyId
   friendly_id :name, use: :slugged

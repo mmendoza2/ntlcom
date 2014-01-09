@@ -17,7 +17,29 @@
      <div class="row">
       Number of Friends: <%= current_user.friends_count %>
 
-      <%	 form_for(current_user) do |f| %>
+
+       <% friends = current_user.friends_using_app %>
+       <% if friends .nil? %>
+
+       <% else  %>
+           <% friends_using_app = friends.find_all {|x| x['installed'] == true}    %>
+           <% friends_id = friends_using_app.map {|x| x['id']}  %>
+           <% show_friends = @user.find_all{|x| x[:uid] = friends_id} %>
+           <% show_friends.each do |x| %>
+               <%= image_tag x.avatar %>
+           <% end %>
+
+       <% end %>
+
+
+
+
+
+
+
+
+
+       <%	 form_for(current_user) do |f| %>
          <%= f.submit "Seguir amigos de Facebook", class: "btn btn-large btn-primary" %>
       <% end%>
      </div>

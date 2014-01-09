@@ -3,6 +3,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.avatarchico{
+  width: 50px;
+  border-radius: 10px;
+}
+
+.wrapusers{
+  border-radius: 1px;
+  background-color: #d1dbff;
+  padding: 5px;
+  height: 80px;
+  margin-bottom: 1px;
+}
+
+
+.wrapusers:hover {
+  background-color: #9a9bad;
+}
 .userrenglonindex{
   width: 100%;
   height: 60px;
