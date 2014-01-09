@@ -1,5 +1,11 @@
 class Evento < ActiveRecord::Base
   belongs_to :user
+  has_many :followers, through: :reverse_relationeventos, source: :follower
+  has_many :actimicros
+  has_many :actividades, :through => :actimicros
+  has_many :reverse_relationeventos, foreign_key: "followed_id",
+           class_name:  "Relationevento",
+           dependent:   :destroy
 
 
   validates :user_id, presence: true

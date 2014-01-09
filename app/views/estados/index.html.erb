@@ -8,7 +8,7 @@
   <div class="col-md-12">
     <ul >
     <% @estadosalf.each do |estado| %>
-        <li class="thumbnail col-md-3">
+        <li class="thumbnail col-md-5">
               <% @microstioestado = estado.micrositios.take(1) %>
               <% @micrositioid = @microstioestado.map {|x| x['id']} %>
               <% @micrositiofoto = @micrositios.find {|x| x[:id] = @micrositioid} %>

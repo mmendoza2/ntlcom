@@ -7,7 +7,6 @@ class Micrositio < ActiveRecord::Base
            class_name:  "Relationmicrositio",
            dependent:   :destroy
   has_many :followers, through: :reverse_relationmicrositios, source: :follower
-
   belongs_to :user
   validates :user_id, presence: true
   validates :name, presence: true
