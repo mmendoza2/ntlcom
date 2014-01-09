@@ -7,6 +7,7 @@ class EstadosController < ApplicationController
   # GET /estados.json
   def index
     @estados = Estado.all
+    @micrositios = Micrositio.all
     @eventos = Evento.all
     @estadosalf = Estado.order("estado")
     @user = Estado.all

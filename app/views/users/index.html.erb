@@ -11,80 +11,83 @@
           <div class="panel panel-default">
             <div class="panel-heading">
               <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                <a data-toggle="collapse"  href="#collapseOne">
                   Sigue a tus amigos de Facebook
                 </a>
               </h4>
             </div>
             <div id="collapseOne" class="panel-collapse collapse in ">
               <div class="panel-body">
-                <% @friends = current_user.friends_using_app %>
-                <% if @friends .nil? %>
-                    <div class="row">
-                      Relaciona tu cuenta con Facebook para seguir a tus amigos
-                    </div>
-                <% else  %>
+                <div class="row" style="margin-top: -15px; margin-bottom: -15px">
+                    <% @friends = current_user.friends_using_app %>
+                    <% if @friends .nil? %>
+                        <div class="row">
+                          Relaciona tu cuenta con Facebook para seguir a tus amigos
+                        </div>
+                    <% else  %>
 
-                    <% @friends_using_app = @friends.find_all {|x| x['installed'] == true}    %>
-                    <% @friends_id = @friends_using_app.map {|x| x['id']}  %>
-                    <% @show_friends = @users.find_all{|x| x[:uid] = @friends_id} %>
-                    <% @show_friends.each do |x| %>
-                        <%	 if x == current_user %>
-                        <%	 else %>
+                        <% @friends_using_app = @friends.find_all {|x| x['installed'] == true}    %>
+                        <% @friends_id = @friends_using_app.map {|x| x['id']}  %>
+                        <% @show_friends = @users.find_all{|x| x[:uid] = @friends_id} %>
+                        <% @show_friends.each do |x| %>
+                            <%	 if x == current_user %>
+                            <%	 else %>
 
-                            <div class="row wrapusers" >
-                              <div class="col-md-2">
-                                <% if x.photo_file_name.blank?  %>
-                                    <% if x.avatar.blank?  %>
-                                        <%= link_to image_tag("http://imagenes.notelimites.s3.amazonaws.com/users/default_user.png", class: "avatarchico"), x %>
-                                    <%	 else %>
-                                        <%= link_to image_tag(x.avatar, class: "avatarchico" ), x %>
-                                    <% end %>
-                                <% else %>
-                                    <%= link_to image_tag(x.photo.url(:square), class: "avatarchico"), x %>
-                                <%	 end %>
-                              </div>
-                              <div class="col-md-4">
-                                <div class="row">
-                                  <%=	link_to x.name, x %>
-                                </div>
-                                <div class="row">
-                                  Actividades que sigue <%=	 x.followed_actividades.count %>
-                                </div>
-                              </div>
-                              <div class="col-md-2 col-md-offset-2">
-                                <div class="row">
-                                  <div id="follow_form" >
-                                    <% if current_user.following?(x) %>
-                                        <%= form_for(current_user.relationships.find_by(followed_id: x), html: { method: :delete })  do |f| %>
-                                            <%= f.submit "seguir", class: " btn btn-primary" %>
+                                <div class="row wrapusers" >
+                                  <div class="col-md-2">
+                                    <% if x.photo_file_name.blank?  %>
+                                        <% if x.avatar.blank?  %>
+                                            <%= link_to image_tag("http://imagenes.notelimites.s3.amazonaws.com/users/default_user.png", class: "avatarchico"), x %>
+                                        <%	 else %>
+                                            <%= link_to image_tag(x.avatar, class: "avatarchico" ), x %>
                                         <% end %>
                                     <% else %>
-                                        <%= form_for(current_user.relationships.build(followed_id: x.id)) do |f| %>
-                                            <div><%= f.hidden_field :followed_id %></div>
-                                            <%= f.submit  "No seguir", class: "btn " %>
+                                        <%= link_to image_tag(x.photo.url(:square), class: "avatarchico"), x %>
+                                    <%	 end %>
+                                  </div>
+                                  <div class="col-md-4">
+                                    <div class="row">
+                                      <%=	link_to x.name, x %>
+                                    </div>
+                                    <div class="row">
+                                      Actividades que sigue <%=	 x.followed_actividades.count %>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-2 col-md-offset-2">
+                                    <div class="row">
+                                      <div id="follow_form" >
+                                        <% if current_user.following?(x) %>
+                                            <%= form_for(current_user.relationships.find_by(followed_id: x), html: { method: :delete })  do |f| %>
+                                                <%= f.submit "seguir", class: " btn btn-primary" %>
+                                            <% end %>
+                                        <% else %>
+                                            <%= form_for(current_user.relationships.build(followed_id: x.id)) do |f| %>
+                                                <div><%= f.hidden_field :followed_id %></div>
+                                                <%= f.submit  "No seguir", class: "btn " %>
+                                            <% end %>
                                         <% end %>
-                                    <% end %>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                            </div>
+                            <% end %>
                         <% end %>
                     <% end %>
-                <% end %>
+                </div>
               </div>
             </div>
           </div>
           <div class="panel panel-default">
             <div class="panel-heading">
               <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                <a data-toggle="collapse"  href="#collapseTwo">
                   Suiguiendo
                 </a>
               </h4>
             </div>
             <div id="collapseTwo" class="panel-collapse collapse in">
               <div class="panel-body">
+                <div class="row" style="margin-top: -15px; margin-bottom: -15px">
                 <%    @users.each do |user|	  %>
                     <% if current_user.following?(user) %>
                     <% else %>
@@ -128,6 +131,7 @@
                     <% end %>
                 <%	end  %>
               </div>
+              </div>
             </div>
           </div>
         </div>
@@ -141,13 +145,14 @@
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+              <a data-toggle="collapse"  href="#collapseThree">
                 Tus Seguidores
               </a>
             </h4>
           </div>
-          <div id="collapseOne" class="panel-collapse collapse in">
+          <div id="collapseThree" class="panel-collapse collapse in">
             <div class="panel-body">
+              <div class="row" style="margin-top: -15px; margin-bottom: -15px">
               <%    @users.each do |user|	  %>
                   <% if user.following?(current_user) %>
                   <% else %>
@@ -190,7 +195,9 @@
                       </div>
 
                   <% end %>
-              <%	end  %>            </div>
+              <%	end  %>
+            </div>
+            </div>
           </div>
         </div>
 
