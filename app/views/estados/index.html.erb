@@ -6,13 +6,12 @@
 
 
   <div class="col-md-12">
-    <ul >
+    <ul>
     <% @estadosalf.each do |estado| %>
         <li class="thumbnail col-md-5">
-              <% @microstioestado = estado.micrositios.take(1) %>
-              <% @micrositioid = @microstioestado.map {|x| x['id']} %>
-              <% @micrositiofoto = @micrositios.find {|x| x[:id] = @micrositioid} %>
-              <%= image_tag(@micrositiofoto.photo.url(:small)) %>
+              <%  estado.micrositios.take(1).each do |f| %>
+              <%= link_to image_tag(f.photo.url(:big)), f %>
+              <% end %>
           <div class="caption">
             <h3><%= link_to estado.estado, estado %> </h3>
 
@@ -68,7 +67,7 @@
 
           <div id="follow_form">
             <% if current_user.followingestado?(estado) %>
-                <%= form_for(current_user.relationestados.find_by(followed_id: @user), html: { method: :delete }) do |f| %>
+                <%= form_for(current_user.relationestados.find_by(followed_id: estado), html: { method: :delete }) do |f| %>
                     <%= f.submit "Unfollow", class: "btn " %>
                 <% end %>
             <% else %>

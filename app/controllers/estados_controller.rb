@@ -10,10 +10,8 @@ class EstadosController < ApplicationController
     @micrositios = Micrositio.all
     @eventos = Evento.all
     @estadosalf = Estado.order("estado")
-    @user = Estado.all
     @estado = Estado.all
     @estadosfollow = Relationestado.all
-
   end
 
   # GET /estados/1
@@ -24,7 +22,6 @@ class EstadosController < ApplicationController
     @estados = Estado.all
     @estado = Estado.friendly.find(params[:id])
     @eventosimg = Evento.find_by principal: 1
-    @user = Estado.friendly.find(params[:id])
   end
 
   # GET /estados/new

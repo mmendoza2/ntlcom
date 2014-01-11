@@ -2,6 +2,7 @@ class Estado < ActiveRecord::Base
   has_many :eventos
   has_many :micrositios
 
+
   has_many :reverse_relationestados, foreign_key: "followed_id",
            class_name:  "Relationestado",
            dependent:   :destroy
