@@ -3,8 +3,9 @@ class NotelimitesController < ApplicationController
 
   def home
       @micrositios = Micrositio.all
-      @user = User.all
-
+      @eventos = Evento.all
+      @actividades = Actividad.all
+      @users = User.all
   end
 
   def ayuda
