@@ -36,10 +36,18 @@
               <h3><%= link_to estado.name, estado %> </h3>
               <div class="row">
                 <div class="col-md-3">
-                  <%= link_to image_tag(estado.photo.url(:smallest), class: "avatarchico"), estado.user %>
+                  <% if estado.user.photo_file_name.blank?  %>
+                      <% if estado.user.avatar.blank?  %>
+                          <%= link_to image_tag("http://imagenes.notelimites.s3.amazonaws.com/users/default_user.png", class: "avatarchico"), estado.user %>
+                      <%	 else %>
+                          <%= link_to image_tag(estado.user.avatar, class: "avatarchico" ), estado.user %>
+                      <% end %>
+                  <% else %>
+                      <%= link_to image_tag(estado.user.photo.url(:square), class: "avatarchico"), estado.user %>
+                  <%	 end %>
                 </div>
                 <div class="col-md-9">
-                  <%= link_to estado.user , estado %>
+                  <%= link_to estado.user.name , estado.user %>
                 </div>
               </div>
               <div class="row">
@@ -98,10 +106,18 @@
             <h3><%= link_to estado.nombre, estado %> </h3>
             <div class="row">
               <div class="col-md-3">
-                <%= link_to image_tag(estado.photo.url(:smallest), class: "avatarchico"), estado.user %>
+                <% if estado.user.photo_file_name.blank?  %>
+                    <% if estado.user.avatar.blank?  %>
+                        <%= link_to image_tag("http://imagenes.notelimites.s3.amazonaws.com/users/default_user.png", class: "avatarchico"), estado.user %>
+                    <%	 else %>
+                        <%= link_to image_tag(estado.user.avatar, class: "avatarchico" ), estado.user %>
+                    <% end %>
+                <% else %>
+                    <%= link_to image_tag(estado.user.photo.url(:square), class: "avatarchico"), estado.user %>
+                <%	 end %>
               </div>
               <div class="col-md-9">
-                <%= link_to estado.user , estado %>
+                <%= link_to estado.user.name , estado %>
               </div>
             </div>
             <div class="row">
@@ -192,17 +208,18 @@
 
   </div>
 
-   <div class="col-md-3 pull-right" style="position: fixed; left: 920px ">
+   <div class="col-md-3">
      <div class="row" >
        <h2 style="text-align: center">Novedades</h2>
      </div>
-     <a class="twitter-timeline" href="https://twitter.com/NTLmx" data-widget-id="387472701780004866">Tweets por @NTLmx</a>
+     <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/NTLmx" data-widget-id="387472701780004866">Tweets por @NTLmx</a>
      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 
 
 
-     <div class="fb-activity" data-app-id="182819485154177" data-site="notelimites.com" data-action="likes, recommends" data-width="255" data-height="300" data-colorscheme="light" data-header="false"></div>
+
+
 
 
    </div>
@@ -226,9 +243,9 @@
             </div>
           </div><!-- /span12 -->
         </div><!-- /row-fluid -->
-      </div><!-- /container -->
 
-      <div class="container">
+
+
         <div class="row">
           <div class="col-md-12">
             <% [:notice, :error, :alert].each do |level| %>

@@ -1,5 +1,6 @@
 class Evento < ActiveRecord::Base
   belongs_to :user
+  belongs_to :estado
   has_many :followers, through: :reverse_relationeventos, source: :follower
   has_many :actimicros
   has_many :actividades, :through => :actimicros
