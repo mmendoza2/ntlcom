@@ -42,15 +42,7 @@
                <div class="col-md-12">
                   <div class="micrositioarticulo">
                         <div class="userimagenmicrositio">
-                          <% if x.photo_file_name.blank?  %>
-                              <% if x.avatar.blank?  %>
-                                  <%= link_to image_tag("http://imagenes.notelimites.s3.amazonaws.com/users/default_user.png", class: "avatarchico"), x %>
-                              <%	 else %>
-                                  <%= link_to image_tag(x.avatar, class: "avatarchico" ), x %>
-                              <% end %>
-                          <% else %>
-                              <%= link_to image_tag(x.photo.url(:square), class: "avatarchico"), x %>
-                          <%	 end %>
+                          <%= link_to image_tag(@micrositio.user.avatar), @micrositio.user %>
                         </div>
                     <div class="micrositiodescripcion">
                       <p><%=	@micrositio.descripcion  %></p>

@@ -2,7 +2,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container" style="margin-top: 70px">
-  <div class="row" style="margin-bottom: 20px">
+  <div class="row" style="margin-bottom: 20px;  ">
     <div class="col-md-5">
       <h1 style="color: #090909"><%=	@estado.estado %> </h1>
     </div>
@@ -15,7 +15,7 @@
       <div class="g-plusone" data-annotation="inline" data-width="120"></div>
     </div>
   </div>
-  <div class="row">
+  <div class="row" style="margin-bottom: 20px">
     <div class="col-md-7 ">
       <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="overflow:hidden" >
         <!-- Indicators -->
@@ -66,12 +66,13 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row " style="border-top: 1px solid #acacac">
     <div class="col-md-9" style="border-right: 1px solid #acacac" >
 
       <h2>Micrositios</h2> <p>Ver todos los eventos</p>
+     <ul>
      <% @estado.micrositios.each do |estado| %>
-
+              <li  >
                 <div class="thumbnail col-md-4" style="margin: 0px">
                   <div >
                       <% if estado.photo_file_size? %>
@@ -84,10 +85,17 @@
                     <h3><%= link_to estado.name, estado %> </h3>
                     <div class="row">
                       <div class="col-md-3">
-                        <%= link_to image_tag(estado.photo.url(:smallest), class: "avatarchico"), estado.user %>
-                      </div>
+                        <% if estado.user.photo_file_name.blank?  %>
+                            <% if estado.user.avatar.blank?  %>
+                                <%= link_to image_tag("http://imagenes.notelimites.s3.amazonaws.com/users/default_user.png", class: "avatarchico"), estado.user %>
+                            <%	 else %>
+                                <%= link_to image_tag(estado.user.avatar, class: "avatarchico" ), estado.user %>
+                            <% end %>
+                        <% else %>
+                            <%= link_to image_tag(estado.user.photo.url(:square), class: "avatarchico"), estado.user %>
+                        <%	 end %>                      </div>
                       <div class="col-md-9">
-                        <%= link_to estado.user , estado %>
+                        <%= link_to estado.user.name , estado %>
                       </div>
                     </div>
                     <div class="row">
@@ -98,7 +106,7 @@
                       </div>
                     </div>
                     <div class="row " style="margin-bottom: 10px; font-weight: bold">
-                      <div class="col-md-5 col-md-offset-7">
+                      <div class="col-md-6 col-md-offset-6">
                       <%=	 link_to "Ver más -->", estado %>
                       </div>
                     </div>
@@ -125,10 +133,11 @@
                     </div>
                   </div>
                 </div>
+              </li>
             <% end %>
 
 
-
+     </ul>
     </div>
 
     <div class="col-md-3" >
