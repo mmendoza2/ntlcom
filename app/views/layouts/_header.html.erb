@@ -29,16 +29,16 @@
 
       <div class="container" >
             <%= link_to image_tag("LogoNTL.png"), root_path, id: "logo" %>
-           <ul class="list-inline pull-left" style="margin-top: 10px; margin-left: 60px">
-             <li  ><%= link_to "Estados |", estados_path %></li>
+           <ul class="list-inline pull-left navbar-text" style="margin-top: 10px; margin-left: 60px">
+             <li  ><%= link_to "| Estados |", estados_path %></li>
              <li  ><%= link_to "| Actividades |", actividades_path %></li>
              <li  ><%= link_to "| Micrositios |", micrositios_path %></li>
              <li  ><%= link_to "| Eventos |", eventos_path %></li>
-             <li  ><%= link_to "| Usuarios", users_path %></li>
+             <li  ><%= link_to "| Usuarios |", users_path %></li>
            </ul>
 
             <ul class="list-inline pull-right" style="padding-top: 10px">
-                  <li  id="header-text"><%= link_to "Home", root_path %></li>
+                  <li  id="header-text"><%= link_to "Principal", root_path %></li>
 
 
                   <li id="fat-menu" class="dropdown" role="menu">

@@ -27,7 +27,15 @@
            <% friends_id = friends_using_app.map {|x| x['id']}  %>
            <% show_friends = @user.find_all{|x| x[:uid] = friends_id} %>
            <% show_friends.each do |x| %>
-               <%= image_tag x.avatar %>
+               <% if x.photo_file_name.blank?  %>
+                   <% if x.avatar.blank?  %>
+                       <%= link_to image_tag("http://imagenes.notelimites.s3.amazonaws.com/users/default_user.png", class: "avatarchico"), x %>
+                   <%	 else %>
+                       <%= link_to image_tag(x.avatar, class: "avatarchico" ), x %>
+                   <% end %>
+               <% else %>
+                   <%= link_to image_tag(x.photo.url(:square), class: "avatarchico"), x %>
+               <%	 end %>
            <% end %>
 
        <% end %>
