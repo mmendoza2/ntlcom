@@ -3,60 +3,7 @@
 
 <h1> Todos los Estados </h1>
 
-    <% @estadosalf.each do |estado| %>
 
-      <div class="col-md-10">
-        <div class="row">
-              <div class="col-md-5">
-              <ul >
-                <%  estado.micrositios.take(1).each do |f| %>
-                  <% if f.photo_file_size? %>
-                     <li class="inline list-group">
-                        <%= link_to f.name, f %>
-                        <%= link_to image_tag(f.photo.url(:bigger)), f %>
-                     </li>
-
-                  <% else %>
-                      <img src="https://s3.amazonaws.com/imagenes.notelimites/micrositios/photos/sitios/big/<%= f.photo_file_name %>" class="img-responsive"  width="250px" style="overflow: hidden"  >
-                  <% end %>
-                <% end %>
-              </ul>
-              </div>
-          <div class="caption">
-              <div class="col-md-5">
-                <div class="row">
-                      <div class="col-md-2">
-                        <%= link_to image_tag(estado.photo.url(:smallest), class: "avatarchico"), estado%>
-                      </div>
-                      <div class="col-md-3">
-                      <h3><%= link_to estado.estado, estado %> </h3>
-                      </div>
-                </div>
-                <div class="row">
-                     <%=  estado.descripcion %>
-                </div>
-              </div>
-              <div class="col-md-2">
-                <div class="row">
-                  <div id="follow_form" >
-                    <% if current_user.followingestado?(estado) %>
-                        <%= form_for(current_user.relationestados.find_by(followed_id: estado), html: { method: :delete }) do |f| %>
-                            <%= f.submit "Siguiendo", class: "btn " %>
-                        <% end %>
-                    <% else %>
-                        <%= form_for(current_user.relationestados.build(followed_id: estado.id)) do |f| %>
-                            <div><%= f.hidden_field :followed_id %></div>
-                            <%= f.submit "Seguir", class: "btn  btn-primary" %>
-                        <% end %>
-                    <% end %>
-                  </div>
-
-                </div>
-              </div>
-          </div>
-        </div>
-      </div>
-  <% end %>
 
   <div class="col-md-12">
     <ul>
@@ -66,11 +13,11 @@
               <% if f.photo_file_size? %>
                   <li class="inline list-group">
                     <%= link_to f.name, f %>
-                    <%= link_to image_tag(f.photo.url(:bigger)), f %>
+                    <%= link_to image_tag(f.photo.url(:medium)), f %>
                   </li>
 
               <% else %>
-                  <img src="https://s3.amazonaws.com/imagenes.notelimites/micrositios/photos/sitios/big/<%= f.photo_file_name %>" class="img-responsive" width="250px" style="overflow: hidden"  >
+                  <img src="https://s3.amazonaws.com/imagenes.notelimites/micrositios/photos/sitios/big/<%= f.photo_file_name %>" class="img-responsive" width="500px" style="overflow: hidden"  >
               <% end %>
           <% end %>
           <div class="caption">
@@ -119,30 +66,7 @@
 
 
 
-  <ul>
-    <% @estadosalf.each do |estado| %>
-        <li class="estados">
-          <%= link_to estado.estado, estado %>
-          <%= link_to estado.id, estado %>
-        <div>
 
-          <div id="follow_form">
-            <% if current_user.followingestado?(estado) %>
-                <%= form_for(current_user.relationestados.find_by(followed_id: estado), html: { method: :delete }) do |f| %>
-                    <%= f.submit "Unfollow", class: "btn " %>
-                <% end %>
-            <% else %>
-                <%= form_for(current_user.relationestados.build(followed_id: estado.id)) do |f| %>
-                    <div><%= f.hidden_field :followed_id %></div>
-                    <%= f.submit "Seguir", class: "btn  btn-primary" %>
-                <% end %>
-            <% end %>
-          </div>
-
-        </div>
-        </li>
-    <% end %>
-  </ul>
 
 </div>
 

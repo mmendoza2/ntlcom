@@ -165,21 +165,20 @@
     <% @actividades.take(30).each do |estado| %>
 
         <div class="thumbnail seleccionado" style="margin: 0px">
+          <% estado.micrositios.take(1).each do |estado| %>
+              <% if estado.photo_file_size? %>
+                  <%= link_to (image_tag estado.photo.url(:medium)), estado, class: "img-responsive", alt: "responsive image" %>
+                  <div style="font-weight: bold; overflow: hidden"><%= link_to estado.name, estado		  %> </div>
+              <% else %>
+                  <%= link_to (image_tag "https://s3.amazonaws.com/imagenes.notelimites/micrositios/photos/sitios/big/#{estado.photo_file_name}"), estado, class: "img-responsive", alt: "responsive image" %>
+                  <div style="font-weight: bold; overflow: hidden"><%= link_to estado.name, estado		  %> </div>
+              <% end %>
+          <% end %>
 
           <div class="caption">
-            <h3><%= link_to estado.actividad, estado %> </h3>
-            <div class="row">
-              <div class="col-md-12">
-                <p>
-                <div> <%=  estado.descripcion  %>  </div>
-                </p>
-              </div>
-            </div>
-            <div class="row " style="margin-bottom: 10px; font-weight: bold">
-              <div class="col-md-6 col-md-offset-6">
-                <%=	 link_to "Ver más -->", estado %>
-              </div>
-            </div>
+             <div style="margin-top: 5px">
+              <h3><%= link_to estado.actividad, estado %> </h3>  <%=	 link_to "Ver más -->", estado %>
+             </div>
             <div class="row" style="margin-top: 5px">
               <div class="col-md-6">
                 <div id="follow_form" >
@@ -195,7 +194,7 @@
                   <% end %>
                 </div>
               </div>
-              <div class="col-md-4 estadocontador">
+              <div class="col-md-6 estadocontador">
                 <%= estado.followers.count%>
                 Usuarios lo siguen
               </div>
