@@ -6,6 +6,11 @@ class ActividadesController < ApplicationController
   # GET /actividades.json
   def index
     @actividades = Actividad.all
+    @estados = Estado.all
+    @micrositios = Micrositio.all
+    @eventos = Evento.all
+    @estadosalf = Estado.order("estado")
+    @estado = Estado.all
   end
 
   # GET /actividades/1
