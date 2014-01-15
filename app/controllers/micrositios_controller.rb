@@ -3,10 +3,17 @@ class MicrositiosController < ApplicationController
   before_action :correct_user,   only: :destroy
   before_action :set_micrositio, only: [:show, :edit, :update, :destroy]
 
+
+
+
+
   # GET /micrositios
   # GET /micrositios.json
   def index
-    @micrositios = Micrositio.all
+
+
+    @micrositios = Micrositio.order(:name).where("name like ?", "#{params[:term]}")
+    render json: @micrositios.map(&:name)
   end
 
   # GET /micrositios/1
@@ -66,6 +73,8 @@ class MicrositiosController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
 
 
 

@@ -14,7 +14,7 @@ SampleApp::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -30,10 +30,9 @@ SampleApp::Application.configure do
   config.action_mailer.smtp_settings = {
       :address              => "smtp.gmail.com",
       :port                 => 587,
-      :tls                  => true,
-      :domain               => 'google.com',
-      :user_name            => 'ntl@notelimites.com',
-      :password             => 'NTL12wolmen',
+      :domain               => 'gmail.com',
+      :user_name            => 'man.m25@gmail.com',
+      :password             => 'MegM?880723',
       :authentication       => 'plain',
       :enable_starttls_auto => true  }
 

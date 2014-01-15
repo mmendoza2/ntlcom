@@ -12,6 +12,8 @@ class EstadosController < ApplicationController
     @estadosalf = Estado.order("estado")
     @estado = Estado.all
     @estadosfollow = Relationestado.all
+
+
   end
 
   # GET /estados/1

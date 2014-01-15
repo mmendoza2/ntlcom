@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
   before_filter :check_domain
 
   def check_domain
-    if Rails.env.production? and request.host.downcase != 'notelimites.com'
-      redirect_to request.protocol + 'notelimites.com' + request.fullpath, :status => 301
+    if Rails.env.production? and request.host.downcase != 'www.notelimites.com'
+      redirect_to request.protocol + 'www.notelimites.com' + request.fullpath, :status => 301
     end
   end
 

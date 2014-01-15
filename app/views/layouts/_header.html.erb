@@ -30,11 +30,23 @@
 
       <div class="container" >
             <%= link_to image_tag("LogoNTL.png"), root_path, id: "logo" %>
-           <ul class="list-inline pull-left navbar-text" style="margin-top: 10px; margin-left: 120px">
+           <ul class="list-inline pull-left navbar-text" style="margin-top: 10px; margin-left: 20px">
              <li  ><%= link_to "| Estados |", estados_path %></li>
              <li  ><%= link_to "| Actividades |", actividades_path %></li>
              <li  ><%= link_to "| Usuarios |", users_path %></li>
            </ul>
+
+            <ul class="list-inline pull-left navbar-text" style="margin-top: 10px; margin-left: 20px">
+
+
+
+              <button class="btn btn-success btn-sm" >
+                <%=	link_to  "Nuevo Evento", new_evento_path %>
+              </button>
+
+            </ul>
+
+
 
             <ul class="list-inline pull-right" style="padding-top: 10px">
                   <li  id="header-text"><%= link_to "Principal", root_path %></li>
@@ -59,6 +71,8 @@
 
       </div>
     </header>
+
+
 
 
 <%	 else %>

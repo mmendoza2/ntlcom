@@ -2,220 +2,28 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.centrado{
-  text-align: center;
-  color: #ebebeb;
+
+
+
+ul.ui-autocomplete {
+  position: absolute;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: solid 1px #999;
+  cursor: default;
+  li {
+    background-color: #FFF;
+    border-top: solid 1px #DDD;
+    margin: 0;
+    padding: 0;
+    a {
+      color: #000;
+      display: block;
+      padding: 3px;
+    }
+    a.ui-state-hover, a.ui-state-active {
+      background-color: #FFFCB2;
+    }
+  }
 }
-
-.contenedor{
-   width: 100%;
-   height: 2000px;
-
- }
-
-//LISTA DE TODOS LOS EVENTOS
-#cadaevento{
-  float: left;
-  width: 200px;
-  height: 200px;
-  margin: 5px;
-  text-align: center;
-  display: inline;
-  border-style: solid;
-  overflow: hidden;
-  background-color: #c8d88a;
-}
-
-
-//PAGINA PRINCIPAL DE EVENTOS
-
-//CONTENDEDOR TITUILO
-
-#eventostitulocontendedor{
-  width: 100%;
-  background-color: #ffffff;
-}
-#eventostitulovotos{
-  width: 130px;
-  float: left;
-  background-color: #ffffff;
-}
-#eventostitulocomparteredes{
-  width: 390px;
-  padding-top: 15px;
-  float: right;
-  background-color: #ffffff;
-}
-#eventostitulo{
-  width: 400px;
-  text-align: center;
-  background-color: #ffffff;
-  color: #ebebeb;
-  float: left;
-}
-
-// EVENTOS IMAGEN PRINCIPAL
-
-#eventosfotoprincipalcontenedor{
-  width: 610;
-  margin-right: 10px;
-  height: auto;
-  background-color: #f4f4f4;
-  float: left;
-}
-
-#eventosfotoprincipal{
-  text-align: center;
-  background-color: #ebebeb;
-  width: 605px;
-  height: 280px;
-  float: left;
-  overflow: hidden;
-}
-
-#eventosbotonfotoizq{
-  height: 300px;
-  width: 90px;
-  float: left;
-  vertical-align: middle;
-}
-
-#eventosbotonfotoder{
-  height: 300px;
-  width: 90px;
-  float: right;
-}
-
-//EVENTOS DESCRIPCION
-
-#eventosdescripcioncontenedorimg{
-  width: 300px;
-  float: left;
-  margin: 10px;
-  height: auto;
-  background-color: #ffffff;
-}
-
-
-#eventosdescripcioncontenedor{
-  width: 65%;
-  float: left;
-  margin: 10px;
-  background-color: #ffffff;
-}
-
-#eventosfecha{
-  text-align: left;
-  font-size: 1.5em;
-  font-weight: bold;
-  background-color: #ffffff;
-  margin-bottom: 5px;
-}
-
-#eventosdescripcion{
-  border: #000000;
-  background-color: #f4f4f4;
-  word-wrap: break-word;
-  padding-top: 15px;
-  height: 350px;
-  overflow: scroll;
-}
-
-#eventosartista{
-  font-size: 20px;
-  font-weight: bold;
-  padding-top: 15px;
-  background-color: #f4f4f4;
-  margin-bottom: 10px;
-}
-
-#eventosprecio{
-  font-size: 15px;
-  font-weight: bold;
-  padding-top: 20px;
-  background-color: aliceblue;
-}
-
-#eventosurloficial{
-  font-size: 20px;
-  padding-top: 20px;
-  background-color: #f4f4f4;
-}
-
-#eventosmicrositio{
-  width: 50%;
-  height: 200px;
-}
-// OTROS EVENTOS
-
-#eventosotroseventoscontendeor{
-  float: left;
-  width: 30%;
-  margin-top: 10px;
-}
-
-#eventosotroseventos{
-  width: 100%;
-  height: 700px;
-  float: left;
-  margin-top: 15px;
-  text-align: left;
-  overflow: hidden;
-  overflow: scroll;
-  background-color: grey;
-  text-align: center;
-  padding-right: 20px;
-  margin-bottom: 10px;
-}
-
-#eventosotroseventostitulo{
-  width: 100%;
-  font-size: 20px;
-  font-weight: bold;
-  background-color: #f4f4f4;
-  text-align: center;
-
-}
-
-#eventoimagenesnombre{
-  font-weight: bold;
-}
-#eventosimagenes{
-
-}
-
-// FOOTER EVENTOS
-#footereventos{
-  margin-top: 10px;
-  background-color: #f4f4f4;
-  float: left;
-  border-top: 2px #f4f4f4;
-  vertical-align: text-bottom;
-}
-#eventosmostrartodos{
-  padding-left: 30px;
-  font-weight: bold;
-  font-size: 15px;
-
-}
-
-//FORMA PARA SUBIR EVENTOS
-#eventosformrow{
-  width: 100%;
-}
-
-#eventosfomrleft{
-  float: left;
-  width: 45%;
-}
-
-#eventosformright{
-  float: right;
-  width: 45%;
-}
-#eventosformsubmit   {
-  float: right;
-  width: 20%;
-  margin-top: 300px;
-}
-

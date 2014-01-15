@@ -2,6 +2,7 @@ class EventosController < ApplicationController
   before_filter :authenticate_user!
   before_action :admin_user,     only: :destroy
 
+
   # GET /eventos
   # GET /eventos.json
   def index
@@ -20,7 +21,6 @@ class EventosController < ApplicationController
   # GET /eventos/new
   def new
     @evento = Evento.new
-    @estados = Estado.new
   end
 
   # GET /eventos/1/edit
