@@ -1,6 +1,9 @@
 <div class="container" style="margin-top: 70px">
-
-<% provide(:title, 'Contact') %>
+  <div class="row">
+    <div class="col-md-6">
+      <a href="<%=	root_path  %>"> <img src="https://s3.amazonaws.com/imagenes.notelimites/ntl-logo.png" style="width: 400px; margin-bottom: 20px"> </a>
+    </div>
+  </div>
 <h1>Términos y Condiciones</h1>
 
 <p><strong style="background-color: white; line-height: 15pt;"><span style="font-size: 10.5pt; font-family: 'Arial','sans-serif'; mso-fareast-font-family: 'Times New Roman'; color: #444444; mso-fareast-language: ES-MX;">Uso de la información que recopila NTL</span></strong>
@@ -76,12 +79,3 @@
 <p>&nbsp;</p>
 </div>
 
-<% if signed_in? %>
-<% else%>
-    <div class="footerpagprincipal">
-      <div class="container">
-        <%= render 'layouts/footer' %>
-        <%= debug(params) if Rails.env.development? %>
-      </div>
-    </div>
-<% end%>
