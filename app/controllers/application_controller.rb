@@ -4,6 +4,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  before_filter :check_domain
+
+  def check_domain
+    if Rails.env.production? and request.host.downcase != 'notelimites.com'
+      redirect_to request.protocol + 'notelimites.com' + request.fullpath, :status => 301
+    end
+  end
 
 
 
