@@ -78,7 +78,7 @@ SampleApp::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # devise
-  config.action_mailer.default_url_options = { :host => 'https://ntlcom.herokuapp.com/' }
+  config.action_mailer.default_url_options = { :host => 'https://notelimites.herokuapp.com/' }
 
 
   config.paperclip_defaults = {
