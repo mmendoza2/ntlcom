@@ -37,12 +37,12 @@
                                   <div class="col-md-2">
                                     <% if x.photo_file_name.blank?  %>
                                         <% if x.avatar.blank?  %>
-                                            <%= link_to image_tag("http://imagenes.notelimites.s3.amazonaws.com/users/default_user.png", class: "avatarchico", width: "100x100" ), x %>
+                                            <%= link_to image_tag("http://imagenes.notelimites.s3.amazonaws.com/users/default_user.png", class: "avatarchico", :size => "100x50" ), x %>
                                         <%	 else %>
-                                            <%= link_to image_tag(x.avatar, class: "avatarchico", width: "100x100" ), x %>
+                                            <%= link_to image_tag(x.avatar, class: "avatarchico", :size => "100x50" ), x %>
                                         <% end %>
                                     <% else %>
-                                        <%= link_to image_tag(x.photo.url(:square), class: "avatarchico", width: "100x100" ), x %>
+                                        <%= link_to image_tag(x.photo.url(:square), class: "avatarchico", :size => "100x50" ), x %>
                                     <%	 end %>
                                   </div>
                                   <div class="col-md-4">
@@ -95,12 +95,12 @@
                           <div class="col-md-2">
                             <% if user.photo_file_name.blank?  %>
                                 <% if user.avatar.blank?  %>
-                                    <%= link_to image_tag("http://imagenes.notelimites.s3.amazonaws.com/users/default_user.png", class: "avatarchico", width: "100x100" ), user %>
+                                    <%= link_to image_tag("http://imagenes.notelimites.s3.amazonaws.com/users/default_user.png", class: "avatarchico", :size => "100x50"), user %>
                                 <%	 else %>
-                                    <%= link_to image_tag(user.avatar, class: "avatarchico", width: "100x100" ), user %>
+                                    <%= link_to image_tag(user.avatar, class: "avatarchico", :size => "100x50"), user %>
                                 <% end %>
                             <% else %>
-                                <%= link_to image_tag(user.photo.url(:square), class: "avatarchico", width: "100x100"), user  %>
+                                <%= link_to image_tag(user.photo.url(:square), class: "avatarchico", :size => "100x50"), user  %>
                             <%	 end %>
                           </div>
                           <div class="col-md-4">
@@ -160,12 +160,12 @@
                         <div class="col-md-2">
                           <% if user.photo_file_name.blank?  %>
                               <% if user.avatar.blank?  %>
-                                  <%= link_to image_tag("http://imagenes.notelimites.s3.amazonaws.com/users/default_user.png", class: "avatarchico", width: "100x100"), user %>
+                                  <%= link_to image_tag("http://imagenes.notelimites.s3.amazonaws.com/users/default_user.png", class: "avatarchico", :size => "100x50"), user %>
                               <%	 else %>
-                                  <%= link_to image_tag(user.avatar, class: "avatarchico", width: "100x100" ), user %>
+                                  <%= link_to image_tag(user.avatar, class: "avatarchico", :size => "100x50"), user %>
                               <% end %>
                           <% else %>
-                              <%= link_to image_tag(user.photo.url(:square), class: "avatarchico", width: "100x100"), user  %>
+                              <%= link_to image_tag(user.photo.url(:square), class: "avatarchico", :size => "100x50"), user  %>
                           <%	 end %>
                         </div>
                         <div class="col-md-4">
