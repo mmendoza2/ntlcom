@@ -6,6 +6,8 @@
 <div class="container" style="margin-top: 70px">
 <h1>Usuarios</h1>
 
+
+  <div class="row">
     <div class="col-md-6">
         <div class="panel-group" id="accordion">
           <div class="panel panel-default">
@@ -130,7 +132,7 @@
                         </div>
                     <% end %>
                 <%	end  %>
-              </div>
+                </div>
               </div>
             </div>
           </div>
@@ -200,16 +202,63 @@
             </div>
           </div>
         </div>
-
       </div>
 
+    </div>
 
+  </div>
+    <%= will_paginate %>
 
+    <div class="row" style="margin-top: 20px; margin-bottom: 20px">
+      <h2> Todos los usuarios </h2>
+      <%    @users.each do |user|	  %>
 
+              <div class="row wrapusers" >
+                <div class="col-md-2">
+                  <% if user.photo_file_name.blank?  %>
+                      <% if user.avatar.blank?  %>
+                          <%= link_to image_tag("http://imagenes.notelimites.s3.amazonaws.com/users/default_user.png", class: "avatarchico", :size => "100x50"), user %>
+                      <%	 else %>
+                          <%= link_to image_tag(user.avatar, class: "avatarchico", :size => "100x50"), user %>
+                      <% end %>
+                  <% else %>
+                      <%= link_to image_tag(user.photo.url(:square), class: "avatarchico", :size => "100x50"), user  %>
+                  <%	 end %>
+                </div>
+                <div class="col-md-4">
+                  <div class="row">
+                    <%=	link_to user.name, user %>
+                  </div>
+                  <div class="row">
+                    Actividades que sigue <%=	 user.followed_actividades.count %>
+                  </div>
+                </div>
+                <div class="col-md-2 col-md-offset-2">
+                  <div class="row">
+                    <div id="follow_form" >
+                      <% if current_user.following?(user) %>
+                          <%= form_for(current_user.relationships.find_by(followed_id: user), html: { method: :delete })  do |f| %>
+                              <%= f.submit "seguir", class: " btn btn-primary" %>
+                          <% end %>
+                      <% else %>
+                          <%= form_for(current_user.relationships.build(followed_id: user.id)) do |f| %>
+                              <div><%= f.hidden_field :followed_id %></div>
+                              <%= f.submit  "No seguir", class: "btn " %>
+                          <% end %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+      <% end  %>
     </div>
 
     <%= will_paginate %>
 
-    <%= will_paginate %>
+
+
+
+
 
 </div>
