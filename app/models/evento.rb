@@ -22,8 +22,9 @@ class Evento < ActiveRecord::Base
                     :url  => ":s3_domain_url",
                     :path => "/:class/:attachment/:id_partition/:style/:filename"
   validates_attachment_presence :photo
+
   validates_attachment_size :photo, :less_than => 20.megabytes
-  validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png']
+  validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/jpg' ]
 
 
 
