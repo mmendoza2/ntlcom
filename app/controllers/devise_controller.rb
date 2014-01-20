@@ -176,7 +176,5 @@ MESSAGE
     params.fetch(resource_name, {})
   end
 
-  def terminos
-  end
 
 end

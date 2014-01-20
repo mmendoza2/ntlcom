@@ -30,11 +30,14 @@ SampleApp::Application.configure do
   config.action_mailer.smtp_settings = {
       :address              => "smtp.gmail.com",
       :port                 => 587,
-      :domain               => 'gmail.com',
-      :user_name            => 'man.m25@gmail.com',
-      :password             => 'MegM?880723',
+      :domain               => 'notelimites.com',
+      :user_name            => 'ntl@notelimites.com',
+      :password             => 'NTL12wolmen',
       :authentication       => 'plain',
       :enable_starttls_auto => true  }
+
+  # Specify what domain to use for mailer URLs
+  config.action_mailer.default_url_options = {host: 'localhost:3000'}
 
 
 
