@@ -8,17 +8,11 @@
         <li><a href="#" data-toggle="offcanvas" class="visible-xs text-center"><i class="glyphicon glyphicon-chevron-right"></i></a></li>
       </ul>
 
-      <ul class="nav hidden-xs" id="lg-menu">
-        <li class="active"><a href="#featured"><i class="glyphicon glyphicon-list-alt"></i> Featured</a></li>
-        <li><a href="#stories"><i class="glyphicon glyphicon-list"></i> Stories</a></li>
-        <li><a href="#"><i class="glyphicon glyphicon-paperclip"></i> Saved</a></li>
-        <li><a href="#"><i class="glyphicon glyphicon-refresh"></i> Refresh</a></li>
-
-        <li  ><%= link_to "Estados |", estados_path %></li>
-        <li  ><%= link_to "| Actividades |", actividades_path %></li>
-        <li  ><%= link_to "| Micrositios |", micrositios_path %></li>
-        <li  ><%= link_to "| Eventos |", eventos_path %></li>
-        <li  ><%= link_to "| Usuarios", users_path %></li>
+      <ul class="nav hidden-xs" id="lg-menu" >
+        <li class="active"><i class="glyphicon glyphicon-list-alt"  style="padding: 10px;"><%= link_to " Discover", root_path %></i></li>
+        <li><i class="glyphicon glyphicon-list"  style="padding: 10px;"> <%= link_to "Explore", estados_path %></i></li>
+        <li><i class="glyphicon glyphicon-list"  style="padding: 10px;"> <%= link_to "Follow", users_path %></i></li>
+        <li><i class="glyphicon glyphicon-paperclip"  style="padding: 10px;"> <%= link_to "Activities", actividades_path %></i></li>
       </ul>
       <ul class="list-unstyled hidden-xs" id="sidebar-footer">
         <li>
