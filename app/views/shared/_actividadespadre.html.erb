@@ -1,0 +1,41 @@
+
+<ul >
+
+
+  <% @actividadpadres.each do |actividad| %>
+
+
+
+      <li>
+       <div class="actividadespadretitulo"> <%= link_to actividad.descripcion, actividad %> </div>
+        <div class="actividadespadrefollow">
+          <div class="actividadespadrebarrafollow">
+              <div class="actividadespadrefollow">
+                  <div id="follow_form" >
+                    <% if current_user.followingactividadpadre?(actividad) %>
+                        <%= form_for(current_user.relationactividadespadre.find_by(followed_id: actividad), html: { method: :delete }) do |f| %>
+                            <%= f.submit "Siguiendo", class: "btn " %>
+                        <% end %>
+                    <% else %>
+                        <%= form_for(current_user.relationactividadespadre.build(followed_id: actividad.id)) do |f| %>
+                            <div><%= f.hidden_field :followed_id %></div>
+                            <%= f.submit "Seguir", class: "btn  btn-primary" %>
+                        <% end %>
+                    <% end %>
+                  </div>
+              </div>
+              <div class="actividadespadrecontador">
+                <%= actividad.followers.count%>
+                Usuarios
+
+              </div>
+          </div>
+
+        </div>
+      </li>
+
+
+  <% end %>
+
+
+</ul>

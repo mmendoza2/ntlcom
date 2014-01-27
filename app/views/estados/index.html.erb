@@ -1,0 +1,76 @@
+<%= render 'layouts/header' %>
+<div class="container" style="margin-top: 70px">
+
+<h1> Todos los Estados </h1>
+
+
+
+  <div class="col-md-12">
+    <ul>
+    <% @estadosalf.each do |estado| %>
+        <li class="thumbnail col-md-5">
+          <%  estado.micrositios.take(1).each do |f| %>
+              <% if f.photo_file_size? %>
+                  <li class="inline list-group">
+                    <%= link_to f.name, f %>
+                    <%= link_to image_tag(f.photo.url(:medium)), f %>
+                  </li>
+
+              <% else %>
+                  <img src="https://s3.amazonaws.com/imagenes.notelimites/micrositios/photos/sitios/big/<%= f.photo_file_name %>" class="img-responsive" width="500px" style="overflow: hidden"  >
+              <% end %>
+          <% end %>
+          <div class="caption">
+            <h3><%= link_to estado.estado, estado %> </h3>
+
+            <div class="row">
+              <div class="col-md-3">
+
+                      <%= link_to image_tag(estado.photo.url(:smallest), class: "avatarchico"), estado%>
+              </div>
+              <div class="col-md-9">
+                    <p>
+                      <%=  estado.descripcion %>
+                    </p>
+              </div>
+            </div>
+            <div class="row">
+               <div class="col-md-8">
+
+                    <div id="follow_form" >
+                    <% if current_user.followingestado?(estado) %>
+                        <%= form_for(current_user.relationestados.find_by(followed_id: estado), html: { method: :delete }) do |f| %>
+                            <%= f.submit "Siguiendo", class: "btn " %>
+                        <% end %>
+                    <% else %>
+                        <%= form_for(current_user.relationestados.build(followed_id: estado.id)) do |f| %>
+                            <div><%= f.hidden_field :followed_id %></div>
+                            <%= f.submit "Seguir", class: "btn  btn-primary" %>
+                        <% end %>
+                    <% end %>
+                    </div>
+               </div>
+                    <div class="col-md-4 estadocontador">
+                      <%= estado.followers.count%>
+                      Usuarios
+                    </div>
+
+            </div>
+          </div>
+        </li>
+    <% end %>
+
+
+    </ul>
+  </div>
+
+
+
+
+
+</div>
+
+
+<%= link_to 'New Estado', new_estado_path %>
+
+

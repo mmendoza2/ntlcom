@@ -1,0 +1,21 @@
+<a href="<%= user_path(current_user) %>">
+
+  <% if @current_user.photo_file_name.blank?  %>
+    <%= image_tag @current_user.avatar %>
+  <%	 else %>
+      <%= image_tag @user.photo.url(:square) %>
+  <%	 end %>
+</a>
+<h1>
+  <%= current_user.name %>
+</h1>
+<span>
+  <%= link_to "view my profile", current_user %>
+</span>
+<span>-------</span>
+<span><%= pluralize(current_user.microposts.count, "micropost") %></span>
+<span><%= pluralize(current_user.micrositios.count, "micrositio") %></span>
+<span><%= pluralize(current_user.eventos.count, "eventos") %></span>
+
+
+

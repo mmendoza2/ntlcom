@@ -1,0 +1,66 @@
+<% provide(:title, "Sign in") %>
+
+<header id="header" class="site-header">
+  <div class="container" style="height: 1000px">
+    <div class="row">
+      <div class="col-md-12">
+        <h1><div class="site-title pull-left"> <%= link_to image_tag("LogoNTL.png"), root_path, id: "logo" %></div></h1>
+        <div class="user text-right">
+          <ul>
+            <li class="user-login" ><%= link_to "Login", new_user_session_path %></li> |
+            <li class="user-regidter" ><%= link_to "Registrate", new_user_registration_path %></li>
+          </ul>
+        </div>
+            <div class="text-center" >
+              <br>
+              <h2 style="color: #ffffff; font-weight: 100; font-size: 40px" >¡Únete a NoTeLimites.com hoy!</h2>
+              <br>
+              <% [:notice, :error, :alert].each do |level| %>
+                  <% unless flash[level].blank? %>
+                      <div data-alert="alert" class="alert-message <%= flash_class(level) %> fade in">
+                        <a class="close" href="#">×</a>
+                        <%= content_tag :p, flash[level] %>
+                      </div>
+                  <% end %>
+              <% end %>
+            </div>
+            <section>
+              <div class="text-center  ">
+                  <i class="icon-facebook-sign"></i>  <%= link_to "Registrate con Facebook", user_omniauth_authorize_path(:facebook), class: " btn btn-lg btn-primary" %>
+              </div>
+              <div class="row text-center" >
+
+                <%= devise_error_messages! %>
+                <div class="col-md-4 col-md-offset-4" >
+                  <h2 class="text-center" style="color: #ffffff; font-weight: 100" >Ó registrate con tu E-mail... </h2>
+                      <div class="col-md-10 col-md-offset-1 " >
+                              <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+                                  <div> <%= f.text_field :name, :autofocus => true, :placeholder => "Nombre", class: 'input-sm' %></div>
+                                  <div><%= f.email_field :email, :autofocus => true, :placeholder => "Email", class: 'input-sm'%></div>
+                                  <div> <%= f.text_field :username, :placeholder => "Username", class: 'input-sm' %></div>
+                                  <div><%= f.password_field :password, :placeholder => "Password", class: 'input-sm'%></div>
+                                  <div> <%= f.password_field :password_confirmation, :placeholder => "Password confirmation", class: 'input-sm' %></div>
+                                  <div><%= f.submit "Sign up", class: "btn header-btn-form" %></div>
+                              <% end %>
+                          <div  style="color: #ffffff; text-align: left;">
+                            <p>
+                              Dándole click a "Sign Up" se considera que estás de acuerdo con los Servicios de NoTeLimites. Por favor toma un tiempo para leer los <%= link_to "Terminos y Condiciones.", terminos_path %>
+                            </p>
+                            <br>
+                            <br>
+                            <br>
+                          </div>
+                      </div>
+                </div>
+              </div>
+            </section>
+      </div><!-- /span12 -->
+    </div><!-- /row-fluid -->
+  </div><!-- /container -->
+
+
+</header>
+
+
+
+

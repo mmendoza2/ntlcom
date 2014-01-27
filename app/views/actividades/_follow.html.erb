@@ -1,0 +1,4 @@
+<%= form_for(current_user.relationactividades.build(followed_id: @actividad.id), remote: true) do |f| %>
+    <div><%= f.hidden_field :followed_id %></div>
+    <%= f.submit "Seguir", class: "btn btn-large btn-primary" %>
+<% end %>
