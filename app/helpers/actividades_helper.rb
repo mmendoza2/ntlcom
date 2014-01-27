@@ -1,4 +1,0 @@
-module ActividadesHelper
-
-
-end
