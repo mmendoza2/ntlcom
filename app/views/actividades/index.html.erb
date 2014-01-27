@@ -1,6 +1,6 @@
 
 
-<div class="container" >
+
 
 
   <div class="row " >
@@ -8,7 +8,7 @@
 
       <h2>Todas las actividades</h2>
 
-        <% @actividades.each do |f| %>
+        <% @actividades.take(30).each do |f| %>
 
             <li>
               <div class="thumbnail col-md-12    " style="margin: 0px">
@@ -88,4 +88,3 @@
 
     </div>
   </div>
-</div>
