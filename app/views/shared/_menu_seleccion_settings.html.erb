@@ -1,0 +1,17 @@
+
+
+<div class="menu-background-settings">
+  <div class="navbar-inverse">
+    <div class="col-md-10 col-md-offset-1">
+
+
+        <ul class="nav nav-pills nav-justified red">
+          <li class="<%= 'active' if current_page?(edit_user_registration_path) %>"><%=	 link_to "Perfil", edit_user_registration_path %></li>
+          <li class="<%= 'active' if current_page?(users_seleccionestados_path) %>"><%=	 link_to "Estados", users_seleccionestados_path %></li>
+          <li class="<%= 'active' if current_page?(users_seleccionactividades_path) %>"><%=	 link_to "Actividades", users_seleccionactividades_path %></li>
+          <li class="<%= 'active' if current_page?(users_seleccionlugares_path) %>"><%=	 link_to "Lugares", users_seleccionlugares_path %></li>
+          <li class="<%= 'active' if current_page?(users_seleccionusuarios_path) %>"><%=	 link_to "Usuarios", users_seleccionusuarios_path %></li>
+        </ul>
+    </div>
+  </div>
+</div>

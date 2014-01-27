@@ -1,0 +1,16 @@
+
+
+<div id="micrositiotitulo" >
+
+<% @micrositionuevoleon.each do |micrositio| %>
+    <li>
+    <tr>
+
+      <h1 class="micrositiotitulotexto"><%= micrositio.nombre%> </h1>
+      <ul><%= micrositio.descripcion %> </ul>
+
+    </tr>
+    </li>
+<% end %>
+
+</div>

@@ -1,0 +1,14 @@
+<% @micrositios.take(10).each do |micrositio| %>
+    <% if micrositio.photo_file_size? %>
+        <li id="cadaevento">
+          <%= link_to micrositio.name, micrositio %>
+          <%= image_tag micrositio.photo.url(:small) %>
+          <%= micrositio.imagen %>
+    <% else %>
+        <li id="cadaevento">
+          <%= link_to micrositio.name, micrositio %>
+          <img src="https://s3.amazonaws.com/imagenes.notelimites/micrositios/photos/sitios/big/<%= micrositio.photo_file_name %>"    >
+          <%= micrositio.imagen %>
+    <% end %>
+<% end %>
+

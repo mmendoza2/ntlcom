@@ -1,0 +1,2 @@
+module SearchSuggestionnsHelper
+end

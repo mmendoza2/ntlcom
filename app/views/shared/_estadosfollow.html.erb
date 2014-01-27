@@ -1,0 +1,35 @@
+
+
+
+<ul >
+  <% @estadosalf.each do |estado| %>
+
+
+
+      <li class="estados">
+       <div class="estadostitulo"> <%= link_to estado.estado, estado %> </div>
+        <%= link_to image_tag(estado.photo.url(:medium)), estado, class: 'estadoimagen'%>
+        <div class="estadoarticulo"><%=  estado.descripcion %> </div>
+        <div class="estadofollow">
+
+
+          <div id="follow_form">
+            <% if current_user.followingestado?(estado) %>
+                <%= form_for(current_user.relationestados.find_by(followed_id: estado), html: { method: :delete }) do |f| %>
+                    <%= f.submit "Unfollow", class: "btn " %>
+                <% end %>
+            <% else %>
+                <%= form_for(current_user.relationestados.build(followed_id: estado.id)) do |f| %>
+                    <div><%= f.hidden_field :followed_id %></div>
+                    <%= f.submit "Seguir", class: "btn  btn-primary" %>
+                <% end %>
+            <% end %>
+          </div>
+
+
+        </div>
+      </li>
+
+
+  <% end %>
+</ul>

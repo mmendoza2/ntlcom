@@ -1,0 +1,320 @@
+// Place all the styles related to the micrositios controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+//CONTENDEDOR TITUILO
+
+
+
+.micrositionombre {
+}
+.micrositiodescripcion {
+  word-wrap: break-word;
+}
+.micrositiodescripcionlista {
+  word-wrap: break-word;
+  overflow: hidden;
+}
+.micrositiodescripcionlistatitulo{
+  width: 500px;
+}
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+.micrositiodescripcionlistaaltura{
+  height: 50px;
+
+  position: static;
+}
+
+
+
+//PAGINA PRINCIPAL DE EVENTOS
+
+//CONTENDEDOR TITUILO
+
+#micrositiotitulocontendedor{
+  background-color: #434343;
+  height: 120px;
+  padding-bottom: 20px;
+  padding-left: 40px;
+  opacity: .8;
+  border-radius: 5px;
+  box-shadow: 10px 10px 5px #888888;
+  margin-bottom: 30px;
+
+}
+
+#micrositiotitulo{
+  width: 100%;
+  padding-left: 10px;
+  text-align: left;
+  float: left;
+  color: #ffffff;
+  font-weight: bold;
+  height: 50px;
+  margin-bottom: 15px;
+}
+
+#micrositiotitulofollow{
+  width: 130px;
+  padding-left: 20px;
+  float: left;
+}
+
+#micrositiotitulocomparteredes{
+  width: 390px;
+  margin-left: 100px;
+  padding-top: 6px;
+  float: left;
+
+}
+
+
+// MICROSITIO IMAGEN PRINCIPAL
+
+.imagenmicrositio {
+  width: 100%;
+  height: 280px;
+  margin-bottom: 20px;
+}
+
+// MICROSITIO MAS INFORMACION
+
+.micrositiocontenedoractividades{
+  background-color: #665a29;
+  padding-left: 10px;
+  opacity: .8;
+  border-radius: 5px;
+  border-color: #000000;
+  box-shadow: 10px 10px 5px #888888;
+}
+
+
+.masinformacionmicrositio{
+  width: 100%;
+  background-color: #434343;
+  border-radius: 5px;
+  box-shadow: 10px 10px 5px #888888;
+  opacity: .8;
+}
+
+.comollegarmicrositio{
+  float: left;
+  width: 100%;
+  padding-bottom: 20px;
+  padding-left: 50px;
+  margin-top: 15px;
+  background-color: #d4d4d4;
+  border-radius: 5px;
+  box-shadow: 10px 10px 5px #888888;
+  color: #000000;
+  text-align: left;
+}
+
+.comollegarmicrositio:hover{
+  opacity: .7;
+}
+
+.masvideosmicrositio{
+  float: left;
+  width: 100%;
+  padding-left: 50px;
+  margin-top: 15px;
+  background-color: #d4d4d4;
+  border-radius: 5px;
+  box-shadow: 10px 10px 5px #888888;
+  color: #000000;
+  text-align: left;
+}
+
+.masvideosmicrositio:hover{
+  opacity: .7;
+}
+
+.masfotosmicrositio{
+  float: left;
+  width: 100%;
+  padding-left: 50px;
+  margin-top: 15px;
+  background-color: #d4d4d4;
+  border-radius: 5px;
+  box-shadow: 10px 10px 5px #888888;
+  color: #000000;
+  text-align: left;
+}
+
+.masfotosmicrositio:hover{
+  opacity: .7;
+}
+
+
+// MICROSITIO COMMENTS
+
+.comentariosfbmicrositio{
+  float: left;
+  width: 400px;
+  padding-left: 10px;
+}
+
+
+// MICROISTIO DESCRIPCION
+
+.micrositioarticulo{
+  width: 100%;
+  background-color: #d4d4d4;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  border-radius: 5px;
+}
+
+.userimagenmicrositio{
+  border: 2px;
+  margin-top: -20px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  float: left;
+  box-shadow: 5px 5px 5px #484848;
+
+}
+
+
+
+
+#eventosdescripcioncontenedorimg{
+  width: 300px;
+  float: left;
+  margin: 10px;
+  height: auto;
+  background-color: #ffffff;
+}
+
+
+#eventosdescripcioncontenedor{
+  width: 65%;
+  float: left;
+  margin: 10px;
+  background-color: #ffffff;
+}
+
+#eventosfecha{
+  text-align: left;
+  font-size: 1.5em;
+  font-weight: bold;
+  background-color: #ffffff;
+  margin-bottom: 5px;
+}
+
+#eventosdescripcion{
+  border: #000000;
+  background-color: #f4f4f4;
+  word-wrap: break-word;
+  padding-top: 15px;
+  height: 350px;
+  overflow: scroll;
+}
+
+#eventosartista{
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 15px;
+  background-color: #f4f4f4;
+  margin-bottom: 10px;
+}
+
+#eventosprecio{
+  font-size: 15px;
+  font-weight: bold;
+  padding-top: 20px;
+  background-color: aliceblue;
+}
+
+#eventosurloficial{
+  font-size: 20px;
+  padding-top: 20px;
+  background-color: #f4f4f4;
+}
+
+#eventosmicrositio{
+  width: 50%;
+  height: 200px;
+}
+// OTROS EVENTOS
+
+#eventosotroseventoscontendeor{
+  float: left;
+  width: 30%;
+  margin-top: 10px;
+}
+
+#eventosotroseventos{
+  width: 100%;
+  height: 700px;
+  float: left;
+  margin-top: 15px;
+  text-align: left;
+  overflow: hidden;
+  overflow: scroll;
+  background-color: grey;
+  text-align: center;
+  padding-right: 20px;
+  margin-bottom: 10px;
+}
+
+#eventosotroseventostitulo{
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #f4f4f4;
+  text-align: center;
+
+}
+
+#eventoimagenesnombre{
+  font-weight: bold;
+}
+#eventosimagenes{
+
+}
+
+// FOOTER EVENTOS
+#footereventos{
+  margin-top: 10px;
+  background-color: #f4f4f4;
+  float: left;
+  border-top: 2px #f4f4f4;
+  vertical-align: text-bottom;
+}
+#eventosmostrartodos{
+  padding-left: 30px;
+  font-weight: bold;
+  font-size: 15px;
+
+}
+
+//FORMA PARA SUBIR EVENTOS
+#eventosformrow{
+  width: 100%;
+}
+
+#eventosfomrleft{
+  float: left;
+  width: 45%;
+}
+
+#eventosformright{
+  float: right;
+  width: 45%;
+}
+#eventosformsubmit   {
+  float: right;
+  width: 20%;
+  margin-top: 300px;
+}
+
+
+

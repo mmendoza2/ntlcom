@@ -1,0 +1,39 @@
+<% @user ||= current_user %>
+
+<p>--------------</p>
+<p>USUARIOS</p>
+<div class="stats">
+  <a href="<%= following_user_path(@user) %>">
+    <strong id="following" class="stat">
+      <%= @user.followed_users.count %>
+    </strong>
+    Siguiendo
+  </a>
+  <a href="<%= followers_user_path(@user) %>">
+    <strong id="followers" class="stat">
+      <%= @user.followers.count %>
+    </strong>
+    Te siguen
+  </a>
+</div>
+<p>--------------</p>
+<p>EVENTOS</p>
+<div class="stats">
+  <a href="<%= following_user_path(@user) %>">
+    <strong id="following" class="stat">
+      <%= @user.followed_users.count %>
+    </strong>
+    Eventos Seguidos
+  </a>
+</div>
+
+<p>--------------</p>
+<p>LUGARES</p>
+<div class="stats">
+  <a href="<%= following_user_path(@user) %>">
+    <strong id="following" class="stat">
+      <%= @user.followed_users.count %>
+    </strong>
+    Micrositios Seguidos
+  </a>
+</div>

@@ -1,0 +1,330 @@
+<% @user ||= current_user %>
+<% provide(:title, 'Instrucciones') %>
+
+<div class="container" style="margin-top: 40px">
+  <div class="row">
+   <div class="col-md-6">
+     <img src="https://s3.amazonaws.com/imagenes.notelimites/ntl-logo.png" style="width: 400px; margin-bottom: 20px">
+   </div>
+  </div>
+  <div class="row header-interests">
+    <div class="col-md-9">
+        <h1>Que actividades te gustan, <%=	 current_user.name %> ?</h1>
+        <h5 style="color: #000000">Selecciona mínimo 3 actividades para poder recomendarte lugares y eventos.
+          <button data-toggle="popover" title="Estamos para ayudarte" data-content="Empieza por seguir actividades que te gustan, dandole click en la actividad" style="border-radius: 15px">?</button>
+        </h5>
+    </div>
+    <div class="col-md-3">
+             <%	 if @user.followed_actividades.count >= 3 %>
+
+              <div class="btn header-btn" style="margin-top: 30px">
+                  <%= link_to "Explora", root_path %>
+              </div>
+             <%	 else %>
+                <div class="btn header-btn" style="margin-top: 30px">
+                Llevas "<%= @user.followed_actividades.count %>"
+                </div>
+             <%	 end %>
+    </div>
+  </div>
+  <div class="row wrapper-interests">
+   <div class="row">
+    <div class="col-md-6">
+        <div class="row" style="border-bottom: solid; border-color: #FF6600;border-radius: 3px;font-weight: bold; text-align: center;  opacity: .8; height: 35px; padding-top: 7px; margin: .2px; margin-bottom: 8px">
+            Social
+        </div>
+        <div class="col-md-6">
+          <div class="row" style="text-align: center; font-weight: bold; margin-bottom: 10px">  Restaurantes </div>
+          <div class="row">
+             <%	 @actividades.each do |actividad| %>
+                <%	 if actividad.actividadpadre_id == 289 %>
+                   <ul>
+                     <li>
+                       <div id="follow_form" >
+                         <% if current_user.followingactividad?(actividad) %>
+                             <%= form_for(current_user.relationactividades.find_by(followed_id: actividad), html: { method: :delete })  do |f| %>
+                                 <%= f.submit actividad.actividad, class: "interest-label checked" %>
+                             <% end %>
+                         <% else %>
+                             <%= form_for(current_user.relationactividades.build(followed_id: actividad.id)) do |f| %>
+                                 <div><%= f.hidden_field :followed_id %></div>
+                                 <%= f.submit actividad.actividad, class: "interest-label " %>
+                             <% end %>
+                         <% end %>
+                       </div>
+                     </li>
+                   </ul>
+                <%	else %>
+                <%	 end %>
+             <%	 end %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row" style="text-align: center; font-weight: bold; margin-bottom: 10px"> Antros y Bares   </div>
+          <div class="row">
+            <%	 @actividades.each do |actividad| %>
+                <%	 if actividad.actividadpadre_id == 288 %>
+                    <ul>
+                      <li>
+                        <div id="follow_form" >
+                          <% if current_user.followingactividad?(actividad) %>
+                              <%= form_for(current_user.relationactividades.find_by(followed_id: actividad), html: { method: :delete })  do |f| %>
+                                  <%= f.submit actividad.actividad, class: "interest-label checked" %>
+                              <% end %>
+                          <% else %>
+                              <%= form_for(current_user.relationactividades.build(followed_id: actividad.id)) do |f| %>
+                                  <div><%= f.hidden_field :followed_id %></div>
+                                  <%= f.submit actividad.actividad, class: "interest-label" %>
+                              <% end %>
+                          <% end %>
+                        </div>
+                      </li>
+                    </ul>
+                <%	else %>
+                <%	 end %>
+            <%	 end %>
+          </div>
+        </div>
+
+      </div>
+    <div class="col-md-6">
+        <div class="row" style="border-bottom: solid; border-color: #33CC33; border-radius: 3px;font-weight: bold; text-align: center;  opacity: .8; height: 35px; padding-top: 7px; margin: .2px; margin-bottom: 8px">
+          Ecoturismo
+        </div>
+        <div class="col-md-4">
+          <div class="row" style="text-align: center; font-weight: bold; margin-bottom: 10px"> Tierra   </div>
+          <div class="row">
+            <%	 @actividades.each do |actividad| %>
+                <%	 if actividad.actividadpadre_id == 347 %>
+                    <ul>
+                      <li>
+                        <div id="follow_form" >
+                          <% if current_user.followingactividad?(actividad) %>
+                              <%= form_for(current_user.relationactividades.find_by(followed_id: actividad), html: { method: :delete })  do |f| %>
+                                  <%= f.submit actividad.actividad, class: "interest-label checked" %>
+                              <% end %>
+                          <% else %>
+                              <%= form_for(current_user.relationactividades.build(followed_id: actividad.id)) do |f| %>
+                                  <div><%= f.hidden_field :followed_id %></div>
+                                  <%= f.submit actividad.actividad, class: "interest-label" %>
+                              <% end %>
+                          <% end %>
+                        </div>
+                      </li>
+                    </ul>
+                <%	else %>
+                <%	 end %>
+            <%	 end %>
+          </div>
+        </div>
+          <div class="col-md-4">
+            <div class="row" style="text-align: center; font-weight: bold; margin-bottom: 10px"> Agua   </div>
+            <div class="row">
+              <%	 @actividades.each do |actividad| %>
+                  <%	 if actividad.actividadpadre_id == 348 %>
+                      <ul>
+                        <li>
+                          <div id="follow_form" >
+                            <% if current_user.followingactividad?(actividad) %>
+                                <%= form_for(current_user.relationactividades.find_by(followed_id: actividad), html: { method: :delete })  do |f| %>
+                                    <%= f.submit actividad.actividad, class: "interest-label checked" %>
+                                <% end %>
+                            <% else %>
+                                <%= form_for(current_user.relationactividades.build(followed_id: actividad.id)) do |f| %>
+                                    <div><%= f.hidden_field :followed_id %></div>
+                                    <%= f.submit actividad.actividad, class: "interest-label" %>
+                                <% end %>
+                            <% end %>
+                          </div>
+                        </li>
+                      </ul>
+                  <%	else %>
+                  <%	 end %>
+              <%	 end %>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="row" style="text-align: center; font-weight: bold; margin-bottom: 10px"> Aire  </div>
+            <div class="row">
+              <%	 @actividades.each do |actividad| %>
+                  <%	 if actividad.actividadpadre_id == 349 %>
+                      <ul>
+                        <li>
+                          <div id="follow_form" >
+                            <% if current_user.followingactividad?(actividad) %>
+                                <%= form_for(current_user.relationactividades.find_by(followed_id: actividad), html: { method: :delete })  do |f| %>
+                                    <%= f.submit actividad.actividad, class: "interest-label checked" %>
+                                <% end %>
+                            <% else %>
+                                <%= form_for(current_user.relationactividades.build(followed_id: actividad.id)) do |f| %>
+                                    <div><%= f.hidden_field :followed_id %></div>
+                                    <%= f.submit actividad.actividad, class: "interest-label" %>
+                                <% end %>
+                            <% end %>
+                          </div>
+                        </li>
+                      </ul>
+                  <%	else %>
+                  <%	 end %>
+              <%	 end %>
+            </div>
+          </div>
+
+      </div>
+   </div>
+   <div class="row">
+   <div class="col-md-6">
+        <div class="row" style="border-bottom: solid; border-color: #FF0000;border-radius: 3px;font-weight: bold; text-align: center;  opacity: .8; height: 35px; padding-top: 7px; margin: .2px; margin-bottom: 8px">
+          Turismo
+        </div>
+        <div class="col-md-4">
+          <div class="row" style="text-align: center; font-weight: bold; margin-bottom: 10px">  Playas </div>
+          <div class="row">
+            <%	 @actividades.each do |actividad| %>
+                <%	 if actividad.actividadpadre_id == 333 %>
+                    <ul>
+                      <li>
+                        <div id="follow_form" >
+                          <% if current_user.followingactividad?(actividad) %>
+                              <%= form_for(current_user.relationactividades.find_by(followed_id: actividad), html: { method: :delete })  do |f| %>
+                                  <%= f.submit actividad.actividad, class: "interest-label checked" %>
+                              <% end %>
+                          <% else %>
+                              <%= form_for(current_user.relationactividades.build(followed_id: actividad.id)) do |f| %>
+                                  <div><%= f.hidden_field :followed_id %></div>
+                                  <%= f.submit actividad.actividad, class: "interest-label " %>
+                              <% end %>
+                          <% end %>
+                        </div>
+                      </li>
+                    </ul>
+                <%	else %>
+                <%	 end %>
+            <%	 end %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="row" style="text-align: center; font-weight: bold; margin-bottom: 10px"> Cultural   </div>
+          <div class="row">
+            <%	 @actividades.each do |actividad| %>
+                <%	 if actividad.actividadpadre_id == 332 %>
+                    <ul>
+                      <li>
+                        <div id="follow_form" >
+                          <% if current_user.followingactividad?(actividad) %>
+                              <%= form_for(current_user.relationactividades.find_by(followed_id: actividad), html: { method: :delete })  do |f| %>
+                                  <%= f.submit actividad.actividad, class: "interest-label checked" %>
+                              <% end %>
+                          <% else %>
+                              <%= form_for(current_user.relationactividades.build(followed_id: actividad.id)) do |f| %>
+                                  <div><%= f.hidden_field :followed_id %></div>
+                                  <%= f.submit actividad.actividad, class: "interest-label" %>
+                              <% end %>
+                          <% end %>
+                        </div>
+                      </li>
+                    </ul>
+                <%	else %>
+                <%	 end %>
+            <%	 end %>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="row" style="text-align: center; font-weight: bold; margin-bottom: 10px"> Lugares Turísticos   </div>
+          <div class="row">
+            <%	 @actividades.each do |actividad| %>
+                <%	 if actividad.actividadpadre_id == 334 %>
+                    <ul>
+                      <li>
+                        <div id="follow_form" >
+                          <% if current_user.followingactividad?(actividad) %>
+                              <%= form_for(current_user.relationactividades.find_by(followed_id: actividad), html: { method: :delete })  do |f| %>
+                                  <%= f.submit actividad.actividad, class: "interest-label checked" %>
+                              <% end %>
+                          <% else %>
+                              <%= form_for(current_user.relationactividades.build(followed_id: actividad.id)) do |f| %>
+                                  <div><%= f.hidden_field :followed_id %></div>
+                                  <%= f.submit actividad.actividad, class: "interest-label" %>
+                              <% end %>
+                          <% end %>
+                        </div>
+                      </li>
+                    </ul>
+                <%	else %>
+                <%	 end %>
+            <%	 end %>
+          </div>
+        </div>
+      </div>
+   <div class="col-md-6">
+        <div class="row" style="border-bottom: solid; border-color: #006699;border-radius: 3px;font-weight: bold; text-align: center;  opacity: .8; height: 35px; padding-top: 7px; margin: .2px; margin-bottom: 8px">
+          Alternativo
+        </div>
+        <div class="col-md-6">
+          <div class="row" style="text-align: center; font-weight: bold; margin-bottom: 10px">  Masajes y Spa </div>
+          <div class="row">
+            <%	 @actividades.each do |actividad| %>
+                <%	 if actividad.actividadpadre_id == 55 %>
+                    <ul>
+                      <li>
+                        <div id="follow_form" >
+                          <% if current_user.followingactividad?(actividad) %>
+                              <%= form_for(current_user.relationactividades.find_by(followed_id: actividad), html: { method: :delete })  do |f| %>
+                                  <%= f.submit actividad.actividad, class: "interest-label checked" %>
+                              <% end %>
+                          <% else %>
+                              <%= form_for(current_user.relationactividades.build(followed_id: actividad.id)) do |f| %>
+                                  <div><%= f.hidden_field :followed_id %></div>
+                                  <%= f.submit actividad.actividad, class: "interest-label " %>
+                              <% end %>
+                          <% end %>
+                        </div>
+                      </li>
+                    </ul>
+                <%	else %>
+                <%	 end %>
+            <%	 end %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row" style="text-align: center; font-weight: bold; margin-bottom: 10px"> Medicina  </div>
+          <div class="row">
+            <%	 @actividades.each do |actividad| %>
+                <%	 if actividad.actividadpadre_id == 531 %>
+                    <ul>
+                      <li>
+                        <div id="follow_form" >
+                          <% if current_user.followingactividad?(actividad) %>
+                              <%= form_for(current_user.relationactividades.find_by(followed_id: actividad), html: { method: :delete })  do |f| %>
+                                  <%= f.submit actividad.actividad, class: "interest-label checked" %>
+                              <% end %>
+                          <% else %>
+                              <%= form_for(current_user.relationactividades.build(followed_id: actividad.id)) do |f| %>
+                                  <div><%= f.hidden_field :followed_id %></div>
+                                  <%= f.submit actividad.actividad, class: "interest-label" %>
+                              <% end %>
+                          <% end %>
+                        </div>
+                      </li>
+                    </ul>
+                <%	else %>
+                <%	 end %>
+            <%	 end %>
+          </div>
+        </div>
+
+      </div>
+   </div>
+  </div>
+</div>
+
+  <% if signed_in? %>
+  <% else%>
+      <div class="footerpagprincipal">
+        <div class="container">
+          <%= render 'layouts/footer' %>
+          <%= debug(params) if Rails.env.development? %>
+        </div>
+      </div>
+  <% end%>
+
